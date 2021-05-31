@@ -150,12 +150,12 @@ export default function App() {
             label="ITER, Siksha 'O' Anusandhan"  
             color="secondary"
           /><br></br><br></br>
-          <FacebookIcon color="primary" fontSize="large"></FacebookIcon>
-          <InstagramIcon color="secondary" fontSize="large"></InstagramIcon>
-          <LinkedInIcon color="primary" fontSize="large"></LinkedInIcon>
-          <TwitterIcon color="primary" fontSize="large"></TwitterIcon>
-          <RedditIcon color="secondary" fontSize="large"></RedditIcon>
-          <GitHubIcon color="primary" fontSize="large"></GitHubIcon><br></br><br></br>
+          <a href="https://www.facebook.com/vipulvsss/"><FacebookIcon color="primary" fontSize="large"/></a>
+          <a href="https://www.instagram.com/vipuls_ig/"><InstagramIcon color="secondary" fontSize="large"/></a>
+          <a href="https://www.linkedin.com/in/vipul-vs-sharma/"><LinkedInIcon color="primary" fontSize="large"/></a>
+          <a href="https://twitter.com/vipulVSsharma"><TwitterIcon color="primary" fontSize="large"/></a>
+          <a href="https://www.reddit.com/user/vipulroxx"><RedditIcon color="secondary" fontSize="large"/></a>
+          <a href="https://github.com/vipulroxx"><GitHubIcon color="primary" fontSize="large"/></a><br></br><br></br>
           <Button style={{position:"absolute", left: "24%"}} variant="outlined" color="primary" href="https://drive.google.com/file/d/1psbeamXpHgRB3CJzyXkgf_FxzjmMksFh/view?usp=sharing">
             Resume
           </Button>
@@ -169,11 +169,11 @@ export default function App() {
         </Paper>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Card className={classes.root}>
+      <Card className={classes.root}>
         <CardHeader
           avatar={
             <Avatar aria-label="recipe" className={classes.avatar}>
-              R
+              I
             </Avatar>
           }
           action={
@@ -181,13 +181,13 @@ export default function App() {
               <MoreVertIcon />
             </IconButton>
           }
-          title="Shrimp and Chorizo Paella"
-          subheader="September 14, 2016"
+          title="Implementation of Algorithms"
+          subheader="August, 2019"
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            This impressive paella is a perfect party dish and a fun meal to cook together with your
-            guests. Add 1 cup of frozen peas along with the mussels, if you like.
+            <b>Professor: </b>Satyaranjan Das<br></br>
+            <b>Course: </b>Algorithm Design 2
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
@@ -210,28 +210,10 @@ export default function App() {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Method:</Typography>
+            <Typography paragraph>Key Points:</Typography>
             <Typography paragraph>
-              Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-              minutes.
-            </Typography>
-            <Typography paragraph>
-              Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
-              heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
-              browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
-              and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
-              pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
-              saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-            </Typography>
-            <Typography paragraph>
-              Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
-              without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to
-              medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook
-              again without stirring, until mussels have opened and rice is just tender, 5 to 7
-              minutes more. (Discard any mussels that don’t open.)
-            </Typography>
-            <Typography>
-              Set aside off of the heat to let rest for 10 minutes, and then serve.
+              <li>Implemented N-Queens, Binomial Coefficient, CYK, Edit Distance, Floyd-Warshall algorithms in C++</li>
+              <li>Implemented Knapsack, Linear Integer Partition, Backtracking and Matric Chain Order Optimal Parenthesis algorithms in C++</li>
             </Typography>
           </CardContent>
         </Collapse>
@@ -241,7 +223,7 @@ export default function App() {
         <CardHeader
           avatar={
             <Avatar aria-label="recipe" className={classes.avatar}>
-              R
+              S
             </Avatar>
           }
           action={
@@ -249,13 +231,13 @@ export default function App() {
               <MoreVertIcon />
             </IconButton>
           }
-          title="Shrimp and Chorizo Paella"
-          subheader="September 14, 2016"
+          title="SAGE"
+          subheader="October, 2017"
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            This impressive paella is a perfect party dish and a fun meal to cook together with your
-            guests. Add 1 cup of frozen peas along with the mussels, if you like.
+            <b>Professor: </b>Nicholas McPhee<br></br>
+            <b>Course: </b>Software Design, Development
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
@@ -278,28 +260,116 @@ export default function App() {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Method:</Typography>
+            <Typography paragraph>Key Points:</Typography>
             <Typography paragraph>
-              Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-              minutes.
+              <li>Developed SAGE (Synonyms, Antonyms, General Sense & Example Usage), a game for teachers and students who want to improve vocabulary</li>
+              <li>Designed for a classroom setting, the game can be accessed on <a style={{textDecoration: "none"}} href="https://sage.cards">SAGE.CARDS</a></li>
+              <li>Students try to guess the meaning of a word through hints which is controlled by the teacher</li>
             </Typography>
+          </CardContent>
+        </Collapse>
+      </Card><br></br>
+
+        <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              P
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title="Point of Sales"
+          subheader="September, 2017"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Professor: </b>Peter Dolan<br></br>
+            <b>Course: </b>Database Systems
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Key Points:</Typography>
             <Typography paragraph>
-              Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
-              heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
-              browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
-              and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
-              pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
-              saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
+              <li>Developed a point of sales web application using Angular JS, Node JS and MariaDB</li>
+              <li>Main features included login utility, editing items for transaction and selling a transaction</li>
+              <li>Login utility always (re)loaded on display screen showing username and password for a particular user</li>
+              <li>Built an API providing endpoints for fetching buttons and manipulating transactions</li>
             </Typography>
+          </CardContent>
+        </Collapse>
+      </Card><br></br>
+
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              A
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title="Axxelerate"
+          subheader="August, 2017"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Professor:</b> Peter Dolan<br></br>
+            <b>Course:</b> Database Systems
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Key Points:</Typography>
             <Typography paragraph>
-              Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
-              without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to
-              medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook
-              again without stirring, until mussels have opened and rice is just tender, 5 to 7
-              minutes more. (Discard any mussels that don’t open.)
-            </Typography>
-            <Typography>
-              Set aside off of the heat to let rest for 10 minutes, and then serve.
+            <li>Created a Python based search engine using Scrapy for crawling webpages that downloads a webpage and selectively collects information</li>
+            <li>Crawler could also download more webpages based on the links found in the current webpage</li>
+            <li>Used MariaDB for the database to store the records and various tables</li>
+            <li>Database indexed a Binary Tree, the word column in the keyword table and then just joint with page ordering by PageRank.</li>
+            <li>Used Flask for the webserver and used Angular 4 and Material Design approach for front end</li>
             </Typography>
           </CardContent>
         </Collapse>
@@ -313,13 +383,12 @@ export default function App() {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography className={classes.heading}>General settings</Typography>
-          <Typography className={classes.secondaryHeading}>I am an accordion</Typography>
+          <Typography className={classes.heading}>Teaching Assistant</Typography>
+          <Typography className={classes.secondaryHeading}>Association of Computer Science , University of Minnesota, Morris</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-            maximus est, id dignissim quam.
+          Introduction to Digital Media Computation using Python Programming Language
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -329,48 +398,14 @@ export default function App() {
           aria-controls="panel2bh-content"
           id="panel2bh-header"
         >
-          <Typography className={classes.heading}>Users</Typography>
+          <Typography className={classes.heading}>Research Project Member</Typography>
           <Typography className={classes.secondaryHeading}>
-            You are currently not an owner
+          Association of Computer Science, University of Minnesota, Morris
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
-            diam eros in elit. Pellentesque convallis laoreet laoreet.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel3'} onChange={handlePanelChange('panel3')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel3bh-header"
-        >
-          <Typography className={classes.heading}>Advanced settings</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Filtering has been entirely disabled for whole web server
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-            vitae egestas augue. Duis vel est augue.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel4'} onChange={handlePanelChange('panel4')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel4bh-content"
-          id="panel4bh-header"
-        >
-          <Typography className={classes.heading}>Personal data</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-            vitae egestas augue. Duis vel est augue.
+          Power Consumption Project that shows power usage around University in an Android, IOS and Web based Application
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -388,13 +423,20 @@ export default function App() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+          Breast Cancer Classification using Deep Neural Network
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+          International Journal of Intelligent System Design and Computing
           </Typography>
         </CardContent>
+          <CardContent>
+            <Typography paragraph>Key Points:</Typography>
+            <Typography paragraph>
+            <li>Used Supervised Learning to predict whether cancer present is through Benign or Malignant tumour using ReLU and sigmoid function.</li>
+            <li>Sanitized the dataset by correlating and one hot encoding all the features for getting relevant features to be used as inputs to DNN classifier</li>
+            <li>Achieved 94% accuracy on a 5 layered DNN, providing better results compared to other earlier works</li> 
+            </Typography>
+          </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
