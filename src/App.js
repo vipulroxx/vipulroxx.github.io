@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -139,10 +140,12 @@ export default function App() {
           width: "300px",
           border: "none",
           borderRadius: "50%",
-          float: "left"
+          float: "left",
+
         }}></img>
-        <div style={{position: "absolute", top: "60%", left: "6%",display: "block"}}>
-          <h1 style={{marginTop: "20px", fontSize: "21pt"}}>VIPUL SHARMA</h1>
+        <div class="profile-container" >
+          <h1>VIPUL SHARMA</h1>
+          <div class="profile-chip">
           <Chip
             icon={<SchoolIcon />}
             variant="outlined"
@@ -150,15 +153,20 @@ export default function App() {
             label="ITER, Siksha 'O' Anusandhan"  
             color="secondary"
           /><br></br><br></br>
+          </div>
+          <div class="profile-icons">
           <a href="https://www.facebook.com/vipulvsss/"><FacebookIcon color="primary" fontSize="large"/></a>
           <a href="https://www.instagram.com/vipuls_ig/"><InstagramIcon color="secondary" fontSize="large"/></a>
           <a href="https://www.linkedin.com/in/vipul-vs-sharma/"><LinkedInIcon color="primary" fontSize="large"/></a>
           <a href="https://twitter.com/vipulVSsharma"><TwitterIcon color="primary" fontSize="large"/></a>
           <a href="https://www.reddit.com/user/vipulroxx"><RedditIcon color="secondary" fontSize="large"/></a>
           <a href="https://github.com/vipulroxx"><GitHubIcon color="primary" fontSize="large"/></a><br></br><br></br>
+          </div>
+          <div class="profile-resume">
           <Button style={{position:"absolute", left: "24%"}} variant="outlined" color="primary" href="https://drive.google.com/file/d/1psbeamXpHgRB3CJzyXkgf_FxzjmMksFh/view?usp=sharing">
             Resume
           </Button>
+          </div>
         </div>
         <Paper elevation={3} style={{marginLeft: "30px", display: "flex", float: "left" , maxWidth: "950px", padding: "15px"}}>
           <p>
