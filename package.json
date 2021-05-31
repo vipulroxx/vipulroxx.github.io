@@ -1,0 +1,24 @@
+{
+  "name": "vipulroxx.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "material-components-web": "^11.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "webpack serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vipulroxx/vipulroxx.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vipulroxx/vipulroxx.github.io/issues"
+  },
+  "homepage": "https://github.com/vipulroxx/vipulroxx.github.io#readme"
+}
