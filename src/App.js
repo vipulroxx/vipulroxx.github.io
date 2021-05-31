@@ -168,13 +168,15 @@ export default function App() {
           </Button>
           </div>
         </div>
-        <Paper elevation={3} style={{marginLeft: "30px", display: "flex", float: "left" , maxWidth: "950px", padding: "15px"}}>
+        <div class="paper-profile">
+        <Paper elevation={3} style={{padding: "15px"}}>
           <p>
             My passion for programming has been built exponentially through a very early age when I got introduced to object oriented programming with Java. The idea of building a solution to a problem using functions which could be used recursively greatly amused me as I started my coding career. I remember writing Java codes for easy problems such as sorting and technical questions which gave a spark to my coding ability. As I grew up, this interest builds into a hobby through which I was able to relax my mind while at the same time learning latest technologies built by open-source communities around the world. This gave me confidence as I saw people with better abilities in coding which made me want to look up to them as mentors so I could get better at my hobby which soon turned into my passion.<br></br><br></br>
             The great world of open source helped me build a quality within me, that being of contributing, even so that I was awarded as the finalist of Google Code-in 2014. The contest more over taught me a lot about contributions and how we can do it via various version controls like GitHub. From then on, I have been consistent on GitHub and have send a lot of contributions to various organisations. Working on different android projects and going to hackathons makes me happy. Content fills my heart when I touch the keyboard. Programming has changed my way of conduct. I seem to do things in what I perceive as a logical manner, and I tend to ask 'how do we do this', forcing my brain to break down stuff into individual tasks. I remember less 'what', but more of 'how'. It's some sort of vectorial memory that I like. Programming makes me proud. It defines and completes me.<br></br><br></br>
             With recent advancements in AI, I believe human race can do really well if we make the use of the computational power we have got. It's up to us to save the planet, our home and the generation to come so that they can thrive to do better towards humanity instead. I want to learn and implement my knowledge through the use of powerful computation techniques to get to what I want to achieve in life along with making businesses more productive and efficient through my knowledge and capabilities.
           </p>
         </Paper>
+        </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
       <Card className={classes.root}>
