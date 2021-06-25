@@ -132,6 +132,7 @@ export default function App() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
+      <div class="profile-container">
         <img src={ProfileImage} alt="Vipul Sharma" style={{
           height: "300px",
           width: "300px",
@@ -140,9 +141,7 @@ export default function App() {
           float: "left",
 
         }}></img>
-        <div class="profile-container">
           <h1>VIPUL SHARMA</h1>
-          <div class="profile-chip">
           <Chip
             icon={<SchoolIcon />}
             variant="outlined"
@@ -150,20 +149,17 @@ export default function App() {
             label="ITER, Siksha 'O' Anusandhan"  
             color="secondary"
           /><br></br><br></br>
-          </div>
-          <div class="profile-icons">
+          
           <a href="https://www.facebook.com/vipulvsss/"><FacebookIcon color="primary" fontSize="large"/></a>
           <a href="https://www.instagram.com/vipuls_ig/"><InstagramIcon color="secondary" fontSize="large"/></a>
           <a href="https://www.linkedin.com/in/vipul-vs-sharma/"><LinkedInIcon color="primary" fontSize="large"/></a>
           <a href="https://twitter.com/vipulVSsharma"><TwitterIcon color="primary" fontSize="large"/></a>
           <a href="https://www.reddit.com/user/vipulroxx"><RedditIcon color="secondary" fontSize="large"/></a>
           <a href="https://github.com/vipulroxx"><GitHubIcon color="primary" fontSize="large"/></a><br></br><br></br>
-          </div>
-          <div class="profile-resume">
-          <Button style={{position:"absolute", left: "24%"}} variant="outlined" color="primary" href="https://drive.google.com/file/d/1psbeamXpHgRB3CJzyXkgf_FxzjmMksFh/view?usp=sharing">
+        
+          <Button variant="outlined" color="primary" href="https://drive.google.com/file/d/1psbeamXpHgRB3CJzyXkgf_FxzjmMksFh/view?usp=sharing">
             Resume
           </Button>
-          </div>
         </div>
         <div class="paper-profile">
         <Paper elevation={3} style={{padding: "15px"}}>

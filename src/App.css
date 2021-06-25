@@ -3,44 +3,27 @@
 }
 .profile-container {
   position: absolute  ;
-  top: 60%;
-  left: 6%;
-  display: block; 
+  margin-top: none;
+  display: block;
+  text-align:center;
+  align-items: center;
 }
 .paper-profile {
   float:left;
   display: flex;
   max-width: 950px;
-  margin-left: 30px;
+  margin-left: 380px;
 }
-@media only screen and (max-width: 1400px) {
-  img{
-    position: absolute;
-    left: 15%;
-    top: 15%;
-  }
-  h1 {
-    position: relative;
-    top: 1%;
-    left: 50%;
-  }
-  .profile-chip {
-    position: relative;
-    top: 1%;
-    left: 55%;
-  }
-  .profile-icons {
-    position: relative;
-    top: 1%;
-    left: 55%; 
-  }
-  .profile-resume {
-    position: relative;
-    top: 1%;
-    left: 50%;
-    margin-bottom: 20%;
+@media only screen and (max-width: 800px) {
+  .profile-container {
+    position: absolute  ;
+    margin-top: none;
+    display: block;
+    text-align:center;
+	margin-left: 55px;
   }
   .paper-profile {
     margin-top: 550px;
-  }
+    margin-left: 0px;
+  } 
 }
