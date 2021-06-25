@@ -2,7 +2,7 @@
   text-align: center;
 }
 .profile-container {
-  position: absolute;
+  position: absolute  ;
   top: 60%;
   left: 6%;
   display: block; 
