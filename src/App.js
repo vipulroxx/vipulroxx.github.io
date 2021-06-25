@@ -12,6 +12,7 @@ import ProjectIcon from '@material-ui/icons/Code';
 import WorkIcon from '@material-ui/icons/Work';
 import PublicationIcon from '@material-ui/icons/Assessment';
 import SchoolIcon from '@material-ui/icons/School'
+import InfoIcon from '@material-ui/icons/Info';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -27,20 +28,16 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
-import ResearchImage from './research.jpeg';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -143,7 +140,7 @@ export default function App() {
           float: "left",
 
         }}></img>
-        <div class="profile-container" >
+        <div class="profile-container">
           <h1>VIPUL SHARMA</h1>
           <div class="profile-chip">
           <Chip
@@ -183,7 +180,436 @@ export default function App() {
         <CardHeader
           avatar={
             <Avatar aria-label="recipe" className={classes.avatar}>
-              I
+              1
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title="Samadhaan"
+          subheader="June, 2021"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Professor: </b>Monalisa Panda<br></br>
+            <b>Course: </b>PHP & MySQL
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <InfoIcon />
+          </IconButton>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Key Points:</Typography>
+            <Typography paragraph>
+              <li>Build a concern logging application using PHP, HTML, CSS & JS</li>
+              <li>Concerns can be logged by a user living in a housing colony and an administrator can attend those concerns</li>
+              <li>Final system was used in Ambuja Cement Colony at Sindri, Jharkhand and can be visited on <a href="https://accsindrisamadhan.com" style={{textDecoration: 'none'}}>ACCSINDRISAMADHAN.COM</a></li>
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card><br></br>
+
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              2
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title="ITER Academics"
+          subheader="June, 2021"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Professor: </b>Kaberi Das<br></br>
+            <b>Course: </b>Senior Design Project
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <InfoIcon />
+          </IconButton>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Key Points:</Typography>
+            <Typography paragraph>
+              <li>Built ITER Academics website which allows users to view course outcomes, departments & course information offered by ITER, SOA</li>
+              <li>Website was build using single page application development concept with latest tools including ReactJS & material design concept</li>
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card><br></br>
+
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              3
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title="Information Retrieval from any Document"
+          subheader="February, 2021"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Professor: </b>Sushree Priyadarshini<br></br>
+            <b>Course: </b>Information Retrieval
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <InfoIcon />
+          </IconButton>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Key Points:</Typography>
+            <Typography paragraph>
+              <li>Pre-processed the document data by tokenization, stop word removal and stemming in Python</li>
+              <li>Calculated the term and document frequency to take out the term score after the document was pre-processed</li>
+              <li>Information was then extracted by taking out the cosine similarity</li>
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card><br></br>
+
+
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              4
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title="Diabetes Classification"
+          subheader="February, 2021"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Professor: </b>Kaberi Das<br></br>
+            <b>Course: </b>Data Mining
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <InfoIcon />
+          </IconButton>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Key Points:</Typography>
+            <Typography paragraph>
+              <li>Classified the diabetes dataset with 3 different classifiers and compared each framework’s accuracy</li>
+              <li>Classifiers used were Decision Trees, Bayesian Networks and Neural Networks and were implemented in Python</li>
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card><br></br>
+
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              5
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title="IPC Sockets, AES Encrypt, MD5 hashed"
+          subheader="February, 2021"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Professor: </b>Mitrabinda Rai<br></br>
+            <b>Course: </b>Software Engineering using Android
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <InfoIcon />
+          </IconButton>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Key Points:</Typography>
+            <Typography paragraph>
+              <li>Application build in Android aimed to make customer & vendor interact faster in terms of grocery buying and selling sector respectively</li>
+              <li>Allowed the user to create a grocery list of their choice from listed products available on the application based on different price points</li>
+              <li>The final list was converted to PDF and could be send to any vendor through online social messaging platform such as WhatsApp</li>
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card><br></br>
+
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              6
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title="IPC Sockets, AES Encrypt, MD5 hashed"
+          subheader="November, 2020"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Professor: </b>Suchintan Mishra<br></br>
+            <b>Course: </b>UNIX Network Programming
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <InfoIcon />
+          </IconButton>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Key Points:</Typography>
+            <Typography paragraph>
+              <li>Built a concurrent server under UNIX by forking a child process which handles multiple client and checked it via Wire-Shark tool</li>
+              <li>Encrypted data between servers and clients using AES Symmetric Key which was used for decryption as well</li>
+              <li>Preserved integrity of data between server and clients by computing hash values using MD5 hashing method</li>
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card><br></br>
+
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              7
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title="CPU Schedulers"
+          subheader="October, 2020"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Professor: </b>Rajshree Das<br></br>
+            <b>Course: </b>Design of Operating Systems
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <InfoIcon />
+          </IconButton>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Key Points:</Typography>
+            <Typography paragraph>
+              <li>Implemented CPU schedulers using FCFS, SJF, SRTF, and RR based policies</li>
+              <li>Users could choose their preferred choice of policy and check against the process running from the ready queue</li>
+              <li>Output given to the user was Gnatt chart, average wait time, average turnaround time and average response time</li>
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card><br></br>
+
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              8
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title="Lexical Analyzer"
+          subheader="September, 2020"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Professor: </b>Niranjan Panda<br></br>
+            <b>Course: </b>Compiler Design
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <InfoIcon />
+          </IconButton>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Key Points:</Typography>
+            <Typography paragraph>
+              <li>Used finite state machine having a set of states, a set of transitions, and a string of input data</li>
+              <li>FSM was then implemented in C to recognize a list of identifiers and non-negative integers</li>
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card><br></br>
+
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              9
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title="UNIX System Call & Concepts"
+          subheader="August, 2020"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Professor: </b>Sanjay Kumar Jena<br></br>
+            <b>Course: </b>UNIX System Programming
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <InfoIcon />
+          </IconButton>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Key Points:</Typography>
+            <Typography paragraph>
+              <li>Used system calls including fork, wait, strtok and dup2 for processes, tokenizing arguments and duplicating file descriptors</li>
+              <li>Implemented concepts such as pipes, critical sections and inter process communication in C</li>
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card><br></br>
+
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              10
             </Avatar>
           }
           action={
@@ -202,10 +628,7 @@ export default function App() {
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
+            <InfoIcon />
           </IconButton>
           <IconButton
             className={clsx(classes.expand, {
@@ -233,7 +656,7 @@ export default function App() {
         <CardHeader
           avatar={
             <Avatar aria-label="recipe" className={classes.avatar}>
-              S
+              11
             </Avatar>
           }
           action={
@@ -252,10 +675,7 @@ export default function App() {
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
+            <InfoIcon />
           </IconButton>
           <IconButton
             className={clsx(classes.expand, {
@@ -284,7 +704,7 @@ export default function App() {
         <CardHeader
           avatar={
             <Avatar aria-label="recipe" className={classes.avatar}>
-              P
+              12
             </Avatar>
           }
           action={
@@ -303,10 +723,7 @@ export default function App() {
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
+            <InfoIcon />
           </IconButton>
           <IconButton
             className={clsx(classes.expand, {
@@ -336,7 +753,7 @@ export default function App() {
         <CardHeader
           avatar={
             <Avatar aria-label="recipe" className={classes.avatar}>
-              A
+              13
             </Avatar>
           }
           action={
@@ -355,10 +772,7 @@ export default function App() {
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
+            <InfoIcon />
           </IconButton>
           <IconButton
             className={clsx(classes.expand, {
@@ -424,13 +838,6 @@ export default function App() {
       <TabPanel value={value} index={3}>
       <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          alt="Contemplative Reptile"
-          height="300"
-          image={ResearchImage}
-          title="Contemplative Reptile"
-        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
           Breast Cancer Classification using Deep Neural Network
@@ -448,14 +855,6 @@ export default function App() {
             </Typography>
           </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
     </Card>
       </TabPanel>
     </div>
