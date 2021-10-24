@@ -803,6 +803,23 @@ export default function App() {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
+          <Typography className={classes.heading}>Advisory Associate</Typography>
+          <Typography className={classes.secondaryHeading}>
+          PricewaterhouseCoopers
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          Advisory associate in AppTech at PwC.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion expanded={expanded === 'panel2'} onChange={handlePanelChange('panel2')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2bh-content"
+          id="panel2bh-header"
+        >
           <Typography className={classes.heading}>Teaching Assistant</Typography>
           <Typography className={classes.secondaryHeading}>Association of Computer Science , University of Minnesota, Morris</Typography>
         </AccordionSummary>
@@ -812,11 +829,11 @@ export default function App() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion expanded={expanded === 'panel2'} onChange={handlePanelChange('panel2')}>
+      <Accordion expanded={expanded === 'panel3'} onChange={handlePanelChange('panel3')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
+          aria-controls="panel3bh-content"
+          id="panel3bh-header"
         >
           <Typography className={classes.heading}>Research Project Member</Typography>
           <Typography className={classes.secondaryHeading}>
