@@ -157,7 +157,7 @@ export default function App() {
           <a href="https://www.reddit.com/user/vipulroxx"><RedditIcon color="secondary" fontSize="large"/></a>
           <a href="https://github.com/vipulroxx"><GitHubIcon color="primary" fontSize="large"/></a><br></br><br></br>
         
-          <Button variant="outlined" color="primary" href="https://drive.google.com/file/d/1psbeamXpHgRB3CJzyXkgf_FxzjmMksFh/view?usp=sharing">
+          <Button variant="outlined" color="primary" href="https://drive.google.com/file/d/1hsK8idPn7_sbmwuSVDtLoBxLvkvY8Yc7/view?usp=sharing" target="_blank">
             Resume
           </Button>
         </div>
