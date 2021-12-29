@@ -39,7 +39,7 @@ function Experience() {
 			</AccordionSummary>
 			<AccordionDetails>
 			<Typography>
-			Advisory associate in AppTech at PwC.
+			Advisory associate in AppTech at PwC
 			</Typography>
 			</AccordionDetails>
 		</Accordion>
