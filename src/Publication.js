@@ -3,7 +3,9 @@ import './App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import { Button } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
 
 
@@ -35,6 +37,9 @@ function Publication() {
 			<li>Achieved 94% accuracy on a 5 layered DNN, providing better results compared to other earlier works</li> 
 			</Typography>
 			</CardContent>
+			<CardActions>
+				<Button variant="contained" color="primary" size="small" href="https://drive.google.com/file/d/1k_FrhbkSrQ2NylLzkFgMqWnfqjwHzsvB/view?usp=sharing" target="_blank">Read</Button>
+			</CardActions>
 		</CardActionArea>
 		</Card>
 	);
