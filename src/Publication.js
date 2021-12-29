@@ -32,7 +32,7 @@ function Publication() {
 			<CardContent>
 			<Typography paragraph>Key Points:</Typography>
 			<Typography paragraph>
-			<li>Used Supervised Learning to predict whether cancer present is through Benign or Malignant tumour using ReLU and sigmoid function.</li>
+			<li>Used Supervised Learning to predict whether cancer present is through Benign or Malignant tumour using ReLU and sigmoid function</li>
 			<li>Sanitized the dataset by correlating and one hot encoding all the features for getting relevant features to be used as inputs to DNN classifier</li>
 			<li>Achieved 94% accuracy on a 5 layered DNN, providing better results compared to other earlier works</li> 
 			</Typography>
