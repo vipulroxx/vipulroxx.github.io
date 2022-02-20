@@ -359,55 +359,7 @@ function Projects(){
 			<CardHeader
 			avatar={
 			<Avatar aria-label="recipe" className={classes.avatar}>
-			6
-			</Avatar>
-			}
-			action={
-			<IconButton aria-label="settings">
-			<MoreVertIcon />
-			</IconButton>
-			}
-			title="IPC Sockets, AES Encrypt, MD5 hashed"
-			subheader="November, 2020"
-			/>
-			<CardContent>
-			<Typography variant="body2" color="textSecondary" component="p">
-			<b>Professor: </b>Suchintan Mishra<br></br>
-			<b>Course: </b>UNIX Network Programming
-			</Typography>
-			</CardContent>
-			<CardActions disableSpacing>
-			<IconButton>
-			<InfoIcon />
-			</IconButton>
-			<IconButton
-			className={clsx(classes.expand, {
-			[classes.expandOpen]: expandedSix,
-			})}
-			onClick={handleExpandedSixClick}
-			aria-expanded={expandedSix}
-			aria-label="show more"
-			>
-			<ExpandMoreIcon />
-			</IconButton>
-			</CardActions>
-			<Collapse in={expandedSix} timeout="auto" unmountOnExit>
-			<CardContent>
-			<Typography paragraph>Key Points:</Typography>
-			<Typography paragraph>
-			<li>Built a concurrent server under UNIX by forking a child process which handles multiple client and checked it via Wire-Shark tool</li>
-			<li>Encrypted data between servers and clients using AES Symmetric Key which was used for decryption as well</li>
-			<li>Preserved integrity of data between server and clients by computing hash values using MD5 hashing method</li>
-			</Typography>
-			</CardContent>
-			</Collapse>
-		</Card><br></br>
-
-		<Card className={classes.root}>
-			<CardHeader
-			avatar={
-			<Avatar aria-label="recipe" className={classes.avatar}>
-			7
+            6
 			</Avatar>
 			}
 			action={
@@ -455,7 +407,7 @@ function Projects(){
 			<CardHeader
 			avatar={
 			<Avatar aria-label="recipe" className={classes.avatar}>
-			8
+			7
 			</Avatar>
 			}
 			action={
@@ -502,7 +454,7 @@ function Projects(){
 			<CardHeader
 			avatar={
 			<Avatar aria-label="recipe" className={classes.avatar}>
-			9
+			8
 			</Avatar>
 			}
 			action={
@@ -549,7 +501,7 @@ function Projects(){
 			<CardHeader
 			avatar={
 			<Avatar aria-label="recipe" className={classes.avatar}>
-			10
+			9
 			</Avatar>
 			}
 			action={
@@ -596,7 +548,7 @@ function Projects(){
 			<CardHeader
 			avatar={
 			<Avatar aria-label="recipe" className={classes.avatar}>
-			11
+			10
 			</Avatar>
 			}
 			action={
@@ -644,7 +596,7 @@ function Projects(){
 			<CardHeader
 			avatar={
 			<Avatar aria-label="recipe" className={classes.avatar}>
-			12
+			11
 			</Avatar>
 			}
 			action={
@@ -693,7 +645,7 @@ function Projects(){
 			<CardHeader
 			avatar={
 			<Avatar aria-label="recipe" className={classes.avatar}>
-			13
+			12
 			</Avatar>
 			}
 			action={

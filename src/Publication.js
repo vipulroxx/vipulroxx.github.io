@@ -8,7 +8,6 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import { Button } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
 
-
 const useStyles = makeStyles((theme) => ({
 	root: {
 	  flexGrow: 1,
