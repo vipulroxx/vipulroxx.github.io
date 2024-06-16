@@ -1,20 +1,20 @@
 import React from 'react';
 import './App.css';
-import Home from './Home';
-import Projects from './Projects';
-import Experience from './Experience';
-import Achievements from './Achievements';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
+import { makeStyles } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
+import ProjectIcon from '@material-ui/icons/Code';
+import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
+import HomeIcon from '@material-ui/icons/Home';
+import WorkIcon from '@material-ui/icons/Work';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import HomeIcon from '@material-ui/icons/Home';
-import ProjectIcon from '@material-ui/icons/Code';
-import WorkIcon from '@material-ui/icons/Work';
-import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
+import Achievements from './components-next/Achievements.tsx';
+import Experience from './components-next/Experience';
+import Home from './components-next/Home';
+import Projects from './components-next/Projects';
+import PropTypes from 'prop-types';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
