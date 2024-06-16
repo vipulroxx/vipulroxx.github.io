@@ -1,0 +1,13 @@
+{
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true,
+		"vim.useEditorIndentation": true,
+		"[typescript]": {
+			"editor.tabSize": 2,
+			"editor.insertSpaces": true
+		},
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

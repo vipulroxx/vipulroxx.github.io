@@ -1,5 +1,5 @@
 import React from "react";
-import './App.css';
+import '../App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { Accordion, Typography, AccordionDetails, AccordionSummary } from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -18,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
 
 function Experience() {
 	const classes = useStyles();
-	const [expanded, setExpanded] = React.useState(false);
+	const [expanded, setExpanded] = React.useState(false || '');
 	
-	const handleChange = (panel) => (event, isExpanded) => {
+	const handleChange: any = (panel: any) => (event: EventListenerObject, isExpanded: boolean | string) => {
 		setExpanded(isExpanded ? panel : false);
 	};
 	    
