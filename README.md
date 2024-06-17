@@ -7,8 +7,8 @@ Welcome to my personal portfolio repository! Here you'll find a collection of pr
 ### Projects:
 - The projects are listed under the projects tab. These are my personal projects that I have done at school/college.
 
-### Experience:
-- The projects are listed under employment/internsip.
+### Experiences:
+- The projects are listed under my employment or internship.
 
 ### Achievements:
 - Highlights my research paper pulication and various software engineering awards & certifications.
