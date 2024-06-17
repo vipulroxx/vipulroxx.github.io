@@ -58,8 +58,118 @@ const projectsData = [
       "Website was build using single page application development concept with latest tools including ReactJS & material design concept"
     ]
   },
-  // Add more projects as needed
+  {
+    title: "Information Retrieval from any Document",
+    subheader: "February, 2021",
+    professor: "Sushree Priyadarshini",
+    course: "Information Retrieval",
+    description: [
+      "Pre-processed the document data by tokenization, stop word removal and stemming in Python",
+      "Calculated the term and document frequency to take out the term score after the document was pre-processed",
+      "Information was then extracted by taking out the cosine similarity"
+    ]
+  },
+  {
+    title: "Diabetes Classification",
+    subheader: "February, 2021",
+    professor: "Kaberi Das",
+    course: "Data Mining",
+    description: [
+      "Classified the diabetes dataset with 3 different classifiers and compared each framework’s accuracy",
+      "Classifiers used were Decision Trees, Bayesian Networks and Neural Networks and were implemented in Python"
+    ]
+  },
+  {
+    title: "IPC Sockets, AES Encrypt, MD5 hashed",
+    subheader: "February, 2021",
+    professor: "Mitrabinda Rai",
+    course: "Software Engineering using Android",
+    description: [
+      "Application build in Android aimed to make customer and vendor interact faster in terms of grocery buying and selling sector respectively",
+      "Allowed the user to create a grocery list of their choice from listed products available on the application based on different price points",
+      "The final list was converted to PDF and could be send to any vendor through online social messaging platform such as WhatsApp"
+    ]
+  },
+  {
+    title: "CPU Schedulers",
+    subheader: "October, 2020",
+    professor: "Rajshree Das",
+    course: "Design of Operating Systems",
+    description: [
+      "Implemented CPU schedulers using FCFS, SJF, SRTF, and RR based policies",
+      "Users could choose their preferred choice of policy and check against the process running from the ready queue",
+      "Output given to the user was Gnatt chart, average wait time, average turnaround time and average response time"
+    ]
+  },
+  {
+    title: "Lexical Analyzer",
+    subheader: "September, 2020",
+    professor: "Niranjan Panda",
+    course: "Compiler Design",
+    description: [
+      "Used finite state machine having a set of states, a set of transitions, and a string of input data",
+      "FSM was then implemented in C to recognize a list of identifiers and non-negative integers"
+    ]
+  },
+  {
+    title: "UNIX System Call and Concepts",
+    subheader: "August, 2020",
+    professor: "Sanjay Kumar Jena",
+    course: "UNIX System Programming",
+    description: [
+      "Used system calls including fork, wait, strtok and dup2 for processes, tokenizing arguments and duplicating file descriptors",
+      "Implemented concepts such as pipes, critical sections and inter process communication in C"
+    ]
+  },
+  {
+    title: "Implementation of Algorithms",
+    subheader: "August, 2019",
+    professor: "Satyaranjan Das",
+    course: "Algorithm Design 2",
+    description: [
+      "Implemented N-Queens, Binomial Coefficient, CYK, Edit Distance, Floyd-Warshall algorithms in C++",
+      "Implemented Knapsack, Linear Integer Partition, Backtracking and Matric Chain Order Optimal Parenthesis algorithms in C++"
+    ]
+  },
+  {
+    title: "SAGE",
+    subheader: "October, 2017",
+    professor: "Nicholas McPhee",
+    course: "Software Design, Development",
+    description: [
+      "Developed SAGE (Synonyms, Antonyms, General Sense & Example Usage), a game for teachers and students who want to improve vocabulary",
+      "Designed for a classroom setting, the game can be accessed on ",
+      <a style={{ textDecoration: "none" }} href="https://sage.cards">SAGE.CARDS</a>,
+      "Students try to guess the meaning of a word through hints which is controlled by the teacher"
+    ]
+  },
+  {
+    title: "Point of Sales",
+    subheader: "September, 2017",
+    professor: "Peter Dolan",
+    course: "Database Systems",
+    description: [
+      "Developed a point of sales web application using Angular JS, Node JS and MariaDB",
+      "Main features included login utility, editing items for transaction and selling a transaction",
+      "Login utility always (re)loaded on display screen showing username and password for a particular user",
+      "Built an API providing endpoints for fetching buttons and manipulating transactions"
+    ]
+  },
+  {
+    title: "Axxelerate",
+    subheader: "August, 2017",
+    professor: "Peter Dolan",
+    course: "Database Systems",
+    description: [
+      "Created a Python based search engine using Scrapy for crawling webpages that downloads a webpage and selectively collects information",
+      "Crawler could also download more webpages based on the links found in the current webpage",
+      "Used MariaDB for the database to store the records and various tables",
+      "Database indexed a Binary Tree, the word column in the keyword table and then just joint with page ordering by PageRank.",
+      "Used Flask for the webserver and used Angular 4 and Material Design approach for front end"
+    ]
+  }
 ];
+
 
 function Projects() {
   const classes = useStyles();
