@@ -4,7 +4,6 @@ import AppBar from '@material-ui/core/AppBar';
 import { makeStyles } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
-import ProjectIcon from '@material-ui/icons/Code';
 import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import HomeIcon from '@material-ui/icons/Home';
 import WorkIcon from '@material-ui/icons/Work';

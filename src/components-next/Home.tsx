@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, CardActionArea, CardContent, CardHeader, CardMedia, Link, Typography, Chip, Box, Grid, Paper, Stack } from "@mui/material";
+import { Button, Card, CardActionArea, CardContent, CardHeader, CardMedia, Link, Typography, Chip, Box, Grid, Paper, Stack, Icon } from "@mui/material";
 import Avatar from '@mui/material/Avatar';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -33,7 +33,7 @@ const Home = () => {
       <CardContent>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
-            <Grid item xs={4} sm={6}>
+            <Grid item xs={5} sm={6}>
               <Paper>
                 <Stack direction="column" spacing={2} alignItems="flex-start" justifyContent="flex-start">
                   <Typography style={{marginLeft: '1%', marginRight:'1%'}} variant="h3" component="h1">
@@ -67,9 +67,9 @@ const Home = () => {
               <Projects/>
               </Box>
               <br />
-              <Box sx={{ height: 300, overflowY: 'auto' }}>
+              <Box>
               <Typography style={{ position:'relative', marginTop: '0', marginLeft: '1%', marginRight:'1%', marginBottom: '1%'}} variant="h4" component="h2">
-              🥰 Tech Stacks 📊
+              🥰 Tech Stacks ♛   
               <p>
                 <Link href="https://angular.io" target="_blank" rel="noopener noreferrer"><img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" width="40" height="40" /></Link>
                 <Link href="https://cordova.apache.org/" target="_blank" rel="noopener noreferrer"><img src="https://www.vectorlogo.zone/logos/apache_cordova/apache_cordova-icon.svg" alt="apachecordova" width="40" height="40" /></Link>
@@ -127,7 +127,7 @@ const Home = () => {
           </Grid>
         </Box>
       </CardContent>
-      <CardActionArea style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+      <CardActionArea style={{ display: 'flex', justifyContent: 'center' }}>
       <Stack direction="row" spacing={1} alignItems="left" justifyContent="center">
               <Chip
                 icon={<VisibilityIcon />}
