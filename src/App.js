@@ -66,9 +66,8 @@ function App() {
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="Navigation Tab">
           <Tab label="Home" icon={<HomeIcon />} {...a11yProps(0)} />
-          <Tab label="Projects" icon={<ProjectIcon />} {...a11yProps(1)} />
-          <Tab label="Experience" icon={<WorkIcon />} {...a11yProps(2)} />
-          <Tab label="Achievements" icon={<EmojiEventsIcon />} {...a11yProps(3)} />
+          <Tab label="Experience" icon={<WorkIcon />} {...a11yProps(1)} />
+          <Tab label="Achievements" icon={<EmojiEventsIcon />} {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
