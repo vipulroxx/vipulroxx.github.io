@@ -46,7 +46,7 @@ function Home() {
         <Button
           variant="outlined"
           color="primary"
-          href="https://drive.google.com/file/d/0hsK8idPn7_sbmwuSVDtLoBxLvkvY8Yc7/view?usp=sharing"
+          href="https://drive.google.com/file/d/1t_7L-f7VkzkStYweSNZ-keUAatzySU9C/view?usp=sharing"
           target="_blank"
         >
           Resume
