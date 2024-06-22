@@ -1,6 +1,5 @@
 import React from "react";
-import { Button, Card, CardActionArea, CardContent, CardHeader, CardMedia, Link, Typography, Chip, Box, Grid, Paper, Stack, Icon } from "@mui/material";
-import Avatar from '@mui/material/Avatar';
+import { Button, Card, CardActionArea, CardContent, CardHeader, CardMedia, Link, Typography, Chip, Box, Grid, Paper, Stack, Avatar } from "@mui/material";
 import FacebookIcon from '@material-ui/icons/Facebook';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -21,49 +20,49 @@ const Home = () => {
   return (
     <Card>
       <CardMedia
-        className="banner-media"
         component="img"
         src={Banner}
         alt="Vipul Sharma"
-        style={{ width: '100%', height: 'auto' }}
+        sx={{ width: '100%', height: 'auto' }}
       />
-      <CardHeader>
-        <h1>VIPUL SHARMA</h1>
-      </CardHeader>
+      <CardHeader
+        title={
+          <Typography variant="h4" component="h1" align="center">
+            VIPUL SHARMA
+          </Typography>
+        }
+      />
       <CardContent>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
-            <Grid item xs={5} sm={6}>
-              <Paper>
-                <Stack direction="column" spacing={2} alignItems="flex-start" justifyContent="flex-start">
-                  <Typography style={{marginLeft: '1%', marginRight:'1%'}} variant="h3" component="h1">
+            <Grid item xs={12} md={6}>
+              <Paper sx={{ p: 2 }}>
+                <Stack direction="column" spacing={2}>
+                  <Typography variant="h4" component="h2">
                     ✨About Me✨
                   </Typography>
-                  <Typography style={{marginLeft: '1%', marginRight:'1%'}} variant="h4" component="h6">
-                    💖 Open Source World My Journey 🚀
-                  </Typography>
-                  <Typography style={{marginLeft: '1%', marginRight:'1%'}}>
-                    <p>
-                      👶 Early Interest: My love for programming began with Java and the excitement of solving problems through code. 🔍 First Steps in Coding: Writing Java code for sorting and technical challenges turned into a relaxing hobby, learning from open-source communities. 🌟 Inspiration and Mentorship: Seeing talented coders motivated me to improve and fueled my passion.
-                    </p>
-                    <p>
-                      🌍 Embracing Open Source: Open source taught me the joy of contributing. Being a Google Code-in finalist in 2013 was a milestone. 👨‍💻 Consistency and Contributions: Consistently contributing to GitHub, working on Android projects, and attending hackathons brings me happiness.
-                    </p>
-                    <p>
-                      💡 Logical Thinking and Growth: Programming refined my logical thinking and problem-solving skills. It defines me. 🤖 Embracing AI: I believe in AI's potential to create a better world. 🚀 Future Goals: I aim to leverage powerful computation techniques to achieve my goals and help businesses thrive.
-                    </p>
+                  <Typography variant="body1">
+                    👶 Early Interest: My love for programming began with Java and the excitement of solving problems through code. 🔍 First Steps in Coding: Writing Java code for sorting and technical challenges turned into a relaxing hobby, learning from open-source communities. 🌟 Inspiration and Mentorship: Seeing talented coders motivated me to improve and fueled my passion.
                   </Typography>
                   <Typography variant="body1">
-                    <img src="https://github-readme-stats.vercel.app/api?username=vipulroxx&show_icons=true&theme=radical" alt="Vipul's GitHub stats" style={{ marginLeft: '10%', width: '800px', height: 'auto' }} />
+                    🌍 Embracing Open Source: Open source taught me the joy of contributing. Being a Google Code-in finalist in 2013 was a milestone. 👨‍💻 Consistency and Contributions: Consistently contributing to GitHub, working on Android projects, and attending hackathons brings me happiness.
                   </Typography>
+                  <Typography variant="body1">
+                    💡 Logical Thinking and Growth: Programming refined my logical thinking and problem-solving skills. It defines me. 🤖 Embracing AI: I believe in AI's potential to create a better world. 🚀 Future Goals: I aim to leverage powerful computation techniques to achieve my goals and help businesses thrive.
+                  </Typography>
+                  <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <img
+                      src="https://github-readme-stats.vercel.app/api?username=vipulroxx&show_icons=true&theme=radical"
+                      alt="Vipul's GitHub stats"
+                      style={{ width: '100%', maxWidth: 800, height: 'auto' }}
+                    />
+                  </Box>
                 </Stack>
-                <Typography variant="h4" style={{ marginLeft: '1%', width: '800px', height: 'auto' }}>
-                <br/>
-                🥰 Tech Stacks ♛
-              </Typography>
+                <Typography variant="h4" component="h2" sx={{ mt: 4 }}>
+                  🥰 Tech Stacks ♛
+                </Typography>
               <br/>
-              <Typography style={{ marginLeft: '1%' }} variant="body1">
-              <p>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mt: 2 }}>
                 <Link href="https://angular.io" target="_blank" rel="noopener noreferrer"><img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" width="40" height="40" /></Link>
                 <Link href="https://cordova.apache.org/" target="_blank" rel="noopener noreferrer"><img src="https://www.vectorlogo.zone/logos/apache_cordova/apache_cordova-icon.svg" alt="apachecordova" width="40" height="40" /></Link>
                 <Link href="https://aws.amazon.com" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40" /></Link>
@@ -113,94 +112,53 @@ const Home = () => {
                 <Link href="https://www.sqlite.org/" target="_blank" rel="noopener noreferrer"><img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40" /></Link>
                 <Link href="https://travis-ci.org" target="_blank" rel="noopener noreferrer"><img src="https://www.vectorlogo.zone/logos/travis-ci/travis-ci-icon.svg" alt="travisci" width="40" height="40" /></Link>
                 <Link href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40" /></Link>
-              </p>
-            </Typography>
+              </Box>
               </Paper>
             </Grid>
-            <Grid item xs={4} sm={6}>
-            <Typography style={{ position:'relative', marginTop: '0', marginLeft: '1%', marginRight:'1%', marginBottom: '1%'}} variant="h2" component="h2">
-              🖥️ Open Source Projects 💼
-            </Typography>
-              <Box sx={{ height: 950, overflowY: 'auto' }}>
-              <Projects/>
+            <Grid item xs={12} md={6}>
+              <Typography variant="h4" component="h2" align="center" sx={{ mt: 2 }}>
+                🖥️ Open Source Projects 💼
+              </Typography>
+              <Box sx={{ height: 950, overflowY: 'auto', p: 2 }}>
+                <Projects />
               </Box>
-              <br />
             </Grid>
           </Grid>
         </Box>
       </CardContent>
-      <CardActionArea style={{ display: 'flex', justifyContent: 'center' }}>
-      <Stack direction="row" spacing={1} alignItems="left" justifyContent="center">
-              <Chip
-                icon={<VisibilityIcon />}
-                label="Open Source Everything!"
-                color="primary"
-                variant="outlined"
-              />
-              <Chip
-                icon={<SpaIcon />}
-                label="Passionate, Curious, Kind & Positive Human Being"
-                color="primary"
-                variant="outlined"
-              />
-              <Chip
-                icon={<FavoriteIcon />}
-                label="Solution Architect & Fullstack Developer"
-                color="primary"
-                variant="outlined"
-              />
-              <Chip
-                icon={<EmailIcon />}
-                label="Reach me at vipulsharma936@gmail.com"
-                color="primary"
-                variant="outlined"
-              />
-
-        <Chip
-          icon={<WorkIcon />}
-          variant="outlined"
-          label="PwC Digital: Products & Technology Top Level Advisory"
-          color="primary"
-          style={{ margin: '0 5px' }}
-        />
-        <Chip
-          icon={<SchoolIcon />}
-          variant="outlined"
-          size="medium"
-          label="B.Tech @ ITER, Siksha 'O' Anusandhan"
-          color="primary"
-          style={{ margin: '0 5px' }}
-        />
-        </Stack>
+      <CardActionArea sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 1, mt: 2 }}>
+        <Chip icon={<VisibilityIcon />} label="Open Source Everything!" color="primary" variant="outlined" />
+        <Chip icon={<SpaIcon />} label="Passionate, Curious, Kind & Positive Human Being" color="primary" variant="outlined" />
+        <Chip icon={<FavoriteIcon />} label="Solution Architect & Fullstack Developer" color="primary" variant="outlined" />
+        <Chip icon={<EmailIcon />} label="Reach me at vipulsharma936@gmail.com" color="primary" variant="outlined" />
+        <Chip icon={<WorkIcon />} label="PwC Digital: Products & Technology Top Level Advisory" color="primary" variant="outlined" />
+        <Chip icon={<SchoolIcon />} label="B.Tech @ ITER, Siksha 'O' Anusandhan" color="primary" variant="outlined" />
       </CardActionArea>
-      <CardActionArea style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-      <Avatar alt="Vipul Sharma" src={Profile} sx={{ float: "left", marginLeft: 2, border: 1, width: 75, height: 100 }} />
-        <a href="https://www.facebook.com/vipulvsss/" target="_blank" rel="noopener noreferrer">
-          <FacebookIcon color="primary" fontSize="large" style={{ margin: '0 10px' }} />
-        </a>
-        <a href="https://www.instagram.com/mudbludbullets936/" target="_blank" rel="noopener noreferrer">
-          <InstagramIcon color="secondary" fontSize="large" style={{ margin: '0 10px' }} />
-        </a>
-        <a href="https://www.linkedin.com/in/vipul-vs-sharma/" target="_blank" rel="noopener noreferrer">
-          <LinkedInIcon color="primary" fontSize="large" style={{ margin: '0 10px' }} />
-        </a>
-        <a href="https://twitter.com/vipulVSsharma" target="_blank" rel="noopener noreferrer">
-          <TwitterIcon color="primary" fontSize="large" style={{ margin: '0 10px' }} />
-        </a>
-        <a href="https://www.reddit.com/user/vipulroxx" target="_blank" rel="noopener noreferrer">
-          <RedditIcon color="secondary" fontSize="large" style={{ margin: '0 10px' }} />
-        </a>
-        <a href="https://github.com/vipulroxx" target="_blank" rel="noopener noreferrer">
-          <GitHubIcon color="primary" fontSize="large" style={{ margin: '0 10px' }} />
-        </a>
+      <CardActionArea sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 1, mt: 2 }}>
+        <Avatar alt="Vipul Sharma" src={Profile} sx={{ width: 75, height: 100 }} />
+        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 2 }}>
+          <a href="https://www.facebook.com/vipulvsss/" target="_blank" rel="noopener noreferrer">
+            <FacebookIcon color="primary" fontSize="large" />
+          </a>
+          <a href="https://www.instagram.com/mudbludbullets936/" target="_blank" rel="noopener noreferrer">
+            <InstagramIcon color="secondary" fontSize="large" />
+          </a>
+          <a href="https://www.linkedin.com/in/vipul-vs-sharma/" target="_blank" rel="noopener noreferrer">
+            <LinkedInIcon color="primary" fontSize="large" />
+          </a>
+          <a href="https://twitter.com/vipulVSsharma" target="_blank" rel="noopener noreferrer">
+            <TwitterIcon color="primary" fontSize="large" />
+          </a>
+          <a href="https://www.reddit.com/user/vipulroxx" target="_blank" rel="noopener noreferrer">
+            <RedditIcon color="secondary" fontSize="large" />
+          </a>
+          <a href="https://github.com/vipulroxx" target="_blank" rel="noopener noreferrer">
+            <GitHubIcon color="primary" fontSize="large" />
+          </a>
+        </Box>
       </CardActionArea>
-      <CardActionArea style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '20px' }}>
-        <Button
-          variant="outlined"
-          color="primary"
-          href="https://drive.google.com/file/d/1t_7L-f7VkzkStYweSNZ-keUAatzySU9C/view?usp=sharing"
-          target="_blank"
-        >
+      <CardActionArea sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 2 }}>
+        <Button variant="outlined" color="primary" href="https://drive.google.com/file/d/1t_7L-f7VkzkStYweSNZ-keUAatzySU9C/view?usp=sharing" target="_blank">
           RESUME
         </Button>
       </CardActionArea>
