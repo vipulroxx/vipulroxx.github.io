@@ -54,22 +54,15 @@ const Home = () => {
                     </p>
                   </Typography>
                   <Typography variant="body1">
-                    <img src="https://github-readme-stats.vercel.app/api?username=vipulroxx&show_icons=true&theme=radical" alt="Vipul's GitHub stats" style={{ marginLeft: '1%', marginRight: '1%', width: '200%', height: 'auto' }} />
+                    <img src="https://github-readme-stats.vercel.app/api?username=vipulroxx&show_icons=true&theme=radical" alt="Vipul's GitHub stats" style={{ marginLeft: '10%', width: '800px', height: 'auto' }} />
                   </Typography>
                 </Stack>
-              </Paper>
-            </Grid>
-            <Grid item xs={4} sm={6}>
-            <Typography style={{ position:'relative', marginTop: '0', marginLeft: '1%', marginRight:'1%', marginBottom: '1%'}} variant="h2" component="h2">
-              🖥️ Open Source Projects 💼
-            </Typography>
-              <Box sx={{ height: 500, overflowY: 'auto' }}>
-              <Projects/>
-              </Box>
-              <br />
-              <Box>
-              <Typography style={{ position:'relative', marginTop: '0', marginLeft: '1%', marginRight:'1%', marginBottom: '1%'}} variant="h4" component="h2">
-              🥰 Tech Stacks ♛   
+                <Typography variant="h4" style={{ marginLeft: '1%', width: '800px', height: 'auto' }}>
+                <br/>
+                🥰 Tech Stacks ♛
+              </Typography>
+              <br/>
+              <Typography style={{ marginLeft: '1%' }} variant="body1">
               <p>
                 <Link href="https://angular.io" target="_blank" rel="noopener noreferrer"><img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" width="40" height="40" /></Link>
                 <Link href="https://cordova.apache.org/" target="_blank" rel="noopener noreferrer"><img src="https://www.vectorlogo.zone/logos/apache_cordova/apache_cordova-icon.svg" alt="apachecordova" width="40" height="40" /></Link>
@@ -122,7 +115,16 @@ const Home = () => {
                 <Link href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40" /></Link>
               </p>
             </Typography>
-            </Box>
+              </Paper>
+            </Grid>
+            <Grid item xs={4} sm={6}>
+            <Typography style={{ position:'relative', marginTop: '0', marginLeft: '1%', marginRight:'1%', marginBottom: '1%'}} variant="h2" component="h2">
+              🖥️ Open Source Projects 💼
+            </Typography>
+              <Box sx={{ height: 950, overflowY: 'auto' }}>
+              <Projects/>
+              </Box>
+              <br />
             </Grid>
           </Grid>
         </Box>
