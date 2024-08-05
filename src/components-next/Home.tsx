@@ -15,6 +15,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import Banner from './Banner.png';
 import Profile from './profile.png';
 import Projects from "./Projects";
+import Publication from "./Publication";
+import Experience from "./Experience";
 
 const Home = () => {
   return (
@@ -27,19 +29,19 @@ const Home = () => {
       />
       <CardHeader
         title={
-          <Typography variant="h4" component="h1" align="center">
+          <Typography variant="h1" color="red" border="ButtonFace" component="h1" align="center">
             VIPUL SHARMA
           </Typography>
         }
       />
-      <CardContent>
-        <Box sx={{ flexGrow: 1 }}>
+      <CardContent style={{marginTop: 0}}>
+        <Box sx={{ flexGrow: 2 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
               <Paper sx={{ p: 2 }}>
                 <Stack direction="column" spacing={2}>
                   <Typography variant="h4" component="h2">
-                    ✨About Me✨
+                   <h3> ✨About Me✨ </h3>
                   </Typography>
                   <Typography variant="body1">
                     👶 Early Interest: My love for programming began with Java and the excitement of solving problems through code. 🔍 First Steps in Coding: Writing Java code for sorting and technical challenges turned into a relaxing hobby, learning from open-source communities. 🌟 Inspiration and Mentorship: Seeing talented coders motivated me to improve and fueled my passion.
@@ -115,16 +117,20 @@ const Home = () => {
               </Box>
               </Paper>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={13} md={6}>
               <Typography variant="h4" component="h2" align="center" sx={{ mt: 2 }}>
-                🖥️ Open Source Projects 💼
+                <h3>🖥️ Open Source Projects 💼</h3>
               </Typography>
-              <Box sx={{ height: 950, overflowY: 'auto', p: 2 }}>
+              <Box sx={{ height: 1040, overflowY: 'auto', p: 2 }}>
                 <Projects />
               </Box>
             </Grid>
           </Grid>
         </Box>
+        <h3>Experience</h3>
+        <Experience />
+        <h3>Publication</h3>
+        <Publication />
       </CardContent>
       <CardActionArea sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 1, mt: 2 }}>
         <Chip icon={<VisibilityIcon />} label="Open Source Everything!" color="primary" variant="outlined" />
