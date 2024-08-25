@@ -64,7 +64,7 @@ function App() {
     <div className={classes.root}>
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="Navigation Tab">
-          <Tab label="Home" icon={<HomeIcon color='secondary'/>} {...a11yProps(0)} />
+          <Tab label="Home" icon={<HomeIcon/>} {...a11yProps(0)} />
           <Tab
           label="Pokémon"
           icon={<img src={pokemonIcon} alt="Pokémon Icon" style={{ width: 25, height: 25 }} />}
