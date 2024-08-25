@@ -1,10 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.386d6407.css",
-    "main.js": "/static/js/main.994d08b0.js",
+    "main.css": "/static/css/main.5873808a.css",
+    "main.js": "/static/js/main.4f72f96f.js",
     "static/js/453.931db92f.chunk.js": "/static/js/453.931db92f.chunk.js",
     "static/media/Banner.png": "/static/media/Banner.469f11ff4e25f8e554b4.png",
-    "static/media/profile.png": "/static/media/profile.e0b40648e97faf435bbc.png",
     "static/media/pikachu.png": "/static/media/pikachu.ae8404eb586198a612fb.png",
     "static/media/mew.png": "/static/media/mew.b4c06bd08a524f332e33.png",
     "static/media/pokeicon.png": "/static/media/pokeicon.6b529f6eae21cf426626.png",
@@ -66,12 +65,12 @@
     "static/media/roboto-greek-ext-400-normal.woff": "/static/media/roboto-greek-ext-400-normal.f708607d2a7290fb8bfa.woff",
     "static/media/roboto-greek-ext-700-normal.woff": "/static/media/roboto-greek-ext-700-normal.249853776d22a271b2b5.woff",
     "index.html": "/index.html",
-    "main.386d6407.css.map": "/static/css/main.386d6407.css.map",
-    "main.994d08b0.js.map": "/static/js/main.994d08b0.js.map",
+    "main.5873808a.css.map": "/static/css/main.5873808a.css.map",
+    "main.4f72f96f.js.map": "/static/js/main.4f72f96f.js.map",
     "453.931db92f.chunk.js.map": "/static/js/453.931db92f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.386d6407.css",
-    "static/js/main.994d08b0.js"
+    "static/css/main.5873808a.css",
+    "static/js/main.4f72f96f.js"
   ]
 }
