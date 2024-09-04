@@ -10,7 +10,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 import { Box } from '@mui/material';
-import { Download, Downloading } from '@mui/icons-material';
+import { Close, Download, Downloading } from '@mui/icons-material';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -63,7 +63,7 @@ export default function FullScreenDialog() {
               VIPUL SHARMA RESUME - MASTER, SEPTEMBER, 2024
             </Typography>
             <Button autoFocus color="inherit" onClick={handleClose}>
-              Close
+              <Close/>
             </Button>
           </Toolbar>
         </AppBar>
