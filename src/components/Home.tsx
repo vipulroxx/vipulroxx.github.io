@@ -79,6 +79,34 @@ const Home = () => {
                       alt="Vipul's GitHub stats"
                     />
                   </Box>
+                  {/* Badges & Certifications Section */}
+              <Typography color="secondary" variant="h4" align="center">
+                  🏆 Badges & Certifications 🎓
+                </Typography>
+              <Paper>
+                <Box sx={{ mt: 6}}>
+                  <Grid container spacing={2} sx={{ overflowX: 'auto', maxHeight: '200px' }}>
+                      <Grid item xs={6} sm={4} md={2}>
+                        <img src={AWSSolutionsArchitect} alt="AWSSolutionsArchitect" style={{ width: '100%', height: 'auto' }} />
+                      </Grid>
+                      <Grid item xs={6} sm={4} md={2}>
+                        <img src={AWSBusinessAccredited} alt="AWSBusinessAccredited" style={{ width: '100%', height: 'auto' }} />
+                      </Grid>
+                      <Grid item xs={6} sm={4} md={2}>
+                        <img src={AWSCloudPractitioner} alt="AWSCloudPractitioner" style={{ width: '100%', height: 'auto' }} />
+                      </Grid>
+                      <Grid item xs={6} sm={4} md={2}>
+                        <img src={AWSCloudEconomicsEssential} alt="AWSCloudEconomicsEssential" style={{ width: '100%', height: 'auto' }} />
+                      </Grid>
+                      <Grid item xs={6} sm={4} md={2}>
+                        <img src={PwCDigitalAcumen} alt="PwCDigitalAcumen" style={{ width: '100%', height: 'auto' }} />
+                      </Grid>
+                      <Grid item xs={6} sm={4} md={2}>
+                        <img src={PwCHumanCenteredDesign} alt="PwCHumanCenteredDesign" style={{ width: '100%', height: 'auto' }} />
+                      </Grid>
+                  </Grid>
+                </Box>
+              </Paper>
                   <FullScreenDialog/> 
                 </Stack>
                 
@@ -144,32 +172,6 @@ const Home = () => {
                   <Link href="https://webpack.js.org/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/webpack/media/master/logo/icon-square-big.png" alt="webpack" width="40" height="40" /></Link>
                 </Box>
               </Paper>
-              {/* Badges & Certifications Section */}
-              <Box sx={{ mt: 4 }}>
-                <Typography color="secondary" variant="h4" align="center">
-                  🏆 Badges & Certifications 🎓
-                </Typography>
-                <Grid container spacing={2} sx={{ overflowX: 'auto', maxHeight: '200px' }}>
-                    <Grid item xs={6} sm={4} md={2}>
-                      <img src={AWSSolutionsArchitect} alt="AWSSolutionsArchitect" style={{ width: '100%', height: 'auto' }} />
-                    </Grid>
-                    <Grid item xs={6} sm={4} md={2}>
-                      <img src={AWSBusinessAccredited} alt="AWSBusinessAccredited" style={{ width: '100%', height: 'auto' }} />
-                    </Grid>
-                    <Grid item xs={6} sm={4} md={2}>
-                      <img src={AWSCloudPractitioner} alt="AWSCloudPractitioner" style={{ width: '100%', height: 'auto' }} />
-                    </Grid>
-                    <Grid item xs={6} sm={4} md={2}>
-                      <img src={AWSCloudEconomicsEssential} alt="AWSCloudEconomicsEssential" style={{ width: '100%', height: 'auto' }} />
-                    </Grid>
-                    <Grid item xs={6} sm={4} md={2}>
-                      <img src={PwCDigitalAcumen} alt="PwCDigitalAcumen" style={{ width: '100%', height: 'auto' }} />
-                    </Grid>
-                    <Grid item xs={6} sm={4} md={2}>
-                      <img src={PwCHumanCenteredDesign} alt="PwCHumanCenteredDesign" style={{ width: '100%', height: 'auto' }} />
-                    </Grid>
-                </Grid>
-              </Box>
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography color="secondary" variant="h4" align="center" sx={{ mt: 2 }}>
