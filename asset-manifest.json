@@ -1,12 +1,18 @@
 {
   "files": {
     "main.css": "/static/css/main.5873808a.css",
-    "main.js": "/static/js/main.91f4ea4e.js",
+    "main.js": "/static/js/main.33c04585.js",
     "static/js/453.931db92f.chunk.js": "/static/js/453.931db92f.chunk.js",
     "static/media/Banner.png": "/static/media/Banner.469f11ff4e25f8e554b4.png",
     "static/media/pikachu.png": "/static/media/pikachu.ae8404eb586198a612fb.png",
     "static/media/mew.png": "/static/media/mew.b4c06bd08a524f332e33.png",
+    "static/media/AWS Solutions Architect.png": "/static/media/AWS Solutions Architect.5de5ac5041c48c198d8b.png",
+    "static/media/AWS Cloud Practitioner.png": "/static/media/AWS Cloud Practitioner.1d4d9fa250269a5b5067.png",
+    "static/media/PwC Human Centered Design.png": "/static/media/PwC Human Centered Design.a3e642cd8b103b5a4004.png",
+    "static/media/PwC Digital Acumen.png": "/static/media/PwC Digital Acumen.22e8fe1302eef3f67f83.png",
     "static/media/pokeicon.png": "/static/media/pokeicon.6b529f6eae21cf426626.png",
+    "static/media/AWS Cloud Economics Essential.png": "/static/media/AWS Cloud Economics Essential.972eb4d1a4077e5b7b33.png",
+    "static/media/AWS Business Accredited.png": "/static/media/AWS Business Accredited.6768ed66d1c92e2993c4.png",
     "static/media/images.jpeg": "/static/media/images.53d60896811c14f89e96.jpeg",
     "static/media/roboto-latin-500-normal.woff2": "/static/media/roboto-latin-500-normal.f25d774ecfe0996f8eb5.woff2",
     "static/media/roboto-latin-700-normal.woff2": "/static/media/roboto-latin-700-normal.227c93190fe7f82de3f8.woff2",
@@ -66,11 +72,11 @@
     "static/media/roboto-greek-ext-700-normal.woff": "/static/media/roboto-greek-ext-700-normal.249853776d22a271b2b5.woff",
     "index.html": "/index.html",
     "main.5873808a.css.map": "/static/css/main.5873808a.css.map",
-    "main.91f4ea4e.js.map": "/static/js/main.91f4ea4e.js.map",
+    "main.33c04585.js.map": "/static/js/main.33c04585.js.map",
     "453.931db92f.chunk.js.map": "/static/js/453.931db92f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5873808a.css",
-    "static/js/main.91f4ea4e.js"
+    "static/js/main.33c04585.js"
   ]
 }
