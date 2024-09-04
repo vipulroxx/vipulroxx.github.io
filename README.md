@@ -11,7 +11,7 @@ Welcome to my personal portfolio repository! Here you'll find a collection of pr
 - The projects are listed under my employment or internship.
 
 ### Achievements:
-- Highlights my research paper pulication and various software engineering awards & certifications.
+- Highlights my research paper publication and various software engineering awards & certifications.
 
 ## New Products Revamp 🚀
 
