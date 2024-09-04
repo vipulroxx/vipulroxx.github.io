@@ -8,13 +8,13 @@ import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import HomeIcon from '@material-ui/icons/Home';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import Achievements from './components-next/Achievements.tsx';
-import Experience from './components-next/Experience';
-import Home from './components-next/Home';
-import Projects from './components-next/Projects';
-import Game from './components-next/Pokemon';
+import Achievements from './components/Achievements.tsx';
+import Experience from './components/Experience';
+import Home from './components/Home';
+import Projects from './components/Projects';
+import Game from './components/Pokemon';
 import PropTypes from 'prop-types';
-import pokemonIcon from './components-next/pokeicon.png';
+import pokemonIcon from './components/pokeicon.png';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
