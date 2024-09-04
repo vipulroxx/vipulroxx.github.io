@@ -1,6 +1,6 @@
-import React from "react";
-import { Button } from "@material-ui/core";
+import React, { useState } from "react";
 import {
+  Button,
   Card,
   CardActionArea,
   CardContent,
@@ -13,59 +13,49 @@ import {
   Paper,
   Stack
 } from "@mui/material";
-import FacebookIcon from '@material-ui/icons/Facebook';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import RedditIcon from '@material-ui/icons/Reddit';
-import TwitterIcon from '@material-ui/icons/Twitter';
+import {
+  Facebook as FacebookIcon,
+  GitHub as GitHubIcon,
+  Instagram as InstagramIcon,
+  LinkedIn as LinkedInIcon,
+  Reddit as RedditIcon,
+  Twitter as TwitterIcon
+} from '@mui/icons-material';
 import Banner from './Banner.png';
 import Projects from "./Projects";
 import Publication from "./Publication";
 import Experience from "./Experience";
-import '../App.css'; // Import the CSS file
+import '../App.css';
+import FullScreenDialog from "./mui-components/FullScreenDialog";
 
 const Home = () => {
   return (
     <Card>
-      {/* Banner Image */}
       <CardMedia
         component="img"
         src={Banner}
         alt="Vipul Sharma"
         className="card-media"
       />
-
-      {/* Header Section */}
       <CardHeader
         title={
-          <Typography align="center" color="red" variant="h3" component="h3" className="card-header-title">
+          <Typography align="center" color="red" variant="h3" className="card-header-title">
             <strong>VIPUL SHARMA</strong>
           </Typography>
         }
       />
-
-      {/* Main Content Section */}
       <CardContent className="card-content">
         <Box className="profile-container">
           <Grid container spacing={2}>
-            {/* About Me Section */}
             <Grid item xs={12} md={6}>
               <Paper className="about-me-paper">
                 <Stack direction="column" spacing={2}>
-                  <Typography align="center" color="secondary" variant="h4" component="h4">
+                  <Typography align="center" color="secondary" variant="h4">
                     ✨About Me✨
                   </Typography>
                   <Typography variant="body1">
-                    👶 Early Interest: My love for programming began with Java and the excitement of solving problems through code. 🔍 First Steps in Coding: Writing Java code for sorting and technical challenges turned into a relaxing hobby, learning from open-source communities. 🌟 Inspiration and Mentorship: Seeing talented coders motivated me to improve and fueled my passion.
+                    👶 Early Interest: My love for programming began with Java and the excitement of solving problems through code...
                   </Typography>
-                  <Typography variant="body1">
-                    🌍 Embracing Open Source: Open source taught me the joy of contributing. Being a Google Code-in finalist in 2013 was a milestone. 👨‍💻 Consistency and Contributions: Consistently contributing to GitHub, working on Android projects, and attending hackathons brings me happiness.
-                  </Typography>
-                  <Typography variant="body1">
-                    💡 Logical Thinking and Growth: Programming refined my logical thinking and problem-solving skills. It defines me. 🤖 Embracing AI: I believe in AI's potential to create a better world. 🚀 Future Goals: I aim to leverage powerful computation techniques to achieve my goals and help businesses thrive.
-                  </Typography>
-
                   {/* GitHub Stats */}
                   <Box className="github-stats">
                     <img
@@ -73,16 +63,12 @@ const Home = () => {
                       alt="Vipul's GitHub stats"
                     />
                   </Box>
-
-                  {/* Resume Button */}
-                  <Button size="large" color="secondary" variant="contained" href="https://drive.google.com/file/d/1t_7L-f7VkzkStYweSNZ-keUAatzySU9C/view?usp=sharing" target="_blank" className="resume-button">
-                    RESUME
-                  </Button>
+                  <FullScreenDialog/> 
                 </Stack>
-
-                {/* Tech Stack Section */}
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mt: 2 }}>
-                  <Typography color="secondary" variant="h4" component="h4">
+                
+                 {/* Tech Stack Section */}
+                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mt: 2 }}>
+                  <Typography color="secondary" variant="h4">
                     🥰 Tech Stacks ♛
                   </Typography>
                   <Link href="https://angular.io" target="_blank" rel="noopener noreferrer"><img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" width="40" height="40" /></Link>
@@ -137,10 +123,8 @@ const Home = () => {
                 </Box>
               </Paper>
             </Grid>
-
-            {/* Projects Section */}
             <Grid item xs={12} md={6}>
-              <Typography color="secondary" variant="h4" component="h4" align="center" sx={{ mt: 2 }}>
+              <Typography color="secondary" variant="h4" align="center" sx={{ mt: 2 }}>
                 🖥️ Open Source Projects 💼
               </Typography>
               <Box className="projects-section">
@@ -149,21 +133,15 @@ const Home = () => {
             </Grid>
           </Grid>
         </Box>
-
-        {/* Experience Section */}
-        <Typography margin="2rem" color="secondary" variant="h3" component="h3" align="center">
+        <Typography margin="2rem" color="secondary" variant="h3" align="center">
           Experience
         </Typography>
         <Experience />
-
-        {/* Publication Section */}
-        <Typography marginTop="2rem" color="secondary" variant="h3" component="h3" align="center">
+        <Typography marginTop="2rem" color="secondary" variant="h3" align="center">
           Publication
         </Typography>
         <Publication />
       </CardContent>
-
-      {/* Social Icons Section */}
       <CardActionArea className="social-icons">
         <Box className="social-icons">
           <a href="https://www.facebook.com/vipulvsss/" target="_blank" rel="noopener noreferrer">
