@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5873808a.css",
-    "main.js": "/static/js/main.b504f49f.js",
+    "main.js": "/static/js/main.91f4ea4e.js",
     "static/js/453.931db92f.chunk.js": "/static/js/453.931db92f.chunk.js",
     "static/media/Banner.png": "/static/media/Banner.469f11ff4e25f8e554b4.png",
     "static/media/pikachu.png": "/static/media/pikachu.ae8404eb586198a612fb.png",
@@ -66,11 +66,11 @@
     "static/media/roboto-greek-ext-700-normal.woff": "/static/media/roboto-greek-ext-700-normal.249853776d22a271b2b5.woff",
     "index.html": "/index.html",
     "main.5873808a.css.map": "/static/css/main.5873808a.css.map",
-    "main.b504f49f.js.map": "/static/js/main.b504f49f.js.map",
+    "main.91f4ea4e.js.map": "/static/js/main.91f4ea4e.js.map",
     "453.931db92f.chunk.js.map": "/static/js/453.931db92f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5873808a.css",
-    "static/js/main.b504f49f.js"
+    "static/js/main.91f4ea4e.js"
   ]
 }
