@@ -19,6 +19,7 @@ Exciting news! I'm currently revamping and preparing to launch three new micro-f
 
 ### Upcoming MFE Applications:
 - [PokémonEdutainment](https://vipulroxx.github.io) - This application fuses the enchanting world of Pokémon with innovative educational content. This app is designed to revolutionize learning by offering a unique and immersive experience that captivates users of all ages. By seamlessly integrating Pokémon lore with educational modules, trivia challenges, real-world exploration, and personalized learning paths, the app aims to make learning enjoyable, personalized, and globally accessible.
+- #### Copyrights and licensing rights for all content data (“Data”) on this website, including designs, photographs, images, text, music, and recordings, belong to the Pokémon Company (“Company”). Data is licensed for personal enjoyment only, and copyright may not be transferred. In no instance may you copy, replicate, modify, publish, post, transmit, or distribute Data from this website. In addition, these Data may not be used on other public networks, such as the Internet.
 - [Architectures](https://vipulroxx.github.io) - This application explains the various solution architecture implementations I have done along with different other ideas related to modern decentralized quantum-ai infrastructure that I encounter along my journey.
 
 Stay tuned for updates as I continue to enhance and deploy these applications. Feel free to explore my portfolio projects and reach out if you have any questions or collaboration ideas!
