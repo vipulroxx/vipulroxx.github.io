@@ -17,14 +17,16 @@
     "@testing-library/user-event": "^12.8.3",
     "pdfjs-dist": "^3.11.174",
     "prop-types": "^15.6.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-pdf": "^9.0.0",
+    "react-router-dom": "^7.4.1",
     "web-vitals": "^1.1.2"
   },
   "devDependencies": {
     "@emotion/react": "11.11.4",
     "@mui/styled-engine-sc": "6.0.0-alpha.18",
+    "@types/webpack-env": "^1.18.8",
     "gh-pages": "^6.1.1",
     "http-server": "14.1.1",
     "prettier": "^3.3.2",

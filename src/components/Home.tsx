@@ -35,6 +35,7 @@ import AWSCloudPractitioner from '../static/img/Badges & Certifications/AWS Clou
 import AWSSolutionsArchitect from '../static/img/Badges & Certifications/AWS Solutions Architect.png';
 import PwCDigitalAcumen from '../static/img/Badges & Certifications/PwC Digital Acumen.png';
 import PwCHumanCenteredDesign from '../static/img/Badges & Certifications/PwC Human Centered Design.png';
+import PhotoGallery from "./PhotoGallery";
 
 
 const Home = () => {
