@@ -9,15 +9,15 @@ import { TransitionProps } from '@mui/material/transitions';
 import Typography from '@mui/material/Typography';
 import { Box, Tooltip } from '@mui/material';
 import '../App.css';
-import { makeStyles } from '@material-ui/core/styles';
-import { Accordion, AccordionDetails, AccordionSummary } from "@material-ui/core";
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { makeStyles } from '@mui/styles';
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from "@mui/material/Button/Button";
 import { Download } from "@mui/icons-material";
 import InfoIcon from '@mui/icons-material/Info';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: { typography: { pxToRem: (arg0: number) => any; }; palette: { text: { secondary: any; }; }; }) => ({
 	heading: {
 	fontSize: theme.typography.pxToRem(15),
 	flexBasis: '33.33%',
@@ -69,9 +69,9 @@ function Experience() {
 			aria-controls="panel1bh-content"
 			id="panel1bh-header"
 			>
-			<Typography className={classes.heading}>Advisory Associate</Typography>
+			<Typography className={classes.heading}>CTA</Typography>
 			<Typography className={classes.secondaryHeading}>
-			PricewaterhouseCoopers, Bangalore
+			PwC US AC
 			</Typography>
 			</AccordionSummary>
 			<AccordionDetails>

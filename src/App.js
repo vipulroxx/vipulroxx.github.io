@@ -1,77 +1,85 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import AppBar from '@material-ui/core/AppBar';
-import { makeStyles } from '@material-ui/core/styles';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import HomeIcon from '@material-ui/icons/Home';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import AppBar from '@mui/material/AppBar';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import HomeIcon from '@mui/icons-material/Home';
+import WorkIcon from '@mui/icons-material/Work';
+import CodeIcon from '@mui/icons-material/Code';
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 import Home from './components/Home';
-import PropTypes from 'prop-types';
 import PhotoGallery from './components/PhotoGallery';
-import { BrowseGallery } from '@mui/icons-material';
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={6}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `nav-tab-${index}`,
-    'aria-controls': `nav-tabpanel-${index}`,
-  };
-}
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
+import Projects from './components/Projects';
+import Experience from './components/Experience';
+import Publication from './components/Publication';
 
 function App() {
-  const classes = useStyles();
   const [value, setValue] = React.useState(0);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Tabs value={value} onChange={handleChange} aria-label="Navigation Tab">
-          <Tab label="Home" icon={<HomeIcon/>} {...a11yProps(0)} />
-          <Tab label="Moments" icon={<BrowseGallery/>} {...a11yProps(1)} />
-        </Tabs>
-      </AppBar>
-      <TabPanel value={value} index={0}>
-        <Home/>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <PhotoGallery/>
-      </TabPanel>
-    </div>
+    <Router>
+      <div style={{ flexGrow: 1, backgroundColor: '#f5f5f5' }}>
+        <AppBar position="static" style={{ flexWrap: 'wrap' }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="Navigation Tab"
+            variant="scrollable"
+            scrollButtons="auto"
+            style={{ width: '100%' }}
+          >
+            <Tab
+              label="Home"
+              icon={<HomeIcon />}
+              component={Link}
+              to="/"
+              style={{ textTransform: 'none' }}
+            />
+            <Tab
+              label="Moments"
+              icon={<PhotoCameraIcon />}
+              component={Link}
+              to="/moments"
+              style={{ textTransform: 'none' }}
+            />
+            <Tab
+              label="Projects"
+              icon={<CodeIcon />}
+              component={Link}
+              to="/projects"
+              style={{ textTransform: 'none' }}
+            />
+            <Tab
+              label="Experience"
+              icon={<WorkIcon />}
+              component={Link}
+              to="/experience"
+              style={{ textTransform: 'none' }}
+            />
+            <Tab
+              label="Publication"
+              icon={<MenuBookIcon />}
+              component={Link}
+              to="/publication"
+              style={{ textTransform: 'none' }}
+            />
+          </Tabs>
+        </AppBar>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/moments" element={<PhotoGallery />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/publication" element={<Publication />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

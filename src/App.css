@@ -31,6 +31,10 @@
   color: #1976d2; /* Secondary color for the icons */
 }
 
+.social-icons a:hover {
+  color: #FFD700; /* Golden highlight */
+}
+
 .resume-button {
   margin: 2rem auto;
 }
@@ -55,6 +59,30 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2rem;
+}
+
+/* Tab Panel Styles */
+.MuiTab-root {
+  background-color: #FFD700; /* Golden color for the current tab */
+  color: #000; /* Black text for contrast */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.Mui-selected {
+  background-color: #FFD700 !important; /* Ensure the selected tab is golden */
+  color: #000 !important; /* Black text for the selected tab */
+}
+
+/* Tab Panel Hover Styles */
+.MuiTab-root:hover {
+  background-color: #FFD700; /* Golden highlight */
+  color: #fff; /* White text for contrast */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.MuiTab-wrapper:hover svg {
+  transform: scale(1.2); /* Slightly enlarge the icon */
+  transition: transform 0.3s ease;
 }
 
 /* Responsive Styles */

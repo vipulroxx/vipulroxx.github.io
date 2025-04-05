@@ -1,36 +1,45 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { styled } from "@mui/material/styles"; // Updated import
 import clsx from "clsx";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import InfoIcon from "@material-ui/icons/Info";
-import Typography from "@material-ui/core/Typography";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import IconButton from "@material-ui/core/IconButton";
+import MoreVertIcon from "@mui/icons-material/MoreVert"; // Updated import
+import InfoIcon from "@mui/icons-material/Info"; // Updated import
+import Typography from "@mui/material/Typography"; // Updated import
+import Card from "@mui/material/Card"; // Updated import
+import CardHeader from "@mui/material/CardHeader"; // Updated import
+import CardContent from "@mui/material/CardContent"; // Updated import
+import CardActions from "@mui/material/CardActions"; // Updated import
+import Collapse from "@mui/material/Collapse"; // Updated import
+import Avatar from "@mui/material/Avatar"; // Updated import
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"; // Updated import
+import IconButton from "@mui/material/IconButton"; // Updated import
 import '../App.css';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const PREFIX = 'Projects';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  avatar: `${PREFIX}-avatar`,
+  expand: `${PREFIX}-expand`,
+  expandOpen: `${PREFIX}-expandOpen`,
+};
+
+const Root = styled('div')(({ theme }) => ({
+  [`& .${classes.root}`]: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     marginBottom: theme.spacing(2), // Add spacing between cards
   },
-  avatar: {
+  [`& .${classes.avatar}`]: {
     backgroundColor: "#f44336",
   },
-  expand: {
+  [`& .${classes.expand}`]: {
     transform: "rotate(0deg)",
     marginLeft: "auto",
     transition: theme.transitions.create("transform", {
       duration: theme.transitions.duration.shortest,
     }),
   },
-  expandOpen: {
+  [`& .${classes.expandOpen}`]: {
     transform: "rotate(180deg)",
   },
 }));
@@ -172,7 +181,6 @@ const projectsData = [
 
 
 function Projects() {
-  const classes = useStyles();
   const [expanded, setExpanded] = useState(-1);
 
   const handleExpandClick = (index: any) => {
@@ -180,7 +188,7 @@ function Projects() {
   };
 
   return (
-    <>
+    <Root>
       {projectsData.map((project, index) => (
         <Card key={index} className={classes.root}>
           <CardHeader
@@ -233,7 +241,7 @@ function Projects() {
           </Collapse>
         </Card>
       ))}
-    </>
+    </Root>
   );
 }
 

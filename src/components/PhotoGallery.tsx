@@ -4,8 +4,6 @@ import { Dialog, DialogContent, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import Home from "./Home";
-import Experience from "./Experience";
 
 // Dynamically import all images from the moments folder
 const importAll = (requireContext: __WebpackModuleApi.RequireContext): { src: string; title: string }[] =>
@@ -40,6 +38,7 @@ function PhotoGallery() {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
+          padding: "1rem", // Add padding for smaller screens
         }}
       >
         <IconButton
@@ -69,8 +68,8 @@ function PhotoGallery() {
           src={photos[selectedIndex].src}
           alt={photos[selectedIndex].title}
           style={{
-            width: "70%",
-            height: "70%",
+            width: "90%", // Adjust width for responsiveness
+            height: "auto",
             objectFit: "contain",
             borderRadius: "16px",
             boxShadow: "0px 8px 30px rgba(0, 0, 0, 0.5)",
