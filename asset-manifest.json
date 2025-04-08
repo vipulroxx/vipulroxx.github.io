@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d10e2450.css",
-    "main.js": "/static/js/main.199f409f.js",
+    "main.css": "/static/css/main.734acdb9.css",
+    "main.js": "/static/js/main.0449d882.js",
     "static/media/moment_14.png": "/static/media/moment_14.d01dc832d9068d587c8b.png",
     "static/media/moment_32.png": "/static/media/moment_32.753d556b8fb1d2c58e22.png",
     "static/media/moment_19.png": "/static/media/moment_19.1c0de75b48a5ea7b75ac.png",
@@ -34,20 +34,27 @@
     "static/media/moment_36.png": "/static/media/moment_36.d505cdb1f1c7841325f4.png",
     "static/media/moment_9.png": "/static/media/moment_9.b90f28afc895f0ad07b7.png",
     "static/media/moment_4.png": "/static/media/moment_4.fac023fd6b677d82b923.png",
+    "static/media/vipul.png": "/static/media/vipul.040f94c6db108da4b535.png",
     "static/media/moment_8.png": "/static/media/moment_8.97ca69d91bf6b90b2059.png",
     "static/media/moment_5.png": "/static/media/moment_5.84867c099ef360c62fd2.png",
     "static/media/moment_33.png": "/static/media/moment_33.1c6a5a48dc8314e0f8cc.png",
     "static/media/moment_39.png": "/static/media/moment_39.2fb431f36b8373281890.png",
-    "static/media/Banner.png": "/static/media/Banner.469f11ff4e25f8e554b4.png",
+    "static/media/athelete.png": "/static/media/athelete.34a4cadf07bf844c940c.png",
     "static/media/moment_15.png": "/static/media/moment_15.09b8b1b6fd4b70041141.png",
     "static/media/moment_38.png": "/static/media/moment_38.b635a86498af53386e2d.png",
     "static/media/moment_7.png": "/static/media/moment_7.ba275689dccb5bd5139a.png",
+    "static/media/AWS Solutions Architect.png": "/static/media/AWS Solutions Architect.5de5ac5041c48c198d8b.png",
+    "static/media/AWS Cloud Practitioner.png": "/static/media/AWS Cloud Practitioner.1d4d9fa250269a5b5067.png",
+    "static/media/PwC Human Centered Design.png": "/static/media/PwC Human Centered Design.a3e642cd8b103b5a4004.png",
+    "static/media/PwC Digital Acumen.png": "/static/media/PwC Digital Acumen.22e8fe1302eef3f67f83.png",
+    "static/media/AWS Cloud Economics Essential.png": "/static/media/AWS Cloud Economics Essential.972eb4d1a4077e5b7b33.png",
+    "static/media/AWS Business Accredited.png": "/static/media/AWS Business Accredited.6768ed66d1c92e2993c4.png",
     "index.html": "/index.html",
-    "main.d10e2450.css.map": "/static/css/main.d10e2450.css.map",
-    "main.199f409f.js.map": "/static/js/main.199f409f.js.map"
+    "main.734acdb9.css.map": "/static/css/main.734acdb9.css.map",
+    "main.0449d882.js.map": "/static/js/main.0449d882.js.map"
   },
   "entrypoints": [
-    "static/css/main.d10e2450.css",
-    "static/js/main.199f409f.js"
+    "static/css/main.734acdb9.css",
+    "static/js/main.0449d882.js"
   ]
 }
