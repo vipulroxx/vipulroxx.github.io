@@ -14,6 +14,12 @@ import PhotoGallery from './components/PhotoGallery';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Publication from './components/Publication';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import RedditIcon from '@mui/icons-material/Reddit';
+import CloseIcon from '@mui/icons-material/Close'; // For X (formerly Twitter)
 
 function App() {
   const [value, setValue] = React.useState(0);
@@ -98,8 +104,22 @@ function App() {
           <Route path="/experience" element={<Experience />} />
           <Route path="/publication" element={<Publication />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
+  );
+}
+
+function Footer() {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+      <FacebookIcon sx={{ backgroundColor: '#1877F2', borderRadius: '50%', padding: '5px', color: 'white' }} />
+      <InstagramIcon sx={{ backgroundColor: '#E1306C', borderRadius: '50%', padding: '5px', color: 'white' }} />
+      <LinkedInIcon sx={{ backgroundColor: '#0077B5', borderRadius: '50%', padding: '5px', color: 'white' }} />
+      <CloseIcon sx={{ backgroundColor: 'black', borderRadius: '50%', padding: '5px', color: 'white' }} />
+      <RedditIcon sx={{ backgroundColor: '#FF4500', borderRadius: '50%', padding: '5px', color: 'white' }} />
+      <GitHubIcon sx={{ backgroundColor: 'black', borderRadius: '50%', padding: '5px', color: 'white' }} />
+    </div>
   );
 }
 

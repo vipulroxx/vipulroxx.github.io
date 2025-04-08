@@ -1,13 +1,28 @@
-import React from "react";
-import { Button } from "@mui/material";
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  Typography,
-} from "@mui/material";
+import React, { useState } from "react";
+import { Button, Dialog, AppBar, Toolbar, IconButton, Typography, Slide, Box, Card, CardActionArea, CardContent } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import { TransitionProps } from "@mui/material/transitions";
+
+const Transition = React.forwardRef(function Transition(
+	props: TransitionProps & {
+		children: React.ReactElement<any>;
+	},
+	ref: React.Ref<unknown>
+) {
+	return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function Publication() {
+	const [open, setOpen] = useState(false);
+
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
+
 	return (
 		<Card>
 			<CardActionArea>
@@ -28,18 +43,37 @@ function Publication() {
 							<li>Achieved 94% accuracy on a 5 layered DNN, providing better results compared to other earlier works.</li>
 						</ul>
 					</Typography>
-					<Button 
-						size="large" 
-						color="secondary" 
-						variant="contained" 
-						href="https://www.inderscienceonline.com/doi/abs/10.1504/IJISDC.2023.10012345" 
-						target="_blank" 
+						<Button
+						size="large"
+						color="secondary"
+						variant="contained"
+						onClick={handleClickOpen}
 						className="resume-button"
 					>
 						READ
 					</Button>
 				</CardContent>
 			</CardActionArea>
+
+			<Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+				<AppBar sx={{ position: "relative" }}>
+					<Toolbar>
+						<IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+							<CloseIcon />
+						</IconButton>
+						<Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+							Research Paper - Breast Cancer Classification
+						</Typography>
+					</Toolbar>
+				</AppBar>
+				<Box sx={{ height: "calc(100% - 64px)", width: "100%", position: "relative" }}>
+					<iframe
+						src="/research.pdf"
+						title="Research Paper"
+						style={{ width: "100%", height: "100%", border: "none" }}
+					/>
+				</Box>
+			</Dialog>
 		</Card>
 	);
 }

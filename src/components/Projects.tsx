@@ -1,247 +1,277 @@
 import React, { useState } from "react";
-import { styled } from "@mui/material/styles"; // Updated import
-import clsx from "clsx";
-import MoreVertIcon from "@mui/icons-material/MoreVert"; // Updated import
-import InfoIcon from "@mui/icons-material/Info"; // Updated import
-import Typography from "@mui/material/Typography"; // Updated import
-import Card from "@mui/material/Card"; // Updated import
-import CardHeader from "@mui/material/CardHeader"; // Updated import
-import CardContent from "@mui/material/CardContent"; // Updated import
-import CardActions from "@mui/material/CardActions"; // Updated import
-import Collapse from "@mui/material/Collapse"; // Updated import
-import Avatar from "@mui/material/Avatar"; // Updated import
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore"; // Updated import
-import IconButton from "@mui/material/IconButton"; // Updated import
-import '../App.css';
+import { Box, Card, CardContent, CardActions, Dialog, AppBar, Toolbar, IconButton, Typography, Tooltip, Accordion, AccordionSummary, AccordionDetails, Slide, Grid, Paper, TextField } from "@mui/material";
+import { TransitionProps } from "@mui/material/transitions";
+import CloseIcon from "@mui/icons-material/Close";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LaunchIcon from "@mui/icons-material/Launch";
 
-const PREFIX = 'Projects';
-
-const classes = {
-  root: `${PREFIX}-root`,
-  avatar: `${PREFIX}-avatar`,
-  expand: `${PREFIX}-expand`,
-  expandOpen: `${PREFIX}-expandOpen`,
-};
-
-const Root = styled('div')(({ theme }) => ({
-  [`& .${classes.root}`]: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-    marginBottom: theme.spacing(2), // Add spacing between cards
-  },
-  [`& .${classes.avatar}`]: {
-    backgroundColor: "#f44336",
-  },
-  [`& .${classes.expand}`]: {
-    transform: "rotate(0deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  [`& .${classes.expandOpen}`]: {
-    transform: "rotate(180deg)",
-  },
-}));
-
-const projectsData = [
-  {
-    title: "Samadhaan",
-    subheader: "June, 2021",
-    professor: "Monalisa Panda",
-    course: "PHP & MySQL",
-    description: [
-      "Build a concern logging application using PHP, HTML, CSS & JS",
-      "Concerns can be logged by a user living in a housing colony and an administrator can attend those concerns",
-      "Final system was used in Ambuja Cement Colony at Sindri, Jharkhand and can be visited on ",
-      <a href="https://accsindrisamadhan.com" style={{ textDecoration: 'none' }}>ACCSINDRISAMADHAN.COM</a>
-    ]
-  },
-  {
-    title: "ITER Academics",
-    subheader: "June, 2021",
-    professor: "Kaberi Das",
-    course: "Senior Design Project",
-    description: [
-      "Built ITER Academics website which allows users to view course outcomes, departments & course information offered by ITER, SOA",
-      "Website was build using single page application development concept with latest tools including ReactJS & material design concept"
-    ]
-  },
-  {
-    title: "Information Retrieval from any Document",
-    subheader: "February, 2021",
-    professor: "Sushree Priyadarshini",
-    course: "Information Retrieval",
-    description: [
-      "Pre-processed the document data by tokenization, stop word removal and stemming in Python",
-      "Calculated the term and document frequency to take out the term score after the document was pre-processed",
-      "Information was then extracted by taking out the cosine similarity"
-    ]
-  },
-  {
-    title: "Diabetes Classification",
-    subheader: "February, 2021",
-    professor: "Kaberi Das",
-    course: "Data Mining",
-    description: [
-      "Classified the diabetes dataset with 3 different classifiers and compared each framework’s accuracy",
-      "Classifiers used were Decision Trees, Bayesian Networks and Neural Networks and were implemented in Python"
-    ]
-  },
-  {
-    title: "IPC Sockets, AES Encrypt, MD5 hashed",
-    subheader: "February, 2021",
-    professor: "Mitrabinda Rai",
-    course: "Software Engineering using Android",
-    description: [
-      "Application build in Android aimed to make customer and vendor interact faster in terms of grocery buying and selling sector respectively",
-      "Allowed the user to create a grocery list of their choice from listed products available on the application based on different price points",
-      "The final list was converted to PDF and could be send to any vendor through online social messaging platform such as WhatsApp"
-    ]
-  },
-  {
-    title: "CPU Schedulers",
-    subheader: "October, 2020",
-    professor: "Rajshree Das",
-    course: "Design of Operating Systems",
-    description: [
-      "Implemented CPU schedulers using FCFS, SJF, SRTF, and RR based policies",
-      "Users could choose their preferred choice of policy and check against the process running from the ready queue",
-      "Output given to the user was Gnatt chart, average wait time, average turnaround time and average response time"
-    ]
-  },
-  {
-    title: "Lexical Analyzer",
-    subheader: "September, 2020",
-    professor: "Niranjan Panda",
-    course: "Compiler Design",
-    description: [
-      "Used finite state machine having a set of states, a set of transitions, and a string of input data",
-      "FSM was then implemented in C to recognize a list of identifiers and non-negative integers"
-    ]
-  },
-  {
-    title: "UNIX System Call and Concepts",
-    subheader: "August, 2020",
-    professor: "Sanjay Kumar Jena",
-    course: "UNIX System Programming",
-    description: [
-      "Used system calls including fork, wait, strtok and dup2 for processes, tokenizing arguments and duplicating file descriptors",
-      "Implemented concepts such as pipes, critical sections and inter process communication in C"
-    ]
-  },
-  {
-    title: "Implementation of Algorithms",
-    subheader: "August, 2019",
-    professor: "Satyaranjan Das",
-    course: "Algorithm Design 2",
-    description: [
-      "Implemented N-Queens, Binomial Coefficient, CYK, Edit Distance, Floyd-Warshall algorithms in C++",
-      "Implemented Knapsack, Linear Integer Partition, Backtracking and Matric Chain Order Optimal Parenthesis algorithms in C++"
-    ]
-  },
-  {
-    title: "SAGE",
-    subheader: "October, 2017",
-    professor: "Nicholas McPhee",
-    course: "Software Design, Development",
-    description: [
-      "Developed SAGE (Synonyms, Antonyms, General Sense & Example Usage), a game for teachers and students who want to improve vocabulary",
-      "Designed for a classroom setting, the game can be accessed on ",
-      <a style={{ textDecoration: "none" }} href="https://sage.cards">SAGE.CARDS</a>,
-      "Students try to guess the meaning of a word through hints which is controlled by the teacher"
-    ]
-  },
-  {
-    title: "Point of Sales",
-    subheader: "September, 2017",
-    professor: "Peter Dolan",
-    course: "Database Systems",
-    description: [
-      "Developed a point of sales web application using Angular JS, Node JS and MariaDB",
-      "Main features included login utility, editing items for transaction and selling a transaction",
-      "Login utility always (re)loaded on display screen showing username and password for a particular user",
-      "Built an API providing endpoints for fetching buttons and manipulating transactions"
-    ]
-  },
-  {
-    title: "Axxelerate",
-    subheader: "August, 2017",
-    professor: "Peter Dolan",
-    course: "Database Systems",
-    description: [
-      "Created a Python based search engine using Scrapy for crawling webpages that downloads a webpage and selectively collects information",
-      "Crawler could also download more webpages based on the links found in the current webpage",
-      "Used MariaDB for the database to store the records and various tables",
-      "Database indexed a Binary Tree, the word column in the keyword table and then just joint with page ordering by PageRank.",
-      "Used Flask for the webserver and used Angular 4 and Material Design approach for front end"
-    ]
-  }
-];
-
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & { children: React.ReactElement<any>; },
+  ref: React.Ref<unknown>,
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function Projects() {
-  const [expanded, setExpanded] = useState(-1);
+  const [open, setOpen] = useState(false);
+  const [dialogContent, setDialogContent] = useState<string | null>(null);
+  const [expandedDialog, setExpandedDialog] = useState<string | false>(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleExpandClick = (index: any) => {
-    setExpanded(expanded === index ? -1 : index);
+  const handleClickOpen = (content: string) => {
+    setDialogContent(content);
+    setOpen(true);
   };
 
+  const handleClose = () => {
+    setOpen(false);
+    setDialogContent(null);
+  };
+
+  const handleDialogAccordionChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    setExpandedDialog(isExpanded ? panel : false);
+  };
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value.toLowerCase());
+  };
+
+  const projectsData = [
+    {
+      title: "Samadhaan",
+      subheader: "June, 2021",
+      description: "Build a concern logging application using PHP, HTML, CSS & JS...",
+      dialogContent: "Concerns can be logged by a user living in a housing colony and an administrator can attend those concerns. Final system was used in Ambuja Cement Colony at Sindri, Jharkhand and can be visited on https://accsindrisamadhan.com.",
+      githubLink: "https://github.com/example/samadhaan",
+      liveLink: "https://accsindrisamadhan.com",
+    },
+    {
+      title: "ITER Academics",
+      subheader: "June, 2021",
+      description: "Built ITER Academics website which allows users to view course outcomes...",
+      dialogContent: "Website was built using single-page application development concept with latest tools including ReactJS & material design concept.",
+      githubLink: "https://github.com/example/iter-academics",
+      liveLink: null,
+    },
+    {
+      title: "Information Retrieval from any Document",
+      subheader: "February, 2021",
+      description: "Pre-processed the document data by tokenization, stop word removal and stemming in Python...",
+      dialogContent: "Calculated the term and document frequency to take out the term score after the document was pre-processed. Information was then extracted by taking out the cosine similarity.",
+    },
+    {
+      title: "Diabetes Classification",
+      subheader: "February, 2021",
+      description: "Classified the diabetes dataset with 3 different classifiers...",
+      dialogContent: "Classifiers used were Decision Trees, Bayesian Networks, and Neural Networks and were implemented in Python. Compared each framework’s accuracy.",
+    },
+    {
+      title: "IPC Sockets, AES Encrypt, MD5 hashed",
+      subheader: "February, 2021",
+      description: "Application built in Android aimed to make customer and vendor interact faster...",
+      dialogContent: "Allowed the user to create a grocery list of their choice from listed products available on the application based on different price points. The final list was converted to PDF and could be sent to any vendor through online social messaging platforms such as WhatsApp.",
+    },
+    {
+      title: "CPU Schedulers",
+      subheader: "October, 2020",
+      description: "Implemented CPU schedulers using FCFS, SJF, SRTF, and RR based policies...",
+      dialogContent: "Users could choose their preferred choice of policy and check against the process running from the ready queue. Output given to the user was Gantt chart, average wait time, average turnaround time, and average response time.",
+    },
+    {
+      title: "Lexical Analyzer",
+      subheader: "September, 2020",
+      description: "Used finite state machine having a set of states, a set of transitions, and a string of input data...",
+      dialogContent: "FSM was then implemented in C to recognize a list of identifiers and non-negative integers.",
+    },
+    {
+      title: "UNIX System Call and Concepts",
+      subheader: "August, 2020",
+      description: "Used system calls including fork, wait, strtok, and dup2 for processes...",
+      dialogContent: "Implemented concepts such as pipes, critical sections, and inter-process communication in C.",
+    },
+    {
+      title: "Implementation of Algorithms",
+      subheader: "August, 2019",
+      description: "Implemented N-Queens, Binomial Coefficient, CYK, Edit Distance, Floyd-Warshall algorithms in C++...",
+      dialogContent: "Also implemented Knapsack, Linear Integer Partition, Backtracking, and Matrix Chain Order Optimal Parenthesis algorithms in C++.",
+    },
+    {
+      title: "SAGE",
+      subheader: "October, 2017",
+      description: "Developed SAGE (Synonyms, Antonyms, General Sense & Example Usage), a game for teachers and students...",
+      dialogContent: "Designed for a classroom setting, the game can be accessed on https://sage.cards. Students try to guess the meaning of a word through hints controlled by the teacher.",
+    },
+    {
+      title: "Point of Sales",
+      subheader: "September, 2017",
+      description: "Developed a point of sales web application using Angular JS, Node JS, and MariaDB...",
+      dialogContent: "Main features included login utility, editing items for transaction, and selling a transaction. Built an API providing endpoints for fetching buttons and manipulating transactions.",
+    },
+    {
+      title: "Axxelerate",
+      subheader: "August, 2017",
+      description: "Created a Python-based search engine using Scrapy for crawling webpages...",
+      dialogContent: "Crawler could download more webpages based on the links found in the current webpage. Used MariaDB for the database to store the records and Flask for the webserver. Frontend was built using Angular 4 and Material Design approach.",
+    },
+  ];
+
+  const filteredProjects = projectsData.filter(
+    (project) =>
+      project.title.toLowerCase().includes(searchQuery) ||
+      project.description.toLowerCase().includes(searchQuery) ||
+      project.dialogContent.toLowerCase().includes(searchQuery)
+  );
+
   return (
-    <Root>
-      {projectsData.map((project, index) => (
-        <Card key={index} className={classes.root}>
-          <CardHeader
-            avatar={
-              <Avatar aria-label="recipe" className={classes.avatar}>
-                {index + 1}
-              </Avatar>
-            }
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
-            title={project.title}
-            subheader={project.subheader}
-          />
-          <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-              <b>Professor: </b>
-              {project.professor}
-              <br />
-              <b>Course: </b>
-              {project.course}
-            </Typography>
-          </CardContent>
-          <CardActions disableSpacing>
-            <IconButton aria-label="info">
-              <InfoIcon />
-            </IconButton>
-            <IconButton
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: expanded === index,
-              })}
-              onClick={() => handleExpandClick(index)}
-              aria-expanded={expanded === index}
-              aria-label="show more"
+    <Box sx={{ padding: '16px', backgroundColor: '#f5f5f5', minHeight: '100vh' }}>
+      <Typography variant="h4" sx={{ textAlign: 'center', marginBottom: '24px', fontWeight: 'bold' }}>
+        Projects
+      </Typography>
+      <TextField
+        fullWidth
+        variant="outlined"
+        placeholder="Search projects..."
+        onChange={handleSearchChange}
+        sx={{ marginBottom: '24px' }}
+      />
+      <Box sx={{ maxHeight: '70vh', overflowY: 'auto' }}>
+        <Grid 
+          container 
+          spacing={3} 
+          justifyContent="center" 
+          sx={{
+            '@media (max-width: 500px)': {
+              flexDirection: 'column',
+              alignItems: 'center',
+            },
+            '@media (min-width: 501px) and (max-width: 800px)': {
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              display: 'grid',
+              gap: '16px',
+            },
+            '@media (min-width: 801px)': {
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              display: 'grid',
+              gap: '16px',
+            },
+          }}
+        >
+          {filteredProjects.map((project, index) => (
+            <Grid 
+              item 
+              xs={12} 
+              key={index} 
+              sx={{
+                '@media (max-width: 500px)': {
+                  width: '100%',
+                },
+              }}
             >
-              <ExpandMoreIcon />
+              <Paper elevation={3} sx={{ borderRadius: '16px', overflow: 'hidden' }}>
+                <Card sx={{ position: 'relative', height: '100%' }}>
+                  <CardContent>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                      {project.title}
+                    </Typography>
+                    <Typography variant="subtitle1" color="textSecondary" sx={{ marginBottom: '8px' }}>
+                      {project.subheader}
+                    </Typography>
+                    <Typography variant="body2" sx={{ height: '60px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      {project.description}
+                    </Typography>
+                  </CardContent>
+                  <CardActions sx={{ justifyContent: 'space-between', padding: '8px 16px' }}>
+                    <Tooltip title="View Details">
+                      <IconButton
+                        size="small"
+                        color="primary"
+                        onClick={() => handleClickOpen(project.dialogContent)}
+                      >
+                        <VisibilityIcon />
+                      </IconButton>
+                    </Tooltip>
+                    <Tooltip title="View on GitHub">
+                      <IconButton
+                        size="small"
+                        color="secondary"
+                        onClick={() => window.open(project.githubLink, "_blank")}
+                      >
+                        <GitHubIcon />
+                      </IconButton>
+                    </Tooltip>
+                    {project.liveLink && (
+                      <Tooltip title="View Live">
+                        <IconButton
+                          size="small"
+                          color="default"
+                          onClick={() => window.open(project.liveLink, "_blank")}
+                        >
+                          <LaunchIcon />
+                        </IconButton>
+                      </Tooltip>
+                    )}
+                  </CardActions>
+                </Card>
+              </Paper>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        TransitionComponent={Transition}
+        PaperProps={{
+          sx: {
+            width: '80%',
+            maxWidth: '1200px',
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            borderRadius: '16px',
+            boxShadow: '0px 8px 30px rgba(0, 0, 0, 0.3)',
+            backgroundColor: '#ffffff',
+            overflowY: 'auto',
+            maxHeight: '90vh',
+            padding: '16px',
+          },
+        }}
+      >
+        <AppBar sx={{ position: 'relative', backgroundColor: '#1976d2' }}>
+          <Toolbar>
+            <IconButton
+              edge="start"
+              color="inherit"
+              onClick={handleClose}
+              aria-label="close"
+            >
+              <CloseIcon />
             </IconButton>
-          </CardActions>
-          <Collapse in={expanded === index} timeout="auto" unmountOnExit>
-            <CardContent>
-              <Typography paragraph>Key Points:</Typography>
-              <Typography paragraph>
-                {project.description.map((point, idx) => (
-                  <React.Fragment key={idx}>{point}</React.Fragment>
-                ))}
+            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+              Project Details
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Box sx={{ padding: '16px', maxHeight: '80vh', overflowY: 'auto' }}>
+          <Accordion
+            expanded={expandedDialog === 'panel1'}
+            onChange={handleDialogAccordionChange('panel1')}
+          >
+            <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
+              <Typography variant="h6">Details</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography variant="body2">
+                {dialogContent}
               </Typography>
-            </CardContent>
-          </Collapse>
-        </Card>
-      ))}
-    </Root>
+            </AccordionDetails>
+          </Accordion>
+        </Box>
+      </Dialog>
+    </Box>
   );
 }
 

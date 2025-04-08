@@ -1,4 +1,3 @@
-/* General Styles */
 .App {
   text-align: center;
 }
@@ -10,105 +9,106 @@
 }
 
 .card-header-title {
-  color: red;
+  color: rgb(232, 171, 247);
   border: 1px solid ButtonFace;
   text-align: center;
-  margin: 1rem auto; /* Center the header */
+  margin: 1rem auto;
 }
 
 .card-content {
   margin-top: 0;
+  padding: 0;
+}
+
+.about-me-paper {
+  padding: 0;
 }
 
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .social-icons a {
-  color: #1976d2; /* Secondary color for the icons */
+  color: #b4016fb9;
 }
 
 .social-icons a:hover {
-  color: #FFD700; /* Golden highlight */
+  color: hsla(277, 99%, 35%, 0.725);
 }
 
 .resume-button {
   margin: 2rem auto;
 }
 
-.github-stats {
-  margin-top: 2%;
-  width: 100%;
-  max-width: 800px;
-  height: auto;
+.tech-stack img {
+  width: 40px;
+  height: 40px;
+  transition: filter 0.3s ease;
 }
 
-.projects-section {
-  margin-top: 2%;
-  height: 1075px;
-  overflow-y: auto;
-  padding: 1rem;
+.tech-stack img:hover {
+  filter: brightness(2.2);
 }
 
-.tech-stack {
-  margin-top: 2%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2rem;
+.image-container {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  filter: brightness(2.9);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Tab Panel Styles */
-.MuiTab-root {
-  background-color: #FFD700; /* Golden color for the current tab */
-  color: #000; /* Black text for contrast */
-  transition: background-color 0.3s ease, color 0.3s ease;
+.photo-container {
+  position: relative;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.Mui-selected {
-  background-color: #FFD700 !important; /* Ensure the selected tab is golden */
-  color: #000 !important; /* Black text for the selected tab */
+.photo-container.fade-in {
+  opacity: 1;
 }
 
-/* Tab Panel Hover Styles */
-.MuiTab-root:hover {
-  background-color: #FFD700; /* Golden highlight */
-  color: #fff; /* White text for contrast */
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.MuiTab-wrapper:hover svg {
-  transform: scale(1.2); /* Slightly enlarge the icon */
-  transition: transform 0.3s ease;
-}
-
-/* Responsive Styles */
-@media only screen and (max-width: 800px) {
-  .card-header-title {
-    font-size: 1.5rem; /* Adjust size for smaller screens */
-    margin: 0.5rem auto;
+@keyframes slide-images {
+  0%, 25% {
+    background-image: url('./static/img/pics/vipul.png');
+    clip-path: inset(0 0 0 0);
   }
+  37.5% {
+    clip-path: inset(0 50% 0 0);
+  }
+  50%, 75% {
+    background-image: url('./static/img/pics/athelete.png');
+    clip-path: inset(0 0 0 50%);
+  }
+  87.5% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    background-image: url('./static/img/pics/vipul.png');
+    clip-path: inset(0 50% 0 0);
+  }
+}
 
+@media only screen and (max-width: 800px) {
   .card-content {
     margin: 1rem;
+    padding: 0;
   }
 
-  .projects-section {
-    height: auto;
-    margin-top: 2%;
+  .about-me-paper {
+    padding: 0.5rem;
+  }
+
+  .social-icons {
+    flex-wrap: wrap;
   }
 
   .tech-stack {
-    margin-top: 2%;
-    gap: 1rem;
+    gap: 0.5rem;
   }
-}
-
-/* Additional Styles */
-.tech-stack img {
-  width: 5%;
-  height: auto;
 }
