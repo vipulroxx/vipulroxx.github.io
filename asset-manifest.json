@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.6be27ce4.css",
-    "main.js": "/static/js/main.3a6d1107.js",
+    "main.js": "/static/js/main.c4dfc356.js",
     "static/media/moment_14.png": "/static/media/moment_14.d01dc832d9068d587c8b.png",
     "static/media/moment_32.png": "/static/media/moment_32.753d556b8fb1d2c58e22.png",
     "static/media/moment_19.png": "/static/media/moment_19.1c0de75b48a5ea7b75ac.png",
@@ -51,10 +51,10 @@
     "static/media/AWS Business Accredited.png": "/static/media/AWS Business Accredited.6768ed66d1c92e2993c4.png",
     "index.html": "/index.html",
     "main.6be27ce4.css.map": "/static/css/main.6be27ce4.css.map",
-    "main.3a6d1107.js.map": "/static/js/main.3a6d1107.js.map"
+    "main.c4dfc356.js.map": "/static/js/main.c4dfc356.js.map"
   },
   "entrypoints": [
     "static/css/main.6be27ce4.css",
-    "static/js/main.3a6d1107.js"
+    "static/js/main.c4dfc356.js"
   ]
 }
