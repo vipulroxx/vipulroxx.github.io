@@ -11,6 +11,7 @@ import {
   Button,
   Chip,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom"; 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -35,6 +36,7 @@ import PwCHumanCenteredDesign from "../static/img/badges/PwC Human Centered Desi
 
 const Home = () => {
   const [currentImage, setCurrentImage] = useState(ProfileImage);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -108,6 +110,7 @@ const Home = () => {
                     backgroundColor: "#a0015fb9",
                   },
                 }}
+                onClick={() => navigate("/experience")} // Navigate to experience page
               >
                 Experience
               </Button>
