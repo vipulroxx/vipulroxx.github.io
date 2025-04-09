@@ -153,7 +153,7 @@ const Home = () => {
                 { href: "https://webpack.js.org/", src: "https://raw.githubusercontent.com/webpack/media/master/logo/icon-square-big.png", alt: "Webpack" },
                 { href: "https://www.php.net", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg", alt: "PHP" },
                 { href: "https://www.mongodb.com/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg", alt: "MongoDB" },
-                { href: "https://flask.palletsprojects.com/", src: "https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg", alt: "Flask" },
+                { href: "https://firebase.google.com/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain-wordmark.svg", alt: "Firebase" },
                 { href: "https://www.elastic.co", src: "https://www.vectorlogo.zone/logos/elastic/elastic-icon.svg", alt: "Elasticsearch" },
                 { href: "https://cordova.apache.org/", src: "https://www.vectorlogo.zone/logos/apache_cordova/apache_cordova-icon.svg", alt: "Apache Cordova" },
                 { href: "https://www.gnu.org/software/bash/", src: "https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg", alt: "Bash" },

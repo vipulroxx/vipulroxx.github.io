@@ -73,6 +73,13 @@
   opacity: 1;
 }
 
+.info-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+}
+
 @keyframes slide-images {
   0%, 25% {
     background-image: url('./static/img/pics/vipul.png');

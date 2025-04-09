@@ -14,8 +14,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const useStyles = makeStyles(() => ({
   card: {
-    maxWidth: 345,
-    position: 'relative',
+    maxWidth: '100%',
+    '@media (max-width: 600px)': {
+      maxWidth: '100%',
+    },
   },
   infoIcon: {
     position: 'absolute',
@@ -262,14 +264,14 @@ function Experience() {
           flexWrap: 'wrap',
           gap: '16px',
           justifyContent: 'center',
-          '@media (max-width: 500px)': {
+          '@media (max-width: 600px)': {
             flexDirection: 'column',
           },
-          '@media (min-width: 501px) and (max-width: 800px)': {
+          '@media (min-width: 601px) and (max-width: 1024px)': {
             flexDirection: 'row',
             justifyContent: 'space-between',
           },
-          '@media (min-width: 801px)': {
+          '@media (min-width: 1025px)': {
             flexDirection: 'row',
             justifyContent: 'space-between',
           },
@@ -280,13 +282,8 @@ function Experience() {
             key={index} 
             className={classes.card} 
             sx={{ 
-              width: '100%',
-              '@media (min-width: 501px) and (max-width: 800px)': {
-                width: '48%',
-              },
-              '@media (min-width: 801px)': {
-                width: '30%',
-              },
+              minWidth: '100%',
+              position: 'relative', // Ensure consistent positioning
             }}
           >
             <Tooltip title="More Info">
@@ -294,22 +291,32 @@ function Experience() {
                 size="small"
                 color="primary"
                 className={classes.infoIcon}
+                sx={{
+                  position: 'absolute', // Ensure it stays at the top-right
+                  top: 8,
+                  right: 8,
+                  zIndex: 1,
+                }}
                 onClick={() => handleClickOpen(exp.dialogContent)}
               >
                 <InfoIcon />
               </IconButton>
             </Tooltip>
             <CardContent>
-              <Typography variant="h6">{exp.title}</Typography>
-              <Typography variant="subtitle1" color="textSecondary">
+              <Typography variant="h6" sx={{ fontSize: '1rem' }}>
+                {exp.title}
+              </Typography>
+              <Typography variant="subtitle1" color="textSecondary" sx={{ fontSize: '0.875rem' }}>
                 {exp.subtitle}
               </Typography>
-              <Typography variant="body2">{exp.description}</Typography>
+              <Typography variant="body2" sx={{ fontSize: '0.75rem' }}>
+                {exp.description}
+              </Typography>
             </CardContent>
           </Card>
         ))}
       </Box>
-      <Box sx={{ width: '100%', padding: '16px' }}>
+      <Box sx={{ maxWidth: '100%', padding: '16px' }}>
         <Typography variant="h5" gutterBottom>
           Professional Training
         </Typography>
@@ -326,25 +333,28 @@ function Experience() {
             maxHeight: 'calc(100vh - 400px)',
             overflowY: 'auto',
             width: '100%',
-            '@media (max-width: 500px)': {
+            '@media (max-width: 600px)': {
               maxHeight: 'calc(100vh - 300px)',
               width: '100%',
+            },
+            '@media (max-width: 1024px)': {
+              maxHeight: 'calc(100vh - 350px)',
             },
           }}
         >
           <Table stickyHeader>
             <TableHead>
               <TableRow>
-                <TableCell>
+                <TableCell sx={{ fontSize: '0.875rem' }}>
                   <TableSortLabel>Training Name</TableSortLabel>
                 </TableCell>
-                <TableCell>
+                <TableCell sx={{ fontSize: '0.875rem' }}>
                   <TableSortLabel>Completed Date</TableSortLabel>
                 </TableCell>
-                <TableCell>
+                <TableCell sx={{ fontSize: '0.875rem' }}>
                   <TableSortLabel>Details</TableSortLabel>
                 </TableCell>
-                <TableCell>Actions</TableCell>
+                <TableCell sx={{ fontSize: '0.875rem' }}>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -352,9 +362,9 @@ function Experience() {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((training, index) => (
                   <TableRow key={index}>
-                    <TableCell>{training.name}</TableCell>
-                    <TableCell>{training.completedDate}</TableCell>
-                    <TableCell>{training.details}</TableCell>
+                    <TableCell sx={{ fontSize: '0.75rem' }}>{training.name}</TableCell>
+                    <TableCell sx={{ fontSize: '0.75rem' }}>{training.completedDate}</TableCell>
+                    <TableCell sx={{ fontSize: '0.75rem' }}>{training.details}</TableCell>
                     <TableCell>
                       <Tooltip title="View Details">
                         <IconButton
@@ -386,18 +396,24 @@ function Experience() {
         TransitionComponent={Transition}
         PaperProps={{
           sx: {
-            width: '40%',
-            maxWidth: '40%',
+            width: '100vw',
+            height: '80vh',
             position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            borderRadius: '16px',
-            boxShadow: '0px 8px 30px rgba(0, 0, 0, 0.3)',
+            top: '10%',
+            left: 0,
+            margin: 0,
+            borderRadius: 0,
+            boxShadow: 'none',
             backgroundColor: '#ffffff',
             overflowY: 'auto',
-            maxHeight: '90vh',
-            padding: '16px',
+            '@media (min-width: 515px)': {
+              width: '80%',
+              left: '10%',
+            },
+            '@media (min-width: 1024px)': {
+              width: '60%',
+              left: '20%',
+            },
           },
         }}
       >
@@ -443,16 +459,24 @@ function Experience() {
         TransitionComponent={Transition}
         PaperProps={{
           sx: {
-            width: '100%',
-            maxWidth: '100%',
+            width: '100vw',
+            height: '80vh',
             position: 'absolute',
-            top: 0,
+            top: '10%',
             left: 0,
+            margin: 0,
             borderRadius: 0,
             boxShadow: 'none',
             backgroundColor: '#ffffff',
-            height: '100vh',
-            padding: 0,
+            overflowY: 'auto',
+            '@media (min-width: 515px)': {
+              width: '80%',
+              left: '10%',
+            },
+            '@media (min-width: 1024px)': {
+              width: '60%',
+              left: '20%',
+            },
           },
         }}
       >
