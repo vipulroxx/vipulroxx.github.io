@@ -321,6 +321,7 @@ function Experience() {
           Professional Training
         </Typography>
         <TextField
+          placeholder="Search Training" // Ensure this matches the test
           label="Search Training"
           variant="outlined"
           fullWidth

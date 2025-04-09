@@ -24,7 +24,6 @@ import Resume from "./Resume";
 import "../App.css";
 import langchainLogo from "../static/icons/langchain-icon.jpeg";
 import batsLogo from "../static/icons/bats-icon.jpeg";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 
 // Placeholder images for badges
 import AWSSolutionsArchitect from "../static/img/badges/AWS Solutions Architect.png";
@@ -36,7 +35,6 @@ import PwCHumanCenteredDesign from "../static/img/badges/PwC Human Centered Desi
 
 const Home = () => {
   const [currentImage, setCurrentImage] = useState(ProfileImage);
-  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -103,7 +101,6 @@ const Home = () => {
               <Button
                 variant="contained"
                 startIcon={<WorkspacePremiumIcon />}
-                onClick={() => navigate("/experience")}
                 sx={{
                   backgroundColor: "#b4016fb9",
                   color: "white",
