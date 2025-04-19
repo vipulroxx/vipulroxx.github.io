@@ -53,7 +53,7 @@ function Projects() {
       description: "Build a concern logging application using PHP, HTML, CSS & JS...",
       dialogContent: "Concerns can be logged by a user living in a housing colony and an administrator can attend those concerns. Final system was used in Ambuja Cement Colony at Sindri, Jharkhand and can be visited on https://accsindrisamadhan.com.",
       githubLink: "https://github.com/vipulroxx/samadhaan.git",
-      liveLink: "https://accsindrisamadhan.com",
+      liveLink: "http://samadhaansindri.42web.io/?i=1",
     },
     {
       title: "ITER Academics",
