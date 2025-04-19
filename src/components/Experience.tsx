@@ -7,10 +7,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 import Typography from '@mui/material/Typography';
-import { Box, Card, CardContent, Tooltip, Accordion, AccordionSummary, AccordionDetails, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TablePagination, Paper, TextField, TableSortLabel } from '@mui/material';
+import { Box, Card, CardContent, Tooltip, Accordion, AccordionSummary, AccordionDetails, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TablePagination, Paper, TextField, TableSortLabel, Button } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import InfoIcon from '@mui/icons-material/Info';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ResumeDialog from './ResumeDialog'; // Reuse the Resume-like dialog component
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -45,6 +46,15 @@ function Experience() {
   const [searchQuery, setSearchQuery] = useState("");
   const [page, setPage] = useState(0);
   const rowsPerPage = 3;
+
+  const [openTataSteelDialog, setOpenTataSteelDialog] = useState(false);
+  const [openResearchDialog, setOpenResearchDialog] = useState(false);
+
+  const handleOpenTataSteelDialog = () => setOpenTataSteelDialog(true);
+  const handleCloseTataSteelDialog = () => setOpenTataSteelDialog(false);
+
+  const handleOpenResearchDialog = () => setOpenResearchDialog(true);
+  const handleCloseResearchDialog = () => setOpenResearchDialog(false);
 
   interface DialogContent {
     title: string;
@@ -85,6 +95,10 @@ function Experience() {
 
   const handlePageChange = (event: unknown, newPage: number) => {
     setPage(newPage);
+  };
+
+  const handleOpenPdf = (pdfUrl: string) => {
+    window.open(pdfUrl, '_blank');
   };
 
   const experiences = [
@@ -283,7 +297,7 @@ function Experience() {
             className={classes.card} 
             sx={{ 
               minWidth: '100%',
-              position: 'relative', // Ensure consistent positioning
+              position: 'relative',
             }}
           >
             <Tooltip title="More Info">
@@ -292,7 +306,7 @@ function Experience() {
                 color="primary"
                 className={classes.infoIcon}
                 sx={{
-                  position: 'absolute', // Ensure it stays at the top-right
+                  position: 'absolute',
                   top: 8,
                   right: 8,
                   zIndex: 1,
@@ -312,16 +326,50 @@ function Experience() {
               <Typography variant="body2" sx={{ fontSize: '0.75rem' }}>
                 {exp.description}
               </Typography>
+              {exp.title === "Project Intern" && (
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  sx={{ marginTop: '8px' }}
+                  onClick={handleOpenTataSteelDialog}
+                >
+                  View Report
+                </Button>
+              )}
+              {exp.title === "Research Project Member" && exp.subtitle.includes("Institute of Technical Education and Research") && (
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  sx={{ marginTop: '8px' }}
+                  onClick={handleOpenResearchDialog}
+                >
+                  View Research
+                </Button>
+              )}
             </CardContent>
           </Card>
         ))}
       </Box>
+      {/* Tata Steel Report Dialog */}
+      <ResumeDialog
+        open={openTataSteelDialog}
+        onClose={handleCloseTataSteelDialog}
+        title="Tata Steel Internship Final Report"
+        pdfUrl="/Tata_Steel_Internship_Final_Report.pdf"
+      />
+      {/* Research Paper Dialog */}
+      <ResumeDialog
+        open={openResearchDialog}
+        onClose={handleCloseResearchDialog}
+        title="Research Paper - Breast Cancer Classification"
+        pdfUrl="/research.pdf"
+      />
       <Box sx={{ maxWidth: '100%', padding: '16px' }}>
         <Typography variant="h5" gutterBottom>
           Professional Training
         </Typography>
         <TextField
-          placeholder="Search Training" // Ensure this matches the test
+          placeholder="Search Training"
           label="Search Training"
           variant="outlined"
           fullWidth
@@ -397,23 +445,24 @@ function Experience() {
         TransitionComponent={Transition}
         PaperProps={{
           sx: {
-            width: '100vw',
-            height: '80vh',
             position: 'absolute',
-            top: '10%',
-            left: 0,
-            margin: 0,
-            borderRadius: 0,
-            boxShadow: 'none',
+            width: '80%',
+            height: '80%',
+            top: '50%',
+            left: '40%',
+            transform: 'translate(-50%, -50%)',
+            borderRadius: '16px',
+            boxShadow: '0px 8px 30px rgba(0, 0, 0, 0.3)',
             backgroundColor: '#ffffff',
-            overflowY: 'auto',
-            '@media (min-width: 515px)': {
-              width: '80%',
-              left: '10%',
+            padding: '16px',
+            '@media (max-width: 500px)': {
+              transform: 'translate(-50%, -50%)',
             },
-            '@media (min-width: 1024px)': {
-              width: '60%',
-              left: '20%',
+            '@media (min-width: 501px) and (max-width: 1024px)': {
+              maxWidth: '600px',
+            },
+            '@media (min-width: 1025px)': {
+              maxWidth: '800px',
             },
           },
         }}

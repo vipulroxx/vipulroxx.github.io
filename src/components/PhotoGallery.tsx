@@ -58,16 +58,43 @@ function PhotoGallery() {
   };
 
   return (
-    <Dialog open={true} maxWidth="md" PaperProps={{ sx: { overflow: "hidden", borderRadius: "16px" } }}>
+    <Dialog
+      open={true}
+      maxWidth="md"
+      PaperProps={{
+        sx: {
+          position: "absolute",
+          width: "80%",
+          height: "80%",
+          top: "50%",
+          left: "40%",
+          transform: "translate(-50%, -50%)",
+          borderRadius: "16px",
+          boxShadow: "0px 8px 30px rgba(0, 0, 0, 0.3)",
+          backgroundColor: "#ffffff",
+          padding: "16px",
+          "@media (max-width: 500px)": {
+            left: "40%",
+            transform: "translate(-50%, -50%)",
+          },
+          "@media (min-width: 501px) and (max-width: 1024px)": {
+            maxWidth: "600px",
+          },
+          "@media (min-width: 1025px)": {
+            maxWidth: "800px",
+          },
+        },
+      }}
+    >
       <DialogContent
         sx={{
           position: "relative",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "100vh",
+          height: "100%",
           padding: "1rem",
-          backgroundColor: "#f5f5f5", // Match the app's background color
+          backgroundColor: "#f5f5f5",
         }}
       >
         <IconButton

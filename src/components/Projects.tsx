@@ -260,18 +260,25 @@ function Projects() {
         TransitionComponent={Transition}
         PaperProps={{
           sx: {
-            width: '80%',
-            maxWidth: '1200px',
             position: 'absolute',
+            width: '80%',
+            height: '80%',
             top: '50%',
-            left: '50%',
+            left: '40%',
             transform: 'translate(-50%, -50%)',
             borderRadius: '16px',
             boxShadow: '0px 8px 30px rgba(0, 0, 0, 0.3)',
             backgroundColor: '#ffffff',
-            overflowY: 'auto',
-            maxHeight: '90vh',
             padding: '16px',
+            '@media (max-width: 500px)': {
+              transform: 'translate(-50%, -50%)',
+            },
+            '@media (min-width: 501px) and (max-width: 1024px)': {
+              maxWidth: '600px',
+            },
+            '@media (min-width: 1025px)': {
+              maxWidth: '800px',
+            },
           },
         }}
       >
@@ -291,19 +298,9 @@ function Projects() {
           </Toolbar>
         </AppBar>
         <Box sx={{ padding: '16px', maxHeight: '80vh', overflowY: 'auto' }}>
-          <Accordion
-            expanded={expandedDialog === 'panel1'}
-            onChange={handleDialogAccordionChange('panel1')}
-          >
-            <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
-              <Typography variant="h6">Details</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography variant="body2" sx={{ color: '#555' }}>
-                {dialogContent}
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
+          <Typography variant="body1" sx={{ color: '#555', lineHeight: 1.6 }}>
+            {dialogContent}
+          </Typography>
         </Box>
       </Dialog>
     </Box>
