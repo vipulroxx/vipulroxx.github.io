@@ -7,7 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 import Typography from '@mui/material/Typography';
-import { Box, Card, CardContent, Tooltip, Accordion, AccordionSummary, AccordionDetails, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TablePagination, Paper, TextField, TableSortLabel, Button } from '@mui/material';
+import { Box, Card, CardContent, Tooltip, Accordion, AccordionSummary, AccordionDetails, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TablePagination, Paper, TextField, TableSortLabel, Button, Link } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import InfoIcon from '@mui/icons-material/Info';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -59,7 +59,7 @@ function Experience() {
   interface DialogContent {
     title: string;
     details: string;
-    impacts?: { title: string; description: string }[];
+    impacts?: { title: string; description: string; technologies?: { href: string; src: string; alt: string }[] }[];
   }
 
   const [dialogContent, setDialogContent] = useState<DialogContent | null>(null);
@@ -113,34 +113,78 @@ function Experience() {
           {
             title: "External Client: Foreign Policies",
             description: "Using .NET, React, and SQL to administer as a technical admin across various change requests and working across pillars.",
+            technologies: [
+              { href: "https://azure.microsoft.com/en-us/services/devops/", src: "https://learn.microsoft.com/en-us/media/logos/logo-ms-social.png", alt: "Azure DevOps" },
+              { href: "https://dotnet.microsoft.com/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg", alt: ".NET" },
+              { href: "https://reactjs.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg", alt: "React" },
+              { href: "https://www.microsoft.com/en-us/sql-server", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/microsoftsqlserver/microsoftsqlserver-plain-wordmark.svg", alt: "SQL Server" },
+            ],
           },
           {
             title: "PwC Learning & Developments",
             description: "Achieved certifications for all PwC Full Stack Programmes, .NET, Java & Spring Framework, NodeJS, React & Angular Boot Camps.",
+            technologies: [
+              { href: "https://angular.io", src: "https://angular.io/assets/images/logos/angular/angular.svg", alt: "Angular" },
+              { href: "https://nodejs.org", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg", alt: "Node.js" },
+              { href: "https://spring.io/projects/spring-boot", src: "https://www.vectorlogo.zone/logos/springio/springio-icon.svg", alt: "Spring Boot" },
+            ],
           },
           {
             title: "External Client: A Healthcare Diagnostics Company",
             description: "Solution Architect, Data Scientist, and Full Stack Developer role for one of the largest healthcare diagnostics centers in India.",
+            technologies: [
+              { href: "https://azure.microsoft.com/en-us/services/devops/", src: "https://learn.microsoft.com/en-us/media/logos/logo-ms-social.png", alt: "Azure DevOps" },
+              { href: "https://www.typescriptlang.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg", alt: "TypeScript" },
+              { href: "https://dotnet.microsoft.com/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg", alt: ".NET" },
+              { href: "https://reactjs.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg", alt: "React" },
+              { href: "https://www.python.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg", alt: "Python" },
+            ],
           },
           {
             title: "Microsoft Azure Devboards Product Release Notes Plugin",
             description: "Full Stack Developer role for Microsoft Azure Devboards Product Management, Release Notes Plugin using Semantic Kernel, Python, Azure, React, OpenAPI.",
+            technologies: [
+              { href: "https://www.typescriptlang.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg", alt: "TypeScript" },
+              { href: "https://azure.microsoft.com/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg", alt: "Azure" },
+              { href: "https://reactjs.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg", alt: "React" },
+              { href: "https://www.python.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg", alt: "Python" },
+              { href: "https://aka.ms/semantic-kernel", src: "https://avatars.githubusercontent.com/u/6154722?s=200&v=4", alt: "Semantic Kernel" },
+              { href: "https://www.openapis.org/", src: "https://avatars.githubusercontent.com/u/6844498?s=200&v=4", alt: "OpenAPI" },
+            ],
           },
           {
             title: "Absolute Systems and Functions",
             description: "Used Power Query, Microsoft Dataverse, Excel, and LeanIX to perform business data cutovers and transformations, ensuring seamless data migration and integration.",
+            technologies: [
+              { href: "https://learn.microsoft.com/en-us/power-apps/maker/data-platform/data-platform-intro", src: "https://learn.microsoft.com/en-us/media/logos/logo-ms-social.png", alt: "Dataverse" },
+              { href: "https://www.microsoft.com/en-us/microsoft-365/excel", src: "https://cdn.worldvectorlogo.com/logos/microsoft-excel-2013.svg", alt: "Excel" },
+            ],
           },
           {
             title: "Concourse 2.0",
             description: "Played a key role in migrating from Monolith to Event-Based Module Federated Sub-Module Distributed Micro-Front Ends.",
+            technologies: [
+              { href: "https://www.typescriptlang.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg", alt: "TypeScript" },
+              { href: "https://reactjs.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg", alt: "React" },
+              { href: "https://webpack.js.org/", src: "https://raw.githubusercontent.com/webpack/media/master/logo/icon-square-big.png", alt: "Webpack" },
+              { href: "https://azure.microsoft.com/en-in/", src: "https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg", alt: "Azure" },
+            ],
           },
           {
             title: "AI Factory: PwC Digital Generative AI Initiative",
             description: "Created Proof of Concept for end-to-end application development and deployment using ChatGPT from OpenAI.",
+            technologies: [
+              { href: "https://openai.com/chatgpt", src: "https://avatars.githubusercontent.com/u/78924801?s=200&v=4", alt: "ChatGPT" },
+              { href: "https://www.python.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg", alt: "Python" },
+            ],
           },
           {
             title: "Concourse User Story Coach",
             description: "Developed a user story coaching tool using Flask and other Python frameworks as the backend, integrated with Concourse 2.0 for enhanced user story management.",
+            technologies: [
+              { href: "https://flask.palletsprojects.com/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg", alt: "Flask" },
+              { href: "https://www.python.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg", alt: "Python" },
+            ],
           },
         ],
       },
@@ -153,6 +197,10 @@ function Experience() {
         title: "Tata Steel Project",
         details: "Implemented advanced algorithms to reduce pseudo defects in the Surface Inspection System at CRM Bara, leading to improved production quality and reduced downtime.",
       },
+      technologies: [
+        { href: "https://www.python.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg", alt: "Python" },
+        { href: "https://opencv.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/opencv/opencv-original.svg", alt: "OpenCV" },
+      ],
     },
     {
       title: "Research Project Member",
@@ -162,6 +210,11 @@ function Experience() {
         title: "Breast Cancer Classification",
         details: "Developed a deep learning model for breast cancer classification, achieving high accuracy in early detection and aiding in better diagnostic decisions.",
       },
+      technologies: [
+        { href: "https://www.tensorflow.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg", alt: "TensorFlow" },
+        { href: "https://pytorch.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg", alt: "PyTorch" },
+        { href: "https://www.python.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg", alt: "Python" },
+      ],
     },
     {
       title: "Teaching Assistant",
@@ -171,6 +224,9 @@ function Experience() {
         title: "Teaching Assistant Role",
         details: "Assisted in teaching Python programming for digital media computation, enhancing student engagement and understanding through interactive sessions.",
       },
+      technologies: [
+        { href: "https://www.python.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg", alt: "Python" },
+      ],
     },
     {
       title: "Research Project Member",
@@ -180,8 +236,15 @@ function Experience() {
         title: "Power Consumption Project",
         details: "Developed a cross-platform application to monitor and visualize power usage across the university, promoting energy efficiency and sustainability.",
       },
+      technologies: [
+        { href: "https://reactnative.dev/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg", alt: "React Native" },
+        { href: "https://firebase.google.com/", src: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg", alt: "Firebase" },
+        { href: "https://developer.android.com/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg", alt: "Android" },
+        { href: "https://developer.apple.com/ios/", src: "https://developer.apple.com/assets/elements/icons/ios/ios-128x128_2x.png", alt: "iOS" },
+      ],
     },
   ];
+  
 
   const professionalTraining = [
     {
@@ -498,6 +561,15 @@ function Experience() {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography variant="body2">{impact.description}</Typography>
+                  {impact.technologies && (
+                    <Box sx={{ display: "flex", gap: 1, mt: 1 }}>
+                      {impact.technologies.map((tech, index) => (
+                        <Link key={index} href={tech.href} target="_blank" rel="noopener noreferrer">
+                          <img src={tech.src} alt={tech.alt} width="24" height="24" />
+                        </Link>
+                      ))}
+                    </Box>
+                  )}
                 </AccordionDetails>
               </Accordion>
             ))}

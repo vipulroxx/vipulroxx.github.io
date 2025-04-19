@@ -120,6 +120,7 @@ const Home = () => {
                   color: "white",
                   "&:hover": {
                     backgroundColor: "#a0015fb9",
+                    color: "#a0015fb9",
                   },
                 }}
                 onClick={() => navigate("/experience")} // Navigate to experience page
@@ -150,6 +151,7 @@ const Home = () => {
                 { href: "https://reactjs.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg", alt: "React" },
                 { href: "https://nodejs.org", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg", alt: "Node.js" },
                 { href: "https://www.python.org", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg", alt: "Python" },
+                { href: "https://flask.palletsprojects.com/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg", alt: "Flask" },
                 { href: "https://www.java.com", src: "https://www.vectorlogo.zone/logos/java/java-icon.svg", alt: "Java" },
                 { href: "https://spring.io/projects/spring-boot", src: "https://www.vectorlogo.zone/logos/springio/springio-icon.svg", alt: "Spring Boot" },
                 { href: "https://aws.amazon.com", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", alt: "AWS" },
