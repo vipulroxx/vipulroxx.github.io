@@ -45,7 +45,7 @@ function Projects() {
       description: "Developed a web application for farmers to grow and sell their products...",
       dialogContent: "The application allows farmers to grow, remediate, register, list, and trade their products for sale in the market. Customers can browse the products and place orders directly through the platform.",
       githubLink: "https://github.com/vipulroxx/ameer-kisaan.git",
-      liveLink: null,
+      liveLink: "https://ameer-kisaan-da0ec.web.app",
     },
     {
       title: "Samadhaan",
