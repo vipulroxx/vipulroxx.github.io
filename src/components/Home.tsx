@@ -93,7 +93,19 @@ const Home = () => {
             <Typography variant="body1" align="center" sx={{ mt: 1 }}>
               🌎 🇮🇳 🪽 ⚡️🏅 💖
             </Typography>
-            <Box sx={{ display: "flex", justifyContent: "center", gap: 1, mt: 2 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                gap: 1,
+                mt: 2,
+                flexWrap: "wrap", // Allow wrapping
+                "@media (max-width: 500px)": {
+                  flexDirection: "column", // Stack vertically for small screens
+                  alignItems: "center",
+                },
+              }}
+            >
               <Chip label="Commercial Asset Tech @ PwC" color="primary" variant="outlined" />
               <Chip label="Athlete @ AFI | WWRC 2025" color="primary" variant="outlined" />
             </Box>
