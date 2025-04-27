@@ -11,7 +11,7 @@ import {
   Button,
   Chip,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -110,7 +110,15 @@ const Home = () => {
               <Chip label="Athlete @ AFI | WWRC 2025" color="primary" variant="outlined" />
             </Box>
             {/* Buttons */}
-            <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+                mt: 2,
+                flexDirection: { xs: "column", sm: "row" }, // Stack on extra small, row on small and up
+                alignItems: { xs: "center", sm: "flex-start" }, // Center on extra small, align left on small and up
+              }}
+            >
               <Resume />
               <Button
                 variant="contained"
@@ -122,6 +130,7 @@ const Home = () => {
                     backgroundColor: "#a0015fb9",
                     color: "#a0015fb9",
                   },
+                  width: { xs: "100%", sm: "auto" }, // Full width on extra small
                 }}
                 onClick={() => navigate("/CertificateGallery")} // Navigate to certificate gallery
               >
@@ -137,6 +146,7 @@ const Home = () => {
                     backgroundColor: "#a0015fb9",
                     color: "#a0015fb9",
                   },
+                  width: { xs: "100%", sm: "auto" }, // Full width on extra small
                 }}
                 onClick={() => navigate("/experience")} // Navigate to experience page
               >
@@ -210,7 +220,7 @@ const Home = () => {
             </Box>
 
             <Typography color="secondary" variant="h4" align="center">
-             Badges 
+              Badges
             </Typography>
             <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 2 }}>
               <img src={AWSSolutionsArchitect} alt="AWS Solutions Architect" style={{ width: "120px", height: "auto" }} />
