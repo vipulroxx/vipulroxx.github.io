@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Experience from "./components/Experience";
 import PhotoGallery from "./components/PhotoGallery";
+import CertificateGallery from "./components/CertificateGallery";
 
 function App() {
   return (

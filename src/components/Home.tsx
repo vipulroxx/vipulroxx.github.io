@@ -43,7 +43,7 @@ const Home = () => {
       setCurrentImage((prevImage) =>
         prevImage === ProfileImage ? AthleteImage : ProfileImage
       );
-    }, 1500);
+    }, 2500);
 
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
@@ -112,6 +112,21 @@ const Home = () => {
             {/* Buttons */}
             <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
               <Resume />
+              <Button
+                variant="contained"
+                startIcon={<WorkspacePremiumIcon />}
+                sx={{
+                  backgroundColor: "#b4016fb9",
+                  color: "white",
+                  "&:hover": {
+                    backgroundColor: "#a0015fb9",
+                    color: "#a0015fb9",
+                  },
+                }}
+                onClick={() => navigate("/CertificateGallery")} // Navigate to certificate gallery
+              >
+                Certificates
+              </Button>
               <Button
                 variant="contained"
                 startIcon={<WorkspacePremiumIcon />}
@@ -194,9 +209,8 @@ const Home = () => {
               )}
             </Box>
 
-            {/* Badges & Certifications Section */}
             <Typography color="secondary" variant="h4" align="center">
-              Certifications
+             Badges 
             </Typography>
             <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 2 }}>
               <img src={AWSSolutionsArchitect} alt="AWS Solutions Architect" style={{ width: "120px", height: "auto" }} />

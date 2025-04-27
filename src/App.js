@@ -14,6 +14,7 @@ import PhotoGallery from './components/PhotoGallery';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Publication from './components/Publication';
+import CertificateGallery from './components/CertificateGallery';
 
 function App() {
   const [value, setValue] = React.useState(0);
@@ -97,6 +98,9 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/publication" element={<Publication />} />
+          <Route path='/CertificateGallery' element={<CertificateGallery />} />
+          <Route path="*" element={<Home />} />
+
         </Routes>
       </div>
     </Router>
