@@ -40,6 +40,14 @@ function Projects() {
 
   const projectsData = [
     {
+      title: "AI Powered Human Resource Management System",
+      subheader: "Jun, 2025",
+      description: "Developed a web application for managing human resources using AI...",
+      dialogContent: "The application allows users to manage human resources efficiently with AI-powered features. It includes functionalities for employee management, attendance tracking, and performance evaluation.",
+      githubLink: "https://github.com/vipulroxx/hr-ai-app",
+      liveLink: " https://human-resource-managemen-32452.web.app",
+    },
+    {
       title: "Ameer Kissan",
       subheader: "Jan, 2025",
       description: "Developed a web application for farmers to grow and sell their products...",
