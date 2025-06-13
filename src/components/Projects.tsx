@@ -202,10 +202,8 @@ function Projects() {
           }}
         >
           {filteredProjects.map((project, index) => (
-            <Grid 
-              item 
-              xs={12} 
-              key={index} 
+            <Box
+              key={index}
               sx={{
                 '@media (max-width: 500px)': {
                   width: '100%',
@@ -258,7 +256,7 @@ function Projects() {
                   </CardActions>
                 </Card>
               </Paper>
-            </Grid>
+            </Box>
           ))}
         </Grid>
       </Box>

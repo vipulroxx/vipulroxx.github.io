@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "human-resource-managemen-32452",
+    "staging": "human-resource-managemen-32452"
+  },
+  "targets": {},
+  "etags": {}
+}
