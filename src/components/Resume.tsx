@@ -51,7 +51,7 @@ export default function Resume() {
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6">
-              VIPUL SHARMA RESUME - MASTER, SEPTEMBER, 2024
+              VIPUL SHARMA RESUME - MASTER
             </Typography>
             <Button href="/resume.pdf" download color="inherit" startIcon={<Download />}>
               Download
