@@ -106,6 +106,7 @@ const Home = () => {
                 },
               }}
             >
+              <Chip label="Full Stack GenAI @ ITC Infotech" color="primary" variant="outlined" />
               <Chip label="Commercial Asset Tech @ PwC" color="primary" variant="outlined" />
               <Chip label="Athlete @ AFI | WWRC 2025" color="primary" variant="outlined" />
             </Box>

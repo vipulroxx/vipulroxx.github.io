@@ -62,6 +62,15 @@ function Experience() {
     impacts?: { title: string; description: string; technologies?: { href: string; src: string; alt: string }[] }[];
   }
 
+  interface Experience {
+    title: string;
+    subtitle: string;
+    client?: string;
+    description?: string;
+    dialogContent: DialogContent;
+    technologies?: { href: string; src: string; alt: string }[];
+  }
+
   const [dialogContent, setDialogContent] = useState<DialogContent | null>(null);
 
   const handleClickOpen = (content: DialogContent) => {
@@ -102,6 +111,46 @@ function Experience() {
   };
 
   const experiences = [
+    {
+      title: "Full Stack GenAI Developer",
+      subtitle: "ITC Infotech",
+      client: "Nippon AI Mutual Fund",
+      dialogContent: {
+        title: "ITC Infotech Summary",
+        details: "SUMMARY OF WORK DONE WITH ITC INFOTECH",
+        impacts: [
+          {
+            title: "NAMI Ask AI - Nippon India Mutual Fund AI Assistant",
+            description: `• Project Scope: Led the design and development of an internal AI assistant for Nippon Finance, enabling employees across departments (banking, finance, marketing, digital, etc.) to create chat sessions, upload files, organize project workspaces, and search/query documents with contextual understanding. The platform also featured personalized RSS-based news ingestion and live chat on external content.
+
+• Role: Solution Architect & Full-Stack AI Engineer
+
+• Technology: LangChain, LlamaIndex, OpenAI, Azure OpenAI, Hugging Face, Ollama, Chroma DB, Python, FastAPI, React JS, NextJS, Docker, EC2, Lambda, ECS, S3, EFS, DynamoDB, DocumentDB, ElastiCache (Redis), Kinesis, API Gateway, VPC, Route 53, Transit Gateway, IAM, KMS, Secrets
+
+• Professional Enhancement: Software Design Patterns & Object Oriented Design, Software Design & Development, Foundations of Computer Science, Data Structures & Algorithms, Numerical Methods, Probability & Statistics, Introduction to Machine Learning, Neural Networks & Deep Learning
+
+• Built a full-stack GenAI platform with multi-session chat, project-based workspaces, and file upload segmented by departments.
+
+• Developed the frontend in React + NextJS, delivering a clean, responsive chat UX with session history and workspace navigation.
+
+• Integrated personalized RSS feeds and live news-based chat experiences tied to user registration preferences.
+
+• Delivered admin tools to track prompt usage, token metrics, and user activity, ensuring governance and transparency.
+
+• Architected secure, scalable infrastructure on AWS using serverless, containerized, and streaming services`,
+            technologies: [
+              { href: "https://aws.amazon.com/dynamodb/", src: "https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png", alt: "AWS DynamoDB" },
+              { href: "https://aws.amazon.com/s3/", src: "https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png", alt: "AWS S3" },
+              { href: "https://aws.amazon.com/ecs/", src: "https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png", alt: "AWS ECS" },
+              { href: "https://reactjs.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg", alt: "React JS" },
+              { href: "https://nextjs.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original-wordmark.svg", alt: "NextJS" },
+              { href: "https://www.python.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg", alt: "Python FastAPI" },
+              { href: "https://www.llamaindex.ai/", src: "https://avatars.githubusercontent.com/u/128737003?s=200&v=4", alt: "LlamaIndex" },
+            ],
+          },
+        ],
+      },
+    },
     {
       title: "CTA",
       subtitle: "PwC US AC",
@@ -335,60 +384,51 @@ function Experience() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', padding: '16px' }}>
-      <Box
-        sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '16px',
-          justifyContent: 'center',
-          '@media (max-width: 600px)': {
-            flexDirection: 'column',
-          },
-          '@media (min-width: 601px) and (max-width: 1024px)': {
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          },
-          '@media (min-width: 1025px)': {
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          },
-        }}
-      >
+      <Box sx={{ maxWidth: '100%' }}>
+        <Typography variant="h5" gutterBottom sx={{ marginBottom: '16px' }}>
+          Work Experience
+        </Typography>
         {experiences.map((exp, index) => (
           <Card 
-            key={index} 
-            className={classes.card} 
-            sx={{ 
-              minWidth: '100%',
-              position: 'relative',
+            key={index}
+            sx={{
+              marginBottom: '8px',
+              backgroundColor: '#f5f5f5',
             }}
           >
-            <Tooltip title="More Info">
-              <IconButton
-                size="small"
-                color="primary"
-                className={classes.infoIcon}
-                sx={{
-                  position: 'absolute',
-                  top: 8,
-                  right: 8,
-                  zIndex: 1,
-                }}
-                onClick={() => handleClickOpen(exp.dialogContent)}
-              >
-                <InfoIcon />
-              </IconButton>
-            </Tooltip>
             <CardContent>
-              <Typography variant="h6" sx={{ fontSize: '1rem' }}>
-                {exp.title}
-              </Typography>
-              <Typography variant="subtitle1" color="textSecondary" sx={{ fontSize: '0.875rem' }}>
-                {exp.subtitle}
-              </Typography>
-              <Typography variant="body2" sx={{ fontSize: '0.75rem' }}>
-                {exp.description}
-              </Typography>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'flex-start', paddingRight: '16px' }}>
+                <Box sx={{ flex: 1 }}>
+                  <Typography variant="h6" sx={{ fontSize: '1rem' }}>
+                    {exp.title}
+                  </Typography>
+                  <Typography variant="subtitle1" color="textSecondary" sx={{ fontSize: '0.875rem' }}>
+                    {exp.subtitle}
+                  </Typography>
+                  {exp.client && (
+                    <Typography variant="body2" sx={{ fontSize: '0.75rem', marginTop: '4px' }}>
+                      Client: {exp.client}
+                    </Typography>
+                  )}
+                  {exp.description && (
+                    <Typography variant="body2" sx={{ fontSize: '0.75rem', marginTop: '4px' }}>
+                      {exp.description}
+                    </Typography>
+                  )}
+                </Box>
+                <Tooltip title="More Info">
+                  <IconButton
+                    size="small"
+                    color="primary"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleClickOpen(exp.dialogContent);
+                    }}
+                  >
+                    <InfoIcon />
+                  </IconButton>
+                </Tooltip>
+              </Box>
               {exp.title === "Project Intern" && (
                 <Button
                   variant="contained"
@@ -546,9 +586,11 @@ function Experience() {
           </Toolbar>
         </AppBar>
         <Box sx={{ padding: '16px' }}>
-          <Typography variant="body1" gutterBottom>
-            {dialogContent?.details}
-          </Typography>
+          {dialogContent?.details && (
+            <Typography variant="body1" gutterBottom>
+              {dialogContent.details}
+            </Typography>
+          )}
           {dialogContent?.impacts &&
             dialogContent.impacts.map((impact, idx) => (
               <Accordion
@@ -560,7 +602,7 @@ function Experience() {
                   <Typography variant="h6">{impact.title}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography variant="body2">{impact.description}</Typography>
+                  <Typography variant="body2" sx={{ whiteSpace: 'pre-wrap', lineHeight: '1.8' }}>{impact.description}</Typography>
                   {impact.technologies && (
                     <Box sx={{ display: "flex", gap: 1, mt: 1 }}>
                       {impact.technologies.map((tech, index) => (
