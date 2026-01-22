@@ -24,6 +24,7 @@ export default function CertificatesGallery() {
   });
 
   const certificates: Certificate[] = [ // Explicitly type the 'certificates' array
+    { title: "ITC Infotech Certificate of Recognition", type: "image", file: "/c0.png" },
     { title: "PwC D'Art of Disruption", type: "image", file: "/c1.jpeg" },
     { title: "AWS Partner Cloud Economics Accrediation", type: "pdf", file: "/c2.pdf" },
     { title: "AWS Partner Accrediation Business Digital", type: "pdf", file: "/c3.pdf" },
@@ -34,7 +35,6 @@ export default function CertificatesGallery() {
     { title: "Udemy University of Alberta Object-Oriented Design", type: "pdf", file: "/c8.pdf" },
     { title: "Coursera Building Modern Python Applications on AWS", type: "pdf", file: "/c9.pdf" },
     { title: "Building Modern Python Applications on AWS", type: "pdf", file: "/c10.pdf" },
-
   ];
 
   const handleOpenDialog = (title: string, file: string, type: 'image' | 'pdf') => {

@@ -11,7 +11,9 @@ import { Box, Card, CardContent, Tooltip, Accordion, AccordionSummary, Accordion
 import { makeStyles } from '@mui/styles';
 import InfoIcon from '@mui/icons-material/Info';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import ResumeDialog from './ResumeDialog'; // Reuse the Resume-like dialog component
+import CertificateDialog from './CertificateDialog';
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -49,12 +51,20 @@ function Experience() {
 
   const [openTataSteelDialog, setOpenTataSteelDialog] = useState(false);
   const [openResearchDialog, setOpenResearchDialog] = useState(false);
+  const [openITCCertificatesDialog, setOpenITCCertificatesDialog] = useState(false);
+  const [openPwCCertificatesDialog, setOpenPwCCertificatesDialog] = useState(false);
 
   const handleOpenTataSteelDialog = () => setOpenTataSteelDialog(true);
   const handleCloseTataSteelDialog = () => setOpenTataSteelDialog(false);
 
   const handleOpenResearchDialog = () => setOpenResearchDialog(true);
   const handleCloseResearchDialog = () => setOpenResearchDialog(false);
+
+  const handleOpenITCCertificatesDialog = () => setOpenITCCertificatesDialog(true);
+  const handleCloseITCCertificatesDialog = () => setOpenITCCertificatesDialog(false);
+
+  const handleOpenPwCCertificatesDialog = () => setOpenPwCCertificatesDialog(true);
+  const handleClosePwCCertificatesDialog = () => setOpenPwCCertificatesDialog(false);
 
   interface DialogContent {
     title: string;
@@ -294,6 +304,22 @@ function Experience() {
     },
   ];
   
+  const itcCertificates = [
+    { title: "ITC Infotech Certificate of Recognition", type: "image" as const, file: "/c0.png" },
+  ];
+
+  const pwcCertificates = [
+    { title: "PwC D'Art of Disruption", type: "image" as const, file: "/c1.jpeg" },
+    { title: "AWS Partner Cloud Economics Accrediation", type: "pdf" as const, file: "/c2.pdf" },
+    { title: "AWS Partner Accrediation Business Digital", type: "pdf" as const, file: "/c3.pdf" },
+    { title: "AWS Certified Cloud Practitioner", type: "pdf" as const, file: "/c4.pdf" },
+    { title: "AWS Certified Solution Architect", type: "pdf" as const, file: "/c5.pdf" },
+    { title: "PwC NodeJS Learning Program", type: "pdf" as const, file: "/c6.pdf" },
+    { title: "Linkedin Learning: Cloud Native Projects: Azure Serverless", type: "pdf" as const, file: "/c7.pdf" },
+    { title: "Udemy University of Alberta Object-Oriented Design", type: "pdf" as const, file: "/c8.pdf" },
+    { title: "Coursera Building Modern Python Applications on AWS", type: "pdf" as const, file: "/c9.pdf" },
+    { title: "Building Modern Python Applications on AWS", type: "pdf" as const, file: "/c10.pdf" },
+  ];
 
   const professionalTraining = [
     {
@@ -416,18 +442,50 @@ function Experience() {
                     </Typography>
                   )}
                 </Box>
-                <Tooltip title="More Info">
-                  <IconButton
-                    size="small"
-                    color="primary"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleClickOpen(exp.dialogContent);
-                    }}
-                  >
-                    <InfoIcon />
-                  </IconButton>
-                </Tooltip>
+                <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                  {exp.title === "Full Stack GenAI Developer" && (
+                    <Tooltip title="Certificates">
+                      <Button
+                        variant="outlined"
+                        size="small"
+                        startIcon={<EmojiEventsIcon />}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleOpenITCCertificatesDialog();
+                        }}
+                      >
+                        Certificates
+                      </Button>
+                    </Tooltip>
+                  )}
+                  {exp.title === "CTA" && (
+                    <Tooltip title="Certificates">
+                      <Button
+                        variant="outlined"
+                        size="small"
+                        startIcon={<EmojiEventsIcon />}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleOpenPwCCertificatesDialog();
+                        }}
+                      >
+                        Certificates
+                      </Button>
+                    </Tooltip>
+                  )}
+                  <Tooltip title="More Info">
+                    <IconButton
+                      size="small"
+                      color="primary"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleClickOpen(exp.dialogContent);
+                      }}
+                    >
+                      <InfoIcon />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
               </Box>
               {exp.title === "Project Intern" && (
                 <Button
@@ -669,6 +727,22 @@ function Experience() {
           </Typography>
         </Box>
       </Dialog>
+      
+      {/* ITC Infotech Certificates Dialog */}
+      <CertificateDialog
+        open={openITCCertificatesDialog}
+        onClose={handleCloseITCCertificatesDialog}
+        title="ITC Infotech Certificates"
+        certificates={itcCertificates}
+      />
+      
+      {/* PwC Certificates Dialog */}
+      <CertificateDialog
+        open={openPwCCertificatesDialog}
+        onClose={handleClosePwCCertificatesDialog}
+        title="PwC Certificates"
+        certificates={pwcCertificates}
+      />
     </Box>
   );
 }
