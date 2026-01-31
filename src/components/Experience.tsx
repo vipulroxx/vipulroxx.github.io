@@ -122,16 +122,16 @@ function Experience() {
 
   const experiences = [
     {
-      title: "Full Stack GenAI Developer",
+      title: "Associate Consultant",
       subtitle: "ITC Infotech",
-      client: "Nippon AI Mutual Fund",
+      description: "Full Stack Generative AI Developer",
       dialogContent: {
         title: "ITC Infotech Summary",
         details: "SUMMARY OF WORK DONE WITH ITC INFOTECH",
         impacts: [
           {
-            title: "NAMI Ask AI - Nippon India Mutual Fund AI Assistant",
-            description: `• Project Scope: Led the design and development of an internal AI assistant for Nippon Finance, enabling employees across departments (banking, finance, marketing, digital, etc.) to create chat sessions, upload files, organize project workspaces, and search/query documents with contextual understanding. The platform also featured personalized RSS-based news ingestion and live chat on external content.
+            title: "Full-Stack GenAI Enterprise Platform",
+            description: `• Project Scope: Led the design and development of an enterprise-grade conversational AI platform featuring intelligent chat sessions, document processing and analysis, workspace management, semantic search capabilities, and integration with external data sources.
 
 • Role: Solution Architect & Full-Stack AI Engineer
 
@@ -139,11 +139,11 @@ function Experience() {
 
 • Professional Enhancement: Software Design Patterns & Object Oriented Design, Software Design & Development, Foundations of Computer Science, Data Structures & Algorithms, Numerical Methods, Probability & Statistics, Introduction to Machine Learning, Neural Networks & Deep Learning
 
-• Built a full-stack GenAI platform with multi-session chat, project-based workspaces, and file upload segmented by departments.
+• Built a full-stack GenAI platform with multi-session chat, workspace-based organization, and intelligent document handling.
 
 • Developed the frontend in React + NextJS, delivering a clean, responsive chat UX with session history and workspace navigation.
 
-• Integrated personalized RSS feeds and live news-based chat experiences tied to user registration preferences.
+• Implemented semantic search and contextual analysis capabilities for enhanced user interactions.
 
 • Delivered admin tools to track prompt usage, token metrics, and user activity, ensuring governance and transparency.
 
@@ -431,11 +431,6 @@ function Experience() {
                   <Typography variant="subtitle1" color="textSecondary" sx={{ fontSize: '0.875rem' }}>
                     {exp.subtitle}
                   </Typography>
-                  {exp.client && (
-                    <Typography variant="body2" sx={{ fontSize: '0.75rem', marginTop: '4px' }}>
-                      Client: {exp.client}
-                    </Typography>
-                  )}
                   {exp.description && (
                     <Typography variant="body2" sx={{ fontSize: '0.75rem', marginTop: '4px' }}>
                       {exp.description}
@@ -443,7 +438,7 @@ function Experience() {
                   )}
                 </Box>
                 <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                  {exp.title === "Full Stack GenAI Developer" && (
+                  {exp.title === "Associate Consultant" && (
                     <Tooltip title="Certificates">
                       <Button
                         variant="outlined"
