@@ -53,6 +53,7 @@ function Experience() {
   const [openResearchDialog, setOpenResearchDialog] = useState(false);
   const [openITCCertificatesDialog, setOpenITCCertificatesDialog] = useState(false);
   const [openPwCCertificatesDialog, setOpenPwCCertificatesDialog] = useState(false);
+  const [openTATAAMCCertificatesDialog, setOpenTATAAMCCertificatesDialog] = useState(false);
 
   const handleOpenTataSteelDialog = () => setOpenTataSteelDialog(true);
   const handleCloseTataSteelDialog = () => setOpenTataSteelDialog(false);
@@ -65,6 +66,15 @@ function Experience() {
 
   const handleOpenPwCCertificatesDialog = () => setOpenPwCCertificatesDialog(true);
   const handleClosePwCCertificatesDialog = () => setOpenPwCCertificatesDialog(false);
+
+  const handleOpenTATAAMCCertificatesDialog = () => setOpenTATAAMCCertificatesDialog(true);
+  const handleCloseTATAAMCCertificatesDialog = () => setOpenTATAAMCCertificatesDialog(false);
+
+  interface Certificate {
+    title: string;
+    type: "image" | "pdf";
+    file: string;
+  }
 
   interface DialogContent {
     title: string;
@@ -121,6 +131,115 @@ function Experience() {
   };
 
   const experiences = [
+    {
+      title: "Software Engineer Generative AI Lead",
+      subtitle: "TATA Asset Management Corporation",
+      description: "Full Stack Generative AI Developer",
+      dialogContent: {
+        title: "TATA AMC Summary",
+        details: "SUMMARY OF WORK DONE WITH TATA AMC",
+        impacts: [
+          {
+            title: "TARA - TATA AMC GenAI Platform",
+            description: `TARA acts as an end-to-end AI Copilot platform serving Product, Research, and Trade teams with comprehensive document intelligence, semantic search, real-time analytics, and automated compliance workflows.
+
+PROJECT SCOPE:
+Architected and led full-stack development of TARA, an enterprise-grade AI Copilot platform with document intelligence, semantic search, real-time analytics, and automated compliance workflows.
+
+ROLE: Solution Architect & Full-Stack Generative AI Engineer
+
+TECHNOLOGY STACK: LangChain, LlamaIndex, OpenAI, Azure OpenAI, Hugging Face, Ollama, Chroma DB, Python, FastAPI, React JS, NextJS, Docker, EC2, Lambda, ECS, S3, EFS, DynamoDB, DocumentDB, ElastiCache (Redis), Kinesis, API Gateway, VPC, Route 53, Transit Gateway, IAM, KMS, Secrets
+
+═══════════════════════════════════════════════════════════════════
+
+1. PRODUCT COPILOT (Communication & Document Intelligence)
+Features:
+• AI-assisted document creation & editing (memos, reports, emails)
+• Template-based communication generation
+• Document search via tags, metadata, and semantic queries
+• Versioning and structured document management
+• AI-powered formatting and summarization
+
+Client Benefits:
+⏱️ 60–80% faster document creation
+📄 70% reduction in manual formatting effort
+🔍 3x faster document retrieval
+👥 30–40% productivity gain for business teams
+
+═══════════════════════════════════════════════════════════════════
+
+2. RESEARCH COPILOT (Qualitative & Quantitative Insights)
+
+A. Qualitative Insights:
+Features: Earnings report & filings analysis, News summarization + sentiment detection, Research document intelligence, Chat with documents (RAG-based)
+Client Benefits: ⏱️ 70–90% reduction in research time, 📄 80% faster document review, 📊 30–40% improvement in insight quality, 👨‍💻 3–5x analyst productivity
+
+B. Quantitative Analytics:
+Features: Financial dashboards (charts + tables), Company benchmarking & valuation analysis, Interactive visualizations
+Client Benefits: 📉 60–70% reduction in manual analysis, ⚡ 2x faster decision-making, 📊 Real-time insights vs delayed reporting
+
+C. Report Generation:
+Features: Automated multi-company report builder, Quarterly/FY report generation, Downloadable documents (DOCX/PDF)
+Client Benefits: ⏱️ 75–90% reduction in report generation time, 📑 From hours → minutes, 👥 ~40% operational bandwidth saved
+
+D. Chat & Knowledge Management:
+Features: Conversational AI interface, Chat history (pin, rename, delete), Context-aware responses, Knowledge reuse across sessions
+Client Benefits: 🔁 50% reduction in repeated work, ⚡ Faster onboarding of new users, 📚 Improved institutional knowledge retention
+
+═══════════════════════════════════════════════════════════════════
+
+3. TRADE COPILOT (Pre → Post Trade Lifecycle)
+
+A. Pre-Trade AI:
+Features: Earnings analysis, News aggregation & summarization, Research intelligence
+Client Benefits: ⏱️ 80–90% reduction in research effort, 📊 5–10x coverage increase per analyst, 🎯 Higher-quality investment decisions
+
+B. At-Trade AI:
+Features: Real-time market monitoring, Pattern & anomaly detection
+Client Benefits: ⚡ Real-time decision support, 📈 20–30% better opportunity capture, 🚨 Up to 50% faster anomaly detection
+
+C. Post-Trade AI:
+Features: Trade confirmation extraction (PDF/email/API), Settlement reconciliation automation
+Client Benefits: 🤖 80–90% automation of reconciliation, ❌ 60–80% reduction in errors, ⏱️ 50–70% faster settlement cycles
+
+D. Compliance Automation:
+Features: KYC / AML checks, Regulatory validation, Audit trail generation
+Client Benefits: 🛡️ 90%+ compliance accuracy, ⏱️ 70% reduction in manual compliance effort, 📑 Fully audit-ready workflows
+
+E. Client Servicing:
+Features: Automated trade query handling, Portfolio summaries & insights
+Client Benefits: 📞 60–80% reduction in support workload, ⚡ Instant client responses, 😊 Improved client satisfaction & turnaround time
+
+═══════════════════════════════════════════════════════════════════
+
+OVERALL BUSINESS IMPACT (End-to-End TARA Platform):
+🚀 3–5x overall productivity improvement
+⏱️ 70–85% reduction in manual effort
+❌ Up to 80% reduction in operational errors
+📊 2–3x faster decision-making
+👥 30–50% cost efficiency in operations & research
+📈 Ability to scale without proportional headcount increase
+
+KEY ACHIEVEMENTS:
+• Designed and delivered an AI Copilot platform serving 3 major business verticals with differentiated use cases and UX
+• Built semantic search and RAG capabilities enabling document intelligence across earnings reports, research, and trade data
+• Implemented real-time analytics dashboards for financial insights and benchmarking
+• Developed automated compliance workflows for KYC, AML, and trade settlement reconciliation
+• Architected scalable microservices infrastructure on AWS supporting multi-tenant deployment
+• Delivered admin dashboards for usage analytics, compliance audit trails, and operational governance`,
+            technologies: [
+              { href: "https://aws.amazon.com/dynamodb/", src: "https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png", alt: "AWS DynamoDB" },
+              { href: "https://aws.amazon.com/s3/", src: "https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png", alt: "AWS S3" },
+              { href: "https://aws.amazon.com/ecs/", src: "https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png", alt: "AWS ECS" },
+              { href: "https://reactjs.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg", alt: "React JS" },
+              { href: "https://nextjs.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original-wordmark.svg", alt: "NextJS" },
+              { href: "https://www.python.org/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg", alt: "Python FastAPI" },
+              { href: "https://www.llamaindex.ai/", src: "https://avatars.githubusercontent.com/u/128737003?s=200&v=4", alt: "LlamaIndex" },
+            ],
+          },
+        ],
+      },
+    },
     {
       title: "Associate Consultant",
       subtitle: "ITC Infotech",
@@ -321,6 +440,8 @@ function Experience() {
     { title: "Building Modern Python Applications on AWS", type: "pdf" as const, file: "/c10.pdf" },
   ];
 
+  const tataAMCCertificates: Certificate[] = [];
+
   const professionalTraining = [
     {
       name: "2+2 Coaching in Action",
@@ -462,6 +583,21 @@ function Experience() {
                         onClick={(e) => {
                           e.stopPropagation();
                           handleOpenPwCCertificatesDialog();
+                        }}
+                      >
+                        Certificates
+                      </Button>
+                    </Tooltip>
+                  )}
+                  {exp.title === "Software Engineer Generative AI Lead" && (
+                    <Tooltip title="Certificates">
+                      <Button
+                        variant="outlined"
+                        size="small"
+                        startIcon={<EmojiEventsIcon />}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleOpenTATAAMCCertificatesDialog();
                         }}
                       >
                         Certificates
@@ -737,6 +873,14 @@ function Experience() {
         onClose={handleClosePwCCertificatesDialog}
         title="PwC Certificates"
         certificates={pwcCertificates}
+      />
+      
+      {/* TATA AMC Certificates Dialog */}
+      <CertificateDialog
+        open={openTATAAMCCertificatesDialog}
+        onClose={handleCloseTATAAMCCertificatesDialog}
+        title="TATA AMC Certificates"
+        certificates={tataAMCCertificates}
       />
     </Box>
   );
