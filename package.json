@@ -39,7 +39,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build && cp build/index.html build/404.html",
+    "predeploy": "npm run build && bash scripts/spa-routes.sh",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",

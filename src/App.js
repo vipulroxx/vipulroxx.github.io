@@ -31,9 +31,11 @@ const TAB_PATHS = ['/', '/projects', '/experience', '/publication', '/moments'];
 // Move all routing logic into AppRoutes
 function AppRoutes() {
   // Derive the active tab from the URL so it stays correct on deep links and back/forward.
+  // GitHub Pages redirects /experience to /experience/, so ignore a trailing slash.
   const { pathname } = useLocation();
-  const tabIndex = TAB_PATHS.indexOf(pathname.toLowerCase());
-  const value = tabIndex !== -1 ? tabIndex : pathname.toLowerCase() === '/certificategallery' ? false : 0;
+  const path = (pathname.replace(/\/+$/, '') || '/').toLowerCase();
+  const tabIndex = TAB_PATHS.indexOf(path);
+  const value = tabIndex !== -1 ? tabIndex : path === '/certificategallery' ? false : 0;
 
   return (
     <div style={{ flexGrow: 1, backgroundColor: '#f5f5f5' }}>
