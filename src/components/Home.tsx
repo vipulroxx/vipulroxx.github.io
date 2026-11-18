@@ -180,7 +180,7 @@ const Home = () => {
                 { href: "https://flask.palletsprojects.com/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg", alt: "Flask" },
                 { href: "https://www.java.com", src: "https://www.vectorlogo.zone/logos/java/java-icon.svg", alt: "Java" },
                 { href: "https://spring.io/projects/spring-boot", src: "https://www.vectorlogo.zone/logos/springio/springio-icon.svg", alt: "Spring Boot" },
-                { href: "https://aws.amazon.com", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", alt: "AWS" },
+                { href: "https://aws.amazon.com", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg", alt: "AWS" },
                 { href: "https://azure.microsoft.com/en-in/", src: "https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg", alt: "Azure" },
                 { href: "https://www.docker.com/", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg", alt: "Docker" },
                 { href: "https://kubernetes.io", src: "https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg", alt: "Kubernetes" },
@@ -235,7 +235,7 @@ const Home = () => {
         </Box>
         <CardActionArea>
           <Typography variant="body1" align="center">
-            &copy; 2024 Vipul Sharma. All rights reserved.
+            &copy; {new Date().getFullYear()} Vipul Sharma. All rights reserved.
           </Typography>
         </CardActionArea>
       </CardContent>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './App.css';
 import AppBar from '@mui/material/AppBar';
 import Tab from '@mui/material/Tab';
@@ -25,24 +25,27 @@ function Dashboard() {
   );
 }
 
+// Order must match the <Tab> order below.
+const TAB_PATHS = ['/', '/projects', '/experience', '/publication', '/moments'];
+
 // Move all routing logic into AppRoutes
 function AppRoutes() {
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  // Derive the active tab from the URL so it stays correct on deep links and back/forward.
+  const { pathname } = useLocation();
+  const tabIndex = TAB_PATHS.indexOf(pathname.toLowerCase());
+  const value = tabIndex !== -1 ? tabIndex : pathname.toLowerCase() === '/certificategallery' ? false : 0;
 
   return (
     <div style={{ flexGrow: 1, backgroundColor: '#f5f5f5' }}>
       <AppBar position="static" style={{ flexWrap: 'wrap' }}>
         <Tabs
           value={value}
-          onChange={handleChange}
+          textColor="inherit"
           aria-label="Navigation Tab"
           variant="scrollable"
           scrollButtons="auto"
           style={{ width: '100%' }}
+          sx={{ '& .MuiTabs-indicator': { backgroundColor: 'gold' } }}
         >
           <Tab
             label="Home"
