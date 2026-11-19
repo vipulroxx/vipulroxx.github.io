@@ -19,15 +19,16 @@ export default function ParticleField() {
     if (!canvas || !ctx) return;
 
     const reduced = prefersReducedMotion();
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     const mouse = { x: -9999, y: -9999 };
     let w = 0;
     let h = 0;
     let particles: P[] = [];
     let raf = 0;
+    const onScreenRef = { v: true };
 
     const seed = () => {
-      const count = Math.min(110, Math.floor((w * h) / 12000));
+      const count = Math.min(70, Math.floor((w * h) / 18000));
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -40,6 +41,7 @@ export default function ParticleField() {
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
+      if (rect.width === w && rect.height === h) return;
       w = rect.width;
       h = rect.height;
       canvas.width = w * dpr;
@@ -74,8 +76,11 @@ export default function ParticleField() {
 
         for (let j = i + 1; j < particles.length; j++) {
           const q = particles[j];
-          const d = Math.hypot(p.x - q.x, p.y - q.y);
-          if (d < LINK) {
+          const dx = p.x - q.x;
+          const dy = p.y - q.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < LINK * LINK) {
+            const d = Math.sqrt(d2);
             ctx.strokeStyle = `rgba(${p.c}, ${0.18 * (1 - d / LINK)})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
@@ -94,15 +99,16 @@ export default function ParticleField() {
           ctx.stroke();
         }
 
-        ctx.fillStyle = `rgba(${p.c}, 0.9)`;
-        ctx.shadowColor = `rgba(${p.c}, 1)`;
-        ctx.shadowBlur = 8;
+        ctx.fillStyle = `rgba(${p.c}, 0.18)`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = `rgba(${p.c}, 0.95)`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fill();
-        ctx.shadowBlur = 0;
       }
-      if (!reduced) raf = requestAnimationFrame(draw);
+      if (!reduced && onScreenRef.v && !document.hidden) raf = requestAnimationFrame(draw);
     };
 
     const onMove = (e: PointerEvent) => {
@@ -125,16 +131,25 @@ export default function ParticleField() {
     window.addEventListener("pointermove", onMove, { passive: true });
     document.addEventListener("pointerleave", onLeave);
 
-    // Pause the loop when the tab is hidden.
-    const onVis = () => {
+    // Only animate while the hero is on screen and the tab is visible.
+    let onScreen = true;
+    const sync = () => {
       cancelAnimationFrame(raf);
-      if (!document.hidden && !reduced) raf = requestAnimationFrame(draw);
+      if (onScreen && !document.hidden && !reduced) raf = requestAnimationFrame(draw);
     };
+    const io = new IntersectionObserver(([e]) => {
+      onScreen = e.isIntersecting;
+      onScreenRef.v = onScreen;
+      sync();
+    });
+    io.observe(canvas);
+    const onVis = () => sync();
     document.addEventListener("visibilitychange", onVis);
 
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
+      io.disconnect();
       window.removeEventListener("pointermove", onMove);
       document.removeEventListener("pointerleave", onLeave);
       document.removeEventListener("visibilitychange", onVis);

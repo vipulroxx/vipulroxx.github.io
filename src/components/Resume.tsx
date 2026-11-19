@@ -84,6 +84,7 @@ export default function Resume() {
         >
           {/* Close Button */}
           <IconButton
+            aria-label="close"
             onClick={() => setShowContactDialog(false)}
             sx={{
               position: 'absolute',

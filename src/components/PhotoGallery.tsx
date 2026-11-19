@@ -1,5 +1,6 @@
 /// <reference types="webpack-env" />
 import React, { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -29,7 +30,6 @@ const navBtn = {
   position: "absolute" as const,
   backgroundColor: "rgba(255,255,255,0.06)",
   border: "1px solid var(--border-strong)",
-  backdropFilter: "blur(10px)",
   "&:hover": { backgroundColor: "rgba(34,211,238,0.15)", borderColor: "var(--cyan)" },
 };
 
@@ -78,7 +78,7 @@ function PhotoGallery() {
         </div>
       )}
 
-      {active !== null && (
+      {active !== null && createPortal(
         <div className="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" onClick={() => setActive(null)}>
           <img key={active} src={photos[active].src} alt={photos[active].title} className="page-enter" onClick={(e) => e.stopPropagation()} />
           <IconButton aria-label="close" onClick={() => setActive(null)} sx={{ ...navBtn, top: 20, right: 20 }}>
@@ -93,7 +93,8 @@ function PhotoGallery() {
           <div className="counter">
             {String(active + 1).padStart(2, "0")} / {String(photos.length).padStart(2, "0")}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

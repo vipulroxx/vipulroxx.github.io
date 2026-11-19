@@ -4,7 +4,7 @@ import { createTheme, alpha } from "@mui/material/styles";
 export const tokens = {
   bg: "#06060c",
   bgRaised: "#0c0c18",
-  surface: "rgba(255, 255, 255, 0.035)",
+  surface: "rgba(18, 18, 34, 0.72)",
   surfaceHover: "rgba(255, 255, 255, 0.06)",
   border: "rgba(255, 255, 255, 0.08)",
   borderStrong: "rgba(255, 255, 255, 0.16)",
@@ -50,7 +50,6 @@ const theme = createTheme({
           backgroundImage: "none",
           backgroundColor: tokens.surface,
           border: `1px solid ${tokens.border}`,
-          backdropFilter: "blur(14px)",
         },
       },
     },
@@ -60,28 +59,27 @@ const theme = createTheme({
     MuiDialog: {
       styleOverrides: {
         paper: {
-          backgroundColor: "rgba(12, 12, 24, 0.92)",
           border: `1px solid ${tokens.borderStrong}`,
           borderRadius: 20,
-          boxShadow: `0 30px 80px -20px ${alpha(tokens.violet, 0.35)}`,
+          backgroundColor: "#0e0e1c",
+          boxShadow: "0 24px 64px rgba(0, 0, 0, 0.6)",
         },
         paperFullScreen: { borderRadius: 0, border: "none" },
       },
     },
     MuiBackdrop: {
       styleOverrides: {
-        root: { backgroundColor: "rgba(3, 3, 8, 0.7)", backdropFilter: "blur(6px)" },
-        invisible: { backgroundColor: "transparent", backdropFilter: "none" },
+        root: { backgroundColor: "rgba(3, 3, 8, 0.78)" },
+        invisible: { backgroundColor: "transparent" },
       },
     },
     MuiAppBar: {
       defaultProps: { elevation: 0, color: "transparent" },
       styleOverrides: {
         root: {
-          backgroundColor: "rgba(255, 255, 255, 0.03)",
+          backgroundColor: "#12122a",
           border: "none",
           borderBottom: `1px solid ${tokens.border}`,
-          backdropFilter: "blur(14px)",
         },
       },
     },
@@ -103,7 +101,6 @@ const theme = createTheme({
           borderColor: tokens.borderStrong,
           color: tokens.text,
           backgroundColor: tokens.surface,
-          backdropFilter: "blur(10px)",
           "&:hover": {
             borderColor: tokens.cyan,
             backgroundColor: alpha(tokens.cyan, 0.08),
@@ -123,7 +120,6 @@ const theme = createTheme({
         root: {
           borderRadius: 14,
           backgroundColor: tokens.surface,
-          backdropFilter: "blur(10px)",
           "& fieldset": { borderColor: tokens.border },
           "&:hover fieldset": { borderColor: tokens.borderStrong },
           "&.Mui-focused fieldset": { borderColor: tokens.cyan },
@@ -159,7 +155,7 @@ const theme = createTheme({
     },
     MuiChip: {
       styleOverrides: {
-        root: { borderRadius: 999, fontWeight: 500, backdropFilter: "blur(10px)" },
+        root: { borderRadius: 999, fontWeight: 500 },
         outlined: { borderColor: tokens.borderStrong, backgroundColor: tokens.surface },
       },
     },
