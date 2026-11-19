@@ -17,13 +17,13 @@ const importAll = (requireContext: __WebpackModuleApi.RequireContext): { src: st
         .sort((a, b) => (parseInt(a.replace(/\D/g, ""), 10) || 0) - (parseInt(b.replace(/\D/g, ""), 10) || 0))
         .map((key: string) => ({
           src: requireContext(key).default || requireContext(key),
-          title: key.replace("./", "").replace(".png", "").replace(/_/g, " "),
+          title: key.replace("./", "").replace(/\.\w+$/, "").replace(/_/g, " "),
         }));
 
 const photos = importAll(
   process.env.NODE_ENV === "test"
     ? ({ keys: () => [], resolve: () => "", id: "mock" } as unknown as __WebpackModuleApi.RequireContext)
-    : require.context("/src/static/img/moments", false, /\.png$/)
+    : require.context("/src/static/img/moments", false, /\.(jpe?g|png|webp)$/i)
 );
 
 const navBtn = {

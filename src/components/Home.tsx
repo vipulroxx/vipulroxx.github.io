@@ -109,7 +109,7 @@ function Marquee({ items, reverse = false }: { items: typeof TECH; reverse?: boo
         aria-hidden={copy || undefined}
         tabIndex={copy ? -1 : undefined}
       >
-        <img src={t.src} alt={copy ? "" : t.alt} loading="lazy" />
+        <img src={t.src} alt={copy ? "" : t.alt} />
         {t.alt}
       </a>
     ));

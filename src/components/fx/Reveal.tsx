@@ -7,7 +7,7 @@ interface RevealProps {
   as?: keyof React.JSX.IntrinsicElements;
 }
 
-/** Fades + slides its children in the first time they scroll into view. */
+/** Fades + slides its children in the first time they scroll into view (or are scrolled past). */
 export default function Reveal({ children, delay = 0, className = "", as = "div" }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(typeof IntersectionObserver === "undefined");
@@ -15,17 +15,36 @@ export default function Reveal({ children, delay = 0, className = "", as = "div"
   useEffect(() => {
     const el = ref.current;
     if (!el || visible) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-    );
+
+    // Reached = on screen now, or already above the bottom of the viewport (a fast flick
+    // can jump past an element without the observer ever seeing it intersect).
+    const reached = () => el.getBoundingClientRect().top < window.innerHeight;
+    const show = () => {
+      setVisible(true);
+      cleanup();
+    };
+
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting || entry.boundingClientRect.top < 0) show();
+    });
     io.observe(el);
-    return () => io.disconnect();
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        if (reached()) show();
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    function cleanup() {
+      io.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    }
+    return cleanup;
   }, [visible]);
 
   const Tag = as as any;
