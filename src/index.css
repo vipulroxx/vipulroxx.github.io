@@ -305,7 +305,8 @@ code, .mono { font-family: var(--font-mono); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 
 .socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
-.socials a {
+.socials a,
+.socials span {
   display: grid;
   place-items: center;
   width: 44px;
@@ -316,7 +317,8 @@ code, .mono { font-family: var(--font-mono); }
   background: var(--surface);
   transition: all 0.25s;
 }
-.socials a:hover {
+.socials a:hover,
+.socials span:hover {
   color: var(--cyan);
   border-color: var(--cyan);
   transform: translateY(-3px);

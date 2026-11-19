@@ -30,7 +30,7 @@ import PwCHumanCenteredDesign from "../static/img/badges/PwC Human Centered Desi
 
 const EMAIL = "vipulsharma936@gmail.com";
 
-// Add a profile URL to show its icon in the hero. Entries without an href are hidden.
+// Add a profile URL to make an icon clickable. Entries without an href show as plain icons.
 const SOCIALS: { label: string; href: string; icon: React.ReactNode }[] = [
   { label: "GitHub", href: "https://github.com/vipulroxx", icon: <GitHubIcon /> },
   { label: "LinkedIn", href: "", icon: <LinkedInIcon /> },
@@ -183,18 +183,24 @@ const Home = () => {
                 </Button>
               </div>
               <div className="socials">
-                {SOCIALS.filter((s) => s.href).map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    aria-label={s.label}
-                    title={s.label}
-                    target={s.href.startsWith("http") ? "_blank" : undefined}
-                    rel="noopener noreferrer"
-                  >
-                    {s.icon}
-                  </a>
-                ))}
+                {SOCIALS.map((s) =>
+                  s.href ? (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      aria-label={s.label}
+                      title={s.label}
+                      target={s.href.startsWith("http") ? "_blank" : undefined}
+                      rel="noopener noreferrer"
+                    >
+                      {s.icon}
+                    </a>
+                  ) : (
+                    <span key={s.label} title={s.label} aria-label={s.label} role="img">
+                      {s.icon}
+                    </span>
+                  )
+                )}
               </div>
             </Reveal>
           </div>
