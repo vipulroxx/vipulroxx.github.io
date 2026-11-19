@@ -1,315 +1,288 @@
-import React, { useState } from "react";
-import { Box, Card, CardContent, CardActions, Dialog, AppBar, Toolbar, IconButton, Typography, Tooltip, Accordion, AccordionSummary, AccordionDetails, Slide, Grid, Paper, TextField } from "@mui/material";
-import { TransitionProps } from "@mui/material/transitions";
+import React, { useEffect, useMemo, useState } from "react";
+import { Dialog, IconButton, Tooltip, TextField, InputAdornment, Button } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LaunchIcon from "@mui/icons-material/Launch";
+import SearchIcon from "@mui/icons-material/Search";
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import TiltCard from "./fx/TiltCard";
+import Reveal from "./fx/Reveal";
+import SectionHeader from "./fx/SectionHeader";
 
-const Transition = React.forwardRef(function Transition(
-  props: TransitionProps & { children: React.ReactElement<any>; },
-  ref: React.Ref<unknown>,
-) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+interface Project {
+  title: string;
+  subheader: string;
+  description: string;
+  dialogContent: string;
+  githubLink?: string;
+  liveLink?: string | null;
+}
+
+const projectsData: Project[] = [
+  {
+    title: "AI Powered Human Resource Management System",
+    subheader: "Jun, 2025",
+    description: "Developed a web application for managing human resources using AI...",
+    dialogContent: "The application allows users to manage human resources efficiently with AI-powered features. It includes functionalities for employee management, attendance tracking, and performance evaluation.",
+    githubLink: "https://github.com/vipulroxx/hr-ai-app",
+    liveLink: "https://human-resource-managemen-32452.web.app",
+  },
+  {
+    title: "Ameer Kissan",
+    subheader: "Jan, 2025",
+    description: "Developed a web application for farmers to grow and sell their products...",
+    dialogContent: "The application allows farmers to grow, remediate, register, list, and trade their products for sale in the market. Customers can browse the products and place orders directly through the platform.",
+    githubLink: "https://github.com/vipulroxx/ameer-kisaan.git",
+    liveLink: "https://ameer-kisaan-da0ec.web.app",
+  },
+  {
+    title: "Samadhaan",
+    subheader: "June, 2021",
+    description: "Build a concern logging application using PHP, HTML, CSS & JS...",
+    dialogContent: "Concerns can be logged by a user living in a housing colony and an administrator can attend those concerns. Final system was used in Ambuja Cement Colony at Sindri, Jharkhand and can be visited on https://accsindrisamadhan.com.",
+    githubLink: "https://github.com/vipulroxx/samadhaan.git",
+    liveLink: "https://accsindrisamadhaan.42web.io",
+  },
+  {
+    title: "ITER Academics",
+    subheader: "June, 2021",
+    description: "Built ITER Academics website which allows users to view course outcomes...",
+    dialogContent: "Website was built using single-page application development concept with latest tools including ReactJS & material design concept.",
+    githubLink: "https://github.com/vipulroxx/iter-academics.git",
+    liveLink: null,
+  },
+  {
+    title: "Information Retrieval from any Document",
+    subheader: "February, 2021",
+    description: "Pre-processed the document data by tokenization, stop word removal and stemming in Python...",
+    dialogContent: "Calculated the term and document frequency to take out the term score after the document was pre-processed. Information was then extracted by taking out the cosine similarity.",
+    githubLink: "https://github.com/vipulroxx/information-retrieval-from-document.git",
+  },
+  {
+    title: "Grocery List Android Application",
+    subheader: "February, 2021",
+    description: "Application built in Android aimed to make customer and vendor interact faster...",
+    dialogContent: "Allowed the user to create a grocery list of their choice from listed products available on the application based on different price points. The final list was converted to PDF and could be sent to any vendor through online social messaging platforms such as WhatsApp.",
+    githubLink: "https://github.com/vipulroxx/grocery.git",
+    liveLink: null,
+  },
+  {
+    title: "Greenify",
+    subheader: "February, 2021",
+    description: "Application built in Spring Boot JAVA for understanding endangered plants...",
+    dialogContent: "Application was built to understand the endangered plants and their medicinal properties. Users could search for the plant name and get the details of the plant. The application was built using Spring Boot and Java.",
+    githubLink: "https://github.com/vipulroxx/greenify.git",
+    liveLink: null,
+  },
+  {
+    title: "CPU Schedulers",
+    subheader: "October, 2020",
+    description: "Implemented CPU schedulers using FCFS, SJF, SRTF, and RR based policies...",
+    dialogContent: "Users could choose their preferred choice of policy and check against the process running from the ready queue. Output given to the user was Gantt chart, average wait time, average turnaround time, and average response time.",
+  },
+  {
+    title: "Lexical Analyzer",
+    subheader: "September, 2020",
+    description: "Used finite state machine having a set of states, a set of transitions, and a string of input data...",
+    dialogContent: "FSM was then implemented in C to recognize a list of identifiers and non-negative integers.",
+  },
+  {
+    title: "Compilers and UNIX System Call and Concepts",
+    subheader: "August, 2020",
+    description: "Used system calls including fork, wait, strtok, and dup2 for processes...",
+    dialogContent: "Implemented concepts such as pipes, critical sections, and inter-process communication in C.",
+    githubLink: "https://github.com/vipulroxx/Compiler-Class.git",
+  },
+  {
+    title: "Implementation of Algorithms",
+    subheader: "August, 2019",
+    description: "Implemented N-Queens, Binomial Coefficient, CYK, Edit Distance, Floyd-Warshall algorithms in C++...",
+    dialogContent: "Also implemented Knapsack, Linear Integer Partition, Backtracking, and Matrix Chain Order Optimal Parenthesis algorithms in C++.",
+    githubLink: "https://github.com/vipulroxx/learn-c-.git",
+    liveLink: null,
+  },
+  {
+    title: "Programming Practice JAVA",
+    subheader: "June, 2019",
+    description: "Built a programming practice application using Java...",
+    dialogContent: "Java Programs done in Programming Practice 2 Class: Data Structures and Algorithms. The application allowed the user to practice programming questions and get the solution for the same.",
+    githubLink: "https://github.com/vipulroxx/PP2-JAVA.git",
+    liveLink: null,
+  },
+  {
+    title: "SAGE",
+    subheader: "October, 2017",
+    description: "Developed SAGE (Synonyms, Antonyms, General Sense & Example Usage), a game for teachers and students...",
+    dialogContent: "Designed for a classroom setting, the students try to guess the meaning of a word through hints controlled by the teacher.",
+    githubLink: "https://github.com/vipulroxx/sage-team-cheezit.git",
+    liveLink: "https://sage.cards",
+  },
+  {
+    title: "Point of Sales",
+    subheader: "September, 2017",
+    description: "Developed a point of sales web application using Angular JS, Node JS, and MariaDB...",
+    dialogContent: "Main features included login utility, editing items for transaction, and selling a transaction. Built an API providing endpoints for fetching buttons and manipulating transactions.",
+    githubLink: "https://github.com/vipulroxx/Point-Of-Sales.git",
+    liveLink: null,
+  },
+  {
+    title: "Axxelerate",
+    subheader: "August, 2017",
+    description: "Created a Python-based search engine using Scrapy for crawling webpages...",
+    dialogContent: "Crawler could download more webpages based on the links found in the current webpage. Used MariaDB for the database to store the records and Flask for the webserver. Frontend was built using Angular 4 and Material Design approach.",
+    githubLink: "https://github.com/vipulroxx/Axxelerate.git",
+    liveLink: null,
+  },
+];
+
+const yearOf = (p: Project) => p.subheader.match(/\d{4}/)?.[0] ?? "";
 
 function Projects() {
-  const [open, setOpen] = useState(false);
-  const [dialogContent, setDialogContent] = useState<string | null>(null);
-  const [expandedDialog, setExpandedDialog] = useState<string | false>(false);
+  const [selected, setSelected] = useState<Project | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [liveOnly, setLiveOnly] = useState(false);
 
-  const handleClickOpen = (content: string) => {
-    setDialogContent(content);
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    setDialogContent(null);
-  };
-
-  const handleDialogAccordionChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-    setExpandedDialog(isExpanded ? panel : false);
-  };
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value.toLowerCase());
-  };
-
-  const projectsData = [
-    {
-      title: "AI Powered Human Resource Management System",
-      subheader: "Jun, 2025",
-      description: "Developed a web application for managing human resources using AI...",
-      dialogContent: "The application allows users to manage human resources efficiently with AI-powered features. It includes functionalities for employee management, attendance tracking, and performance evaluation.",
-      githubLink: "https://github.com/vipulroxx/hr-ai-app",
-      liveLink: " https://human-resource-managemen-32452.web.app",
-    },
-    {
-      title: "Ameer Kissan",
-      subheader: "Jan, 2025",
-      description: "Developed a web application for farmers to grow and sell their products...",
-      dialogContent: "The application allows farmers to grow, remediate, register, list, and trade their products for sale in the market. Customers can browse the products and place orders directly through the platform.",
-      githubLink: "https://github.com/vipulroxx/ameer-kisaan.git",
-      liveLink: "https://ameer-kisaan-da0ec.web.app",
-    },
-    {
-      title: "Samadhaan",
-      subheader: "June, 2021",
-      description: "Build a concern logging application using PHP, HTML, CSS & JS...",
-      dialogContent: "Concerns can be logged by a user living in a housing colony and an administrator can attend those concerns. Final system was used in Ambuja Cement Colony at Sindri, Jharkhand and can be visited on https://accsindrisamadhan.com.",
-      githubLink: "https://github.com/vipulroxx/samadhaan.git",
-      liveLink: "https://accsindrisamadhaan.42web.io",
-    },
-    {
-      title: "ITER Academics",
-      subheader: "June, 2021",
-      description: "Built ITER Academics website which allows users to view course outcomes...",
-      dialogContent: "Website was built using single-page application development concept with latest tools including ReactJS & material design concept.",
-      githubLink: "https://github.com/vipulroxx/iter-academics.git",
-      liveLink: null,
-    },
-    {
-      title: "Information Retrieval from any Document",
-      subheader: "February, 2021",
-      description: "Pre-processed the document data by tokenization, stop word removal and stemming in Python...",
-      dialogContent: "Calculated the term and document frequency to take out the term score after the document was pre-processed. Information was then extracted by taking out the cosine similarity.",
-      githubLink: "https://github.com/vipulroxx/information-retrieval-from-document.git",
-    },
-    {
-      title: "Grocery List Android Application",
-      subheader: "February, 2021",
-      description: "Application built in Android aimed to make customer and vendor interact faster...",
-      dialogContent: "Allowed the user to create a grocery list of their choice from listed products available on the application based on different price points. The final list was converted to PDF and could be sent to any vendor through online social messaging platforms such as WhatsApp.",
-      githubLink: "https://github.com/vipulroxx/grocery.git",
-      liveLink: null,
-    },
-    {
-      title: "Greenify",
-      subheader: "February, 2021",
-      description: "Application built in Spring Boot JAVA for understanding endangered plants...",
-      dialogContent: "Application was built to understand the endangered plants and their medicinal properties. Users could search for the plant name and get the details of the plant. The application was built using Spring Boot and Java.",
-      githubLink: "https://github.com/vipulroxx/greenify.git",
-      liveLink: null,
-    },
-    {
-      title: "CPU Schedulers",
-      subheader: "October, 2020",
-      description: "Implemented CPU schedulers using FCFS, SJF, SRTF, and RR based policies...",
-      dialogContent: "Users could choose their preferred choice of policy and check against the process running from the ready queue. Output given to the user was Gantt chart, average wait time, average turnaround time, and average response time.",
-    },
-    {
-      title: "Lexical Analyzer",
-      subheader: "September, 2020",
-      description: "Used finite state machine having a set of states, a set of transitions, and a string of input data...",
-      dialogContent: "FSM was then implemented in C to recognize a list of identifiers and non-negative integers.",
-    },
-    {
-      title: "Compilers and UNIX System Call and Concepts",
-      subheader: "August, 2020",
-      description: "Used system calls including fork, wait, strtok, and dup2 for processes...",
-      dialogContent: "Implemented concepts such as pipes, critical sections, and inter-process communication in C.",
-      githubLink: "https://github.com/vipulroxx/Compiler-Class.git",
-    },
-    {
-      title: "Implementation of Algorithms",
-      subheader: "August, 2019",
-      description: "Implemented N-Queens, Binomial Coefficient, CYK, Edit Distance, Floyd-Warshall algorithms in C++...",
-      dialogContent: "Also implemented Knapsack, Linear Integer Partition, Backtracking, and Matrix Chain Order Optimal Parenthesis algorithms in C++.",
-      githubLink: "https://github.com/vipulroxx/learn-c-.git",
-      liveLink: null,
-    },
-    {
-      title: "Programming Practice JAVA",
-      subheader: "June, 2019",
-      description: "Built a programming practice application using Java...",
-      dialogContent: "Java Programs done in Programming Practice 2 Class: Data Structures and Algorithms. The application allowed the user to practice programming questions and get the solution for the same.",
-      githubLink: "https://github.com/vipulroxx/PP2-JAVA.git",
-      liveLink: null,
-    },
-    {
-      title: "SAGE",
-      subheader: "October, 2017",
-      description: "Developed SAGE (Synonyms, Antonyms, General Sense & Example Usage), a game for teachers and students...",
-      dialogContent: "Designed for a classroom setting, the students try to guess the meaning of a word through hints controlled by the teacher.",
-      githubLink: "https://github.com/vipulroxx/sage-team-cheezit.git",
-      liveLink: "https://sage.cards",
-    },
-    {
-      title: "Point of Sales",
-      subheader: "September, 2017",
-      description: "Developed a point of sales web application using Angular JS, Node JS, and MariaDB...",
-      dialogContent: "Main features included login utility, editing items for transaction, and selling a transaction. Built an API providing endpoints for fetching buttons and manipulating transactions.",
-      githubLink: "https://github.com/vipulroxx/Point-Of-Sales.git",
-      liveLink: null,
-    },
-    {
-      title: "Axxelerate",
-      subheader: "August, 2017",
-      description: "Created a Python-based search engine using Scrapy for crawling webpages...",
-      dialogContent: "Crawler could download more webpages based on the links found in the current webpage. Used MariaDB for the database to store the records and Flask for the webserver. Frontend was built using Angular 4 and Material Design approach.",
-      githubLink: "https://github.com/vipulroxx/Axxelerate.git",
-      liveLink: null,
-    },
-  ];
-
-  const filteredProjects = projectsData.filter(
-    (project) =>
-      project.title.toLowerCase().includes(searchQuery) ||
-      project.description.toLowerCase().includes(searchQuery) ||
-      project.dialogContent.toLowerCase().includes(searchQuery)
+  const filteredProjects = useMemo(
+    () =>
+      projectsData.filter(
+        (project) =>
+          (!liveOnly || project.liveLink) &&
+          (project.title.toLowerCase().includes(searchQuery) ||
+            project.description.toLowerCase().includes(searchQuery) ||
+            project.dialogContent.toLowerCase().includes(searchQuery))
+      ),
+    [searchQuery, liveOnly]
   );
 
+  // "/" focuses search, like most dev tools.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "/" && document.activeElement?.tagName !== "INPUT") {
+        e.preventDefault();
+        document.getElementById("project-search")?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const open = (url?: string | null) => (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (url) window.open(url, "_blank", "noopener");
+  };
+
   return (
-    <Box sx={{ padding: '16px', backgroundColor: '#f9f9f9', minHeight: '100vh' }}>
-      <Typography variant="h4" sx={{ textAlign: 'center', marginBottom: '24px', fontWeight: 'bold', color: '#333' }}>
-        Projects
-      </Typography>
-      <TextField
-        fullWidth
-        variant="outlined"
-        placeholder="Search projects..."
-        onChange={handleSearchChange}
-        sx={{
-          marginBottom: '24px',
-          backgroundColor: '#fff',
-          borderRadius: '8px',
-          boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
-        }}
+    <div className="page">
+      <SectionHeader
+        kicker={`${String(projectsData.length).padStart(2, "0")} / Projects`}
+        title="Things I've built"
+        sub="From AI-powered HR platforms to compilers and CPU schedulers. Hover a card, click for the story."
       />
-      <Box sx={{ maxHeight: '70vh', overflowY: 'auto' }}>
-        <Grid 
-          container 
-          spacing={3} 
-          justifyContent="center" 
-          sx={{
-            '@media (max-width: 500px)': {
-              flexDirection: 'column',
-              alignItems: 'center',
-            },
-            '@media (min-width: 501px) and (max-width: 800px)': {
-              gridTemplateColumns: 'repeat(2, 1fr)',
-              display: 'grid',
-              gap: '16px',
-            },
-            '@media (min-width: 801px)': {
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              display: 'grid',
-              gap: '16px',
-            },
-          }}
-        >
-          {filteredProjects.map((project, index) => (
-            <Box
-              key={index}
-              sx={{
-                '@media (max-width: 500px)': {
-                  width: '100%',
-                },
-              }}
+
+      <Reveal delay={100}>
+        <div style={{ display: "flex", gap: 12, marginTop: 36, flexWrap: "wrap", alignItems: "center" }}>
+          <TextField
+            id="project-search"
+            sx={{ flex: "1 1 320px" }}
+            variant="outlined"
+            placeholder="Search projects..."
+            onChange={(e) => setSearchQuery(e.target.value.toLowerCase())}
+            slotProps={{
+              input: {
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon sx={{ color: "var(--muted)" }} />
+                  </InputAdornment>
+                ),
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <kbd className="mono" style={{ fontSize: 12, color: "var(--muted)", border: "1px solid var(--border-strong)", borderRadius: 6, padding: "2px 7px" }}>/</kbd>
+                  </InputAdornment>
+                ),
+              },
+            }}
+          />
+          <Button variant={liveOnly ? "contained" : "outlined"} onClick={() => setLiveOnly((v) => !v)} sx={{ height: 52 }}>
+            <span className="live-dot" style={{ color: liveOnly ? "#064e3b" : undefined }}>Live only</span>
+          </Button>
+          <span className="mono" style={{ color: "var(--muted)", fontSize: 13 }}>
+            {filteredProjects.length} result{filteredProjects.length === 1 ? "" : "s"}
+          </span>
+        </div>
+      </Reveal>
+
+      <div className="card-grid">
+        {filteredProjects.map((project, index) => (
+          <Reveal key={project.title} delay={(index % 3) * 80}>
+            <TiltCard
+              className="project-card"
+              role="button"
+              tabIndex={0}
+              aria-label={`${project.title} details`}
+              onClick={() => setSelected(project)}
+              onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setSelected(project)}
             >
-              <Paper elevation={4} sx={{ borderRadius: '16px', overflow: 'hidden', transition: 'transform 0.2s', '&:hover': { transform: 'scale(1.02)' } }}>
-                <Card sx={{ position: 'relative', height: '100%' }}>
-                  <CardContent>
-                    <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#1976d2' }}>
-                      {project.title}
-                    </Typography>
-                    <Typography variant="subtitle1" color="textSecondary" sx={{ marginBottom: '8px' }}>
-                      {project.subheader}
-                    </Typography>
-                    <Typography variant="body2" sx={{ height: '60px', overflow: 'hidden', textOverflow: 'ellipsis', color: '#555' }}>
-                      {project.description}
-                    </Typography>
-                  </CardContent>
-                  <CardActions sx={{ justifyContent: 'space-between', padding: '8px 16px' }}>
-                    <Tooltip title="View Details">
-                      <IconButton
-                        size="small"
-                        color="primary"
-                        onClick={() => handleClickOpen(project.dialogContent)}
-                      >
-                        <VisibilityIcon />
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip title="View on GitHub">
-                      <IconButton
-                        size="small"
-                        color="secondary"
-                        onClick={() => window.open(project.githubLink, "_blank")}
-                      >
-                        <GitHubIcon />
-                      </IconButton>
-                    </Tooltip>
-                    {project.liveLink && (
-                      <Tooltip title="View Live">
-                        <IconButton
-                          size="small"
-                          color="default"
-                          onClick={() => window.open(project.liveLink, "_blank")}
-                        >
-                          <LaunchIcon />
-                        </IconButton>
-                      </Tooltip>
-                    )}
-                  </CardActions>
-                </Card>
-              </Paper>
-            </Box>
-          ))}
-        </Grid>
-      </Box>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={Transition}
-        PaperProps={{
-          sx: {
-            position: 'absolute',
-            width: '80%',
-            height: '80%',
-            top: '50%',
-            left: '40%',
-            transform: 'translate(-50%, -50%)',
-            borderRadius: '16px',
-            boxShadow: '0px 8px 30px rgba(0, 0, 0, 0.3)',
-            backgroundColor: '#ffffff',
-            padding: '16px',
-            '@media (max-width: 500px)': {
-              transform: 'translate(-50%, -50%)',
-            },
-            '@media (min-width: 501px) and (max-width: 1024px)': {
-              maxWidth: '600px',
-            },
-            '@media (min-width: 1025px)': {
-              maxWidth: '800px',
-            },
-          },
-        }}
-      >
-        <AppBar sx={{ position: 'relative', backgroundColor: '#1976d2' }}>
-          <Toolbar>
-            <IconButton
-              edge="start"
-              color="inherit"
-              onClick={handleClose}
-              aria-label="close"
-            >
+              <div className="idx">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span>{project.liveLink ? <span className="live-dot">live</span> : yearOf(project)}</span>
+              </div>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="actions">
+                {project.githubLink && (
+                  <Tooltip title="View on GitHub">
+                    <IconButton size="small" onClick={open(project.githubLink)} aria-label="GitHub">
+                      <GitHubIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                )}
+                {project.liveLink && (
+                  <Tooltip title="View Live">
+                    <IconButton size="small" onClick={open(project.liveLink)} aria-label="Live site">
+                      <LaunchIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                )}
+                <span style={{ flex: 1 }} />
+                <span className="mono" style={{ fontSize: 12, color: "var(--muted)", alignSelf: "center" }}>
+                  {project.subheader}
+                </span>
+              </div>
+            </TiltCard>
+          </Reveal>
+        ))}
+      </div>
+      {filteredProjects.length === 0 && (
+        <p className="mono" style={{ textAlign: "center", color: "var(--muted)", marginTop: 60 }}>
+          {`// no projects match "${searchQuery}"`}
+        </p>
+      )}
+
+      <Dialog open={!!selected} onClose={() => setSelected(null)} maxWidth="sm" fullWidth>
+        {selected && (
+          <div style={{ padding: "32px clamp(20px, 5vw, 40px) 36px", position: "relative" }}>
+            <IconButton onClick={() => setSelected(null)} aria-label="close" sx={{ position: "absolute", top: 14, right: 14 }}>
               <CloseIcon />
             </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Project Details
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Box sx={{ padding: '16px', maxHeight: '80vh', overflowY: 'auto' }}>
-          <Typography variant="body1" sx={{ color: '#555', lineHeight: 1.6 }}>
-            {dialogContent}
-          </Typography>
-        </Box>
+            <span className="kicker">{selected.subheader}</span>
+            <h2 className="section-title" style={{ fontSize: "clamp(28px, 5vw, 40px)" }}>{selected.title}</h2>
+            <p className="section-sub">{selected.dialogContent}</p>
+            <div style={{ display: "flex", gap: 12, marginTop: 28, flexWrap: "wrap" }}>
+              {selected.liveLink && (
+                <Button variant="contained" href={selected.liveLink} target="_blank" rel="noopener noreferrer" endIcon={<ArrowOutwardIcon />}>
+                  Visit live
+                </Button>
+              )}
+              {selected.githubLink && (
+                <Button variant="outlined" href={selected.githubLink} target="_blank" rel="noopener noreferrer" startIcon={<GitHubIcon />}>
+                  Source
+                </Button>
+              )}
+            </div>
+          </div>
+        )}
       </Dialog>
-    </Box>
+    </div>
   );
 }
 

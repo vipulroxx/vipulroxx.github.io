@@ -51,16 +51,11 @@ export default function Resume() {
     <>
       <Button
         size="large"
+        variant="contained"
         startIcon={<Workspaces />}
-        sx={{
-          backgroundColor: "#b4016fb9",
-          color: "white",
-          "&:hover": { backgroundColor: "#a0015fb9" }
-        }}
         onClick={handleClickOpen}
-        className="resume-button"
       >
-        RESUME
+        Resume
       </Button>
 
       {/* Contact Dialog */}
@@ -69,10 +64,9 @@ export default function Resume() {
         onClose={() => setShowContactDialog(false)}
         PaperProps={{
           sx: {
-            borderRadius: 3,
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            backdropFilter: 'blur(10px)',
             maxWidth: 500,
+            overflow: 'hidden',
+            backgroundImage: 'radial-gradient(circle at 50% -20%, rgba(167,139,250,.35), transparent 60%)',
             width: '90%'
           }
         }}
@@ -108,7 +102,9 @@ export default function Resume() {
               width: 80,
               height: 80,
               borderRadius: '50%',
-              background: 'rgba(255, 255, 255, 0.2)',
+              background: 'var(--gradient)',
+              color: '#07070d',
+              boxShadow: '0 0 40px -6px rgba(167,139,250,.8)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -121,10 +117,10 @@ export default function Resume() {
           {/* Title */}
           <Typography
             variant="h5"
+            className="gradient-text"
             sx={{
               fontWeight: 700,
               textAlign: 'center',
-              letterSpacing: 1.5
             }}
           >
             Let's Connect!
@@ -147,9 +143,7 @@ export default function Resume() {
             sx={{
               width: '100%',
               p: 2.5,
-              background: 'rgba(255, 255, 255, 0.15)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.3)',
+              fontFamily: 'var(--font-mono)',
               borderRadius: 2,
               display: 'flex',
               alignItems: 'center',
@@ -180,7 +174,7 @@ export default function Resume() {
           </Paper>
 
           {copied && (
-            <Typography variant="caption" sx={{ color: '#90EE90', fontWeight: 600 }}>
+            <Typography variant="caption" sx={{ color: '#4ade80', fontWeight: 600 }}>
               ✓ Email copied to clipboard!
             </Typography>
           )}
@@ -190,17 +184,7 @@ export default function Resume() {
             variant="contained"
             startIcon={<Email />}
             href={`mailto:${email}`}
-            sx={{
-              width: '100%',
-              backgroundColor: 'white',
-              color: '#667eea',
-              fontWeight: 700,
-              py: 1.5,
-              fontSize: '1rem',
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              }
-            }}
+            sx={{ width: '100%', py: 1.5, fontSize: '1rem' }}
           >
             Send Email
           </Button>
@@ -227,7 +211,7 @@ export default function Resume() {
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6">
-              VIPUL SHARMA RESUME - MASTER
+              Vipul Sharma · Resume
             </Typography>
             <Button href="/resume.pdf" download color="inherit" startIcon={<Download />}>
               Download
@@ -241,15 +225,15 @@ export default function Resume() {
             style={{ width: '100%', height: '100%', border: 'none' }}
           />
           <Box sx={{ position: 'absolute', top: 20, right: 40 }}>
-            <Button variant="contained" color="primary" href="mailto:vipulsharma936@gmail.com">
-              <AttachEmailTwoTone /> CONTACT
+            <Button variant="contained" href="mailto:vipulsharma936@gmail.com" startIcon={<AttachEmailTwoTone />}>
+              Contact
             </Button>
           </Box>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
           <footer>
             <Typography variant="body2" color="text.secondary" align="center">
-              &copy; 2024 Vipul Sharma. All rights reserved.
+              &copy; {new Date().getFullYear()} Vipul Sharma. All rights reserved.
               <br />
               Designed and Developed by Vipul Sharma
             </Typography>

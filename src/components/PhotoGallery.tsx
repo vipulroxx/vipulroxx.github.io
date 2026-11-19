@@ -1,164 +1,101 @@
 /// <reference types="webpack-env" />
-import React, { useState } from "react";
-import { Dialog, DialogContent, IconButton } from "@mui/material";
+import React, { useCallback, useEffect, useState } from "react";
+import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import "../App.css"; // Ensure the CSS animations are applied
+import SectionHeader from "./fx/SectionHeader";
+import Reveal from "./fx/Reveal";
 
-// Dynamically import all images from the moments folder
+// Dynamically import all images from the moments folder, in numeric order.
 const importAll = (requireContext: __WebpackModuleApi.RequireContext): { src: string; title: string }[] =>
   process.env.NODE_ENV === "test"
-    ? [] // Return an empty array in tests
-    : requireContext.keys().map((key: string) => ({
-        src: requireContext(key).default || requireContext(key),
-        title: key.replace("./", "").replace(".png", "").replace(/_/g, " "),
-      }));
+    ? []
+    : requireContext
+        .keys()
+        .sort((a, b) => (parseInt(a.replace(/\D/g, ""), 10) || 0) - (parseInt(b.replace(/\D/g, ""), 10) || 0))
+        .map((key: string) => ({
+          src: requireContext(key).default || requireContext(key),
+          title: key.replace("./", "").replace(".png", "").replace(/_/g, " "),
+        }));
 
 const photos = importAll(
   process.env.NODE_ENV === "test"
-    ? ({
-        keys: () => [],
-        resolve: () => "",
-        id: "mock",
-      } as unknown as __WebpackModuleApi.RequireContext) // Mock require.context in tests
+    ? ({ keys: () => [], resolve: () => "", id: "mock" } as unknown as __WebpackModuleApi.RequireContext)
     : require.context("/src/static/img/moments", false, /\.png$/)
 );
 
+const navBtn = {
+  position: "absolute" as const,
+  backgroundColor: "rgba(255,255,255,0.06)",
+  border: "1px solid var(--border-strong)",
+  backdropFilter: "blur(10px)",
+  "&:hover": { backgroundColor: "rgba(34,211,238,0.15)", borderColor: "var(--cyan)" },
+};
+
 function PhotoGallery() {
-  const [selectedIndex, setSelectedIndex] = useState<number>(0); // Default to the first image
-  const [isTransitioning, setIsTransitioning] = useState<boolean>(false); // Track animation state
+  const [active, setActive] = useState<number | null>(null);
 
-  if (photos.length === 0) {
-    return <div>No photos available</div>; // Handle empty photos array
-  }
+  const step = useCallback(
+    (dir: number) => setActive((i) => (i === null ? i : (i + dir + photos.length) % photos.length)),
+    []
+  );
 
-  const handlePrev = () => {
-    if (!isTransitioning) {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setSelectedIndex((prevIndex) => (prevIndex - 1 + photos.length) % photos.length);
-        setIsTransitioning(false);
-      }, 500); // Match the animation duration
-    }
-  };
-
-  const handleNext = () => {
-    if (!isTransitioning) {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setSelectedIndex((prevIndex) => (prevIndex + 1) % photos.length);
-        setIsTransitioning(false);
-      }, 500); // Match the animation duration
-    }
-  };
-
-  const handleClose = () => {
-    window.location.href = "/"; // Redirect to the home page
-  };
+  useEffect(() => {
+    if (active === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActive(null);
+      if (e.key === "ArrowRight") step(1);
+      if (e.key === "ArrowLeft") step(-1);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [active, step]);
 
   return (
-    <Dialog
-      open={true}
-      maxWidth="md"
-      PaperProps={{
-        sx: {
-          position: "absolute",
-          width: "80%",
-          height: "80%",
-          top: "50%",
-          left: "40%",
-          transform: "translate(-50%, -50%)",
-          borderRadius: "16px",
-          boxShadow: "0px 8px 30px rgba(0, 0, 0, 0.3)",
-          backgroundColor: "#ffffff",
-          padding: "16px",
-          "@media (max-width: 500px)": {
-            left: "40%",
-            transform: "translate(-50%, -50%)",
-          },
-          "@media (min-width: 501px) and (max-width: 1024px)": {
-            maxWidth: "600px",
-          },
-          "@media (min-width: 1025px)": {
-            maxWidth: "800px",
-          },
-        },
-      }}
-    >
-      <DialogContent
-        sx={{
-          position: "relative",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100%",
-          padding: "1rem",
-          backgroundColor: "#f5f5f5",
-        }}
-      >
-        <IconButton
-          onClick={handleClose}
-          sx={{
-            position: "absolute",
-            top: 16,
-            right: 16,
-            color: "black",
-            backgroundColor: "rgba(255, 255, 255, 0.8)",
-            "&:hover": { backgroundColor: "rgba(255, 255, 255, 1)" },
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
+    <div className="page">
+      <SectionHeader
+        kicker={`${photos.length} / Moments`}
+        title="Off the keyboard"
+        sub="Tracks, travels and the people in between. Click any photo to open it, and use the arrow keys to browse."
+      />
 
-        <IconButton
-          onClick={handlePrev}
-          sx={{
-            position: "absolute",
-            left: 16,
-            color: "black",
-            backgroundColor: "rgba(255, 255, 255, 0.8)",
-            "&:hover": { backgroundColor: "rgba(255, 255, 255, 1)" },
-          }}
-        >
-          <ChevronLeftIcon fontSize="large" />
-        </IconButton>
-
-        <div
-          className={`photo-container ${isTransitioning ? "fade-out" : "fade-in"}`}
-          style={{
-            width: "90%",
-            height: "auto",
-            borderRadius: "16px",
-            boxShadow: "0px 8px 30px rgba(0, 0, 0, 0.5)",
-            overflow: "hidden",
-          }}
-        >
-          <img
-            src={photos[selectedIndex]?.src || ""}
-            alt={photos[selectedIndex]?.title || "Photo"}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-            }}
-          />
+      {photos.length === 0 ? (
+        <p className="mono" style={{ color: "var(--muted)", marginTop: 40 }}>No photos available</p>
+      ) : (
+        <div className="masonry">
+          {photos.map((p, i) => (
+            <Reveal key={p.src} delay={(i % 4) * 60}>
+              <button className="masonry-item" onClick={() => setActive(i)} aria-label={`Open ${p.title}`}>
+                <img src={p.src} alt={p.title} loading="lazy" />
+              </button>
+            </Reveal>
+          ))}
         </div>
+      )}
 
-        <IconButton
-          onClick={handleNext}
-          sx={{
-            position: "absolute",
-            right: 16,
-            color: "black",
-            backgroundColor: "rgba(255, 255, 255, 0.8)",
-            "&:hover": { backgroundColor: "rgba(255, 255, 255, 1)" },
-          }}
-        >
-          <ChevronRightIcon fontSize="large" />
-        </IconButton>
-      </DialogContent>
-    </Dialog>
+      {active !== null && (
+        <div className="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" onClick={() => setActive(null)}>
+          <img key={active} src={photos[active].src} alt={photos[active].title} className="page-enter" onClick={(e) => e.stopPropagation()} />
+          <IconButton aria-label="close" onClick={() => setActive(null)} sx={{ ...navBtn, top: 20, right: 20 }}>
+            <CloseIcon />
+          </IconButton>
+          <IconButton aria-label="previous" onClick={(e) => { e.stopPropagation(); step(-1); }} sx={{ ...navBtn, left: 20 }}>
+            <ChevronLeftIcon fontSize="large" />
+          </IconButton>
+          <IconButton aria-label="next" onClick={(e) => { e.stopPropagation(); step(1); }} sx={{ ...navBtn, right: 20 }}>
+            <ChevronRightIcon fontSize="large" />
+          </IconButton>
+          <div className="counter">
+            {String(active + 1).padStart(2, "0")} / {String(photos.length).padStart(2, "0")}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 

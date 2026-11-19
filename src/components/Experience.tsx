@@ -14,6 +14,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import ResumeDialog from './ResumeDialog'; // Reuse the Resume-like dialog component
 import CertificateDialog from './CertificateDialog';
+import SectionHeader from './fx/SectionHeader';
+import Reveal from './fx/Reveal';
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -530,30 +532,30 @@ KEY ACHIEVEMENTS:
   );
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', padding: '16px' }}>
+    <div className="page">
       <Box sx={{ maxWidth: '100%' }}>
-        <Typography variant="h5" gutterBottom sx={{ marginBottom: '16px' }}>
-          Work Experience
-        </Typography>
+        <SectionHeader
+          kicker="01 / Career"
+          title="Work Experience"
+          sub="From research labs to enterprise GenAI platforms. Open any role to see the impact."
+        />
+        <div className="timeline">
         {experiences.map((exp, index) => (
-          <Card 
-            key={index}
-            sx={{
-              marginBottom: '8px',
-              backgroundColor: '#f5f5f5',
-            }}
+          <Reveal key={index} delay={Math.min(index, 4) * 60} className="timeline-item">
+          <Card
+            sx={{ transition: 'transform .3s, border-color .3s', '&:hover': { transform: 'translateX(6px)', borderColor: 'rgba(34,211,238,.4)' } }}
           >
             <CardContent>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'flex-start', paddingRight: '16px' }}>
                 <Box sx={{ flex: 1 }}>
-                  <Typography variant="h6" sx={{ fontSize: '1rem' }}>
+                  <Typography variant="h6" sx={{ fontSize: { xs: '1.1rem', sm: '1.3rem' } }}>
                     {exp.title}
                   </Typography>
-                  <Typography variant="subtitle1" color="textSecondary" sx={{ fontSize: '0.875rem' }}>
+                  <Typography variant="subtitle1" sx={{ fontSize: '0.9rem', color: 'var(--cyan)', fontFamily: 'var(--font-mono)' }}>
                     {exp.subtitle}
                   </Typography>
                   {exp.description && (
-                    <Typography variant="body2" sx={{ fontSize: '0.75rem', marginTop: '4px' }}>
+                    <Typography variant="body2" color="textSecondary" sx={{ fontSize: '0.875rem', marginTop: '8px', lineHeight: 1.6 }}>
                       {exp.description}
                     </Typography>
                   )}
@@ -640,7 +642,9 @@ KEY ACHIEVEMENTS:
               )}
             </CardContent>
           </Card>
+          </Reveal>
         ))}
+        </div>
       </Box>
       {/* Tata Steel Report Dialog */}
       <ResumeDialog
@@ -656,10 +660,9 @@ KEY ACHIEVEMENTS:
         title="Research Paper - Breast Cancer Classification"
         pdfUrl="/research.pdf"
       />
-      <Box sx={{ maxWidth: '100%', padding: '16px' }}>
-        <Typography variant="h5" gutterBottom>
-          Professional Training
-        </Typography>
+      <Box sx={{ maxWidth: '100%', mt: 12 }}>
+        <SectionHeader kicker="02 / Learning" title="Professional Training" />
+        <Box sx={{ mt: 4 }} />
         <TextField
           placeholder="Search Training"
           label="Search Training"
@@ -735,31 +738,10 @@ KEY ACHIEVEMENTS:
         open={open}
         onClose={handleClose}
         TransitionComponent={Transition}
-        PaperProps={{
-          sx: {
-            position: 'absolute',
-            width: '80%',
-            height: '80%',
-            top: '50%',
-            left: '40%',
-            transform: 'translate(-50%, -50%)',
-            borderRadius: '16px',
-            boxShadow: '0px 8px 30px rgba(0, 0, 0, 0.3)',
-            backgroundColor: '#ffffff',
-            padding: '16px',
-            '@media (max-width: 500px)': {
-              transform: 'translate(-50%, -50%)',
-            },
-            '@media (min-width: 501px) and (max-width: 1024px)': {
-              maxWidth: '600px',
-            },
-            '@media (min-width: 1025px)': {
-              maxWidth: '800px',
-            },
-          },
-        }}
+        maxWidth="md"
+        fullWidth
       >
-        <AppBar sx={{ position: 'relative', backgroundColor: '#1976d2' }}>
+        <AppBar sx={{ position: 'relative' }}>
           <Toolbar>
             <IconButton
               edge="start"
@@ -788,7 +770,7 @@ KEY ACHIEVEMENTS:
                 onChange={handleDialogAccordionChange(`panel${idx}`)}
               >
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={`panel${idx}-content`} id={`panel${idx}-header`}>
-                  <Typography variant="h6">{impact.title}</Typography>
+                  <Typography variant="h6" sx={{ fontSize: '1rem' }}>{impact.title}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography variant="body2" sx={{ whiteSpace: 'pre-wrap', lineHeight: '1.8' }}>{impact.description}</Typography>
@@ -796,7 +778,7 @@ KEY ACHIEVEMENTS:
                     <Box sx={{ display: "flex", gap: 1, mt: 1 }}>
                       {impact.technologies.map((tech, index) => (
                         <Link key={index} href={tech.href} target="_blank" rel="noopener noreferrer">
-                          <img src={tech.src} alt={tech.alt} width="24" height="24" />
+                          <img src={tech.src} alt={tech.alt} width="28" height="28" style={{ background: 'rgba(255,255,255,.92)', borderRadius: 7, padding: 4 }} />
                         </Link>
                       ))}
                     </Box>
@@ -810,30 +792,10 @@ KEY ACHIEVEMENTS:
         open={trainingDialogOpen}
         onClose={handleTrainingDialogClose}
         TransitionComponent={Transition}
-        PaperProps={{
-          sx: {
-            width: '100vw',
-            height: '80vh',
-            position: 'absolute',
-            top: '10%',
-            left: 0,
-            margin: 0,
-            borderRadius: 0,
-            boxShadow: 'none',
-            backgroundColor: '#ffffff',
-            overflowY: 'auto',
-            '@media (min-width: 515px)': {
-              width: '80%',
-              left: '10%',
-            },
-            '@media (min-width: 1024px)': {
-              width: '60%',
-              left: '20%',
-            },
-          },
-        }}
+        maxWidth="sm"
+        fullWidth
       >
-        <AppBar sx={{ position: 'relative', backgroundColor: '#1976d2' }}>
+        <AppBar sx={{ position: 'relative' }}>
           <Toolbar>
             <IconButton
               edge="start"
@@ -882,7 +844,7 @@ KEY ACHIEVEMENTS:
         title="TATA AMC Certificates"
         certificates={tataAMCCertificates}
       />
-    </Box>
+    </div>
   );
 }
 

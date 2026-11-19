@@ -1,81 +1,72 @@
 import React, { useState } from "react";
-import { Button, Dialog, AppBar, Toolbar, IconButton, Typography, Slide, Box, Card, CardActionArea, CardContent } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import { TransitionProps } from "@mui/material/transitions";
+import { Button } from "@mui/material";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import DownloadIcon from "@mui/icons-material/Download";
+import ResumeDialog from "./ResumeDialog";
+import SectionHeader from "./fx/SectionHeader";
+import Reveal from "./fx/Reveal";
+import TiltCard from "./fx/TiltCard";
 
-const Transition = React.forwardRef(function Transition(
-	props: TransitionProps & {
-		children: React.ReactElement<any>;
-	},
-	ref: React.Ref<unknown>
-) {
-	return <Slide direction="up" ref={ref} {...props} />;
-});
+const POINTS = [
+  "Used Supervised Learning to predict whether cancer present is through Benign or Malignant tumour using ReLU and sigmoid function.",
+  "Sanitized the dataset by correlating and one hot encoding all the features for getting relevant features to be used as inputs to DNN classifier.",
+  "Achieved 94% accuracy on a 5 layered DNN, providing better results compared to other earlier works.",
+];
 
 function Publication() {
-	const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-	const handleClickOpen = () => {
-		setOpen(true);
-	};
+  return (
+    <div className="page">
+      <SectionHeader kicker="01 / Research" title="Publication" sub="Peer-reviewed work in applied deep learning." />
 
-	const handleClose = () => {
-		setOpen(false);
-	};
+      <Reveal delay={100}>
+        <TiltCard className="pub-card" max={4} style={{ marginTop: 40 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 40, alignItems: "center" }}>
+            <div>
+              <span className="kicker">International Journal of Intelligent System Design and Computing</span>
+              <h3 className="section-title" style={{ fontSize: "clamp(28px, 4.5vw, 44px)", marginTop: 18 }}>
+                Breast Cancer Classification using Deep Neural Network
+              </h3>
+              <ul className="pub-points">
+                {POINTS.map((p) => (
+                  <li key={p}>{p}</li>
+                ))}
+              </ul>
+              <div style={{ display: "flex", gap: 12, marginTop: 32, flexWrap: "wrap" }}>
+                <Button variant="contained" size="large" startIcon={<MenuBookIcon />} onClick={() => setOpen(true)}>
+                  Read paper
+                </Button>
+                <Button variant="outlined" size="large" startIcon={<DownloadIcon />} href="/research.pdf" download>
+                  Download PDF
+                </Button>
+              </div>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <div className="pub-stat gradient-text">94%</div>
+              <div className="mono" style={{ color: "var(--muted)", marginTop: 10, fontSize: 13 }}>
+                accuracy · 5-layer DNN
+              </div>
+              <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 28, flexWrap: "wrap" }}>
+                {["Supervised learning", "ReLU + sigmoid", "One-hot encoding"].map((t) => (
+                  <span key={t} className="tech-pill" style={{ padding: "6px 12px", fontSize: 13 }}>
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </TiltCard>
+      </Reveal>
 
-	return (
-		<Card>
-			<CardActionArea>
-				<CardContent>
-					<Typography gutterBottom variant="h5" component="h2">
-						Breast Cancer Classification using Deep Neural Network
-					</Typography>
-					<Typography variant="body2" color="textSecondary" component="p">
-						International Journal of Intelligent System Design and Computing
-					</Typography>
-				</CardContent>
-				<CardContent>
-					<Typography paragraph>Key Points:</Typography>
-					<Typography component="div">
-						<ul>
-							<li>Used Supervised Learning to predict whether cancer present is through Benign or Malignant tumour using ReLU and sigmoid function.</li>
-							<li>Sanitized the dataset by correlating and one hot encoding all the features for getting relevant features to be used as inputs to DNN classifier.</li>
-							<li>Achieved 94% accuracy on a 5 layered DNN, providing better results compared to other earlier works.</li>
-						</ul>
-					</Typography>
-						<Button
-						size="large"
-						color="secondary"
-						variant="contained"
-						onClick={handleClickOpen}
-						className="resume-button"
-					>
-						READ
-					</Button>
-				</CardContent>
-			</CardActionArea>
-
-			<Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-				<AppBar sx={{ position: "relative" }}>
-					<Toolbar>
-						<IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
-							<CloseIcon />
-						</IconButton>
-						<Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-							Research Paper - Breast Cancer Classification
-						</Typography>
-					</Toolbar>
-				</AppBar>
-				<Box sx={{ height: "calc(100% - 64px)", width: "100%", position: "relative" }}>
-					<iframe
-						src="/research.pdf"
-						title="Research Paper"
-						style={{ width: "100%", height: "100%", border: "none" }}
-					/>
-				</Box>
-			</Dialog>
-		</Card>
-	);
+      <ResumeDialog
+        open={open}
+        onClose={() => setOpen(false)}
+        title="Research Paper - Breast Cancer Classification"
+        pdfUrl="/research.pdf"
+      />
+    </div>
+  );
 }
 
 export default Publication;

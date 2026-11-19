@@ -81,7 +81,7 @@ export default function CertificateDialog({
         PaperProps={{
           sx: {
             borderRadius: "12px",
-            boxShadow: "0px 8px 30px rgba(0, 0, 0, 0.3)",
+
           },
         }}
       >
@@ -154,7 +154,7 @@ export default function CertificateDialog({
                     />
                   ) : (
                     <PictureAsPdfIcon
-                      sx={{ fontSize: 80, color: "red" }}
+                      sx={{ fontSize: 80, color: "var(--pink)", filter: "drop-shadow(0 0 18px rgba(244,114,182,.5))" }}
                     />
                   )}
                   <Typography
@@ -174,8 +174,8 @@ export default function CertificateDialog({
                     display: "flex",
                     justifyContent: "flex-end",
                     padding: "8px",
-                    borderTop: "1px solid #eee",
-                    backgroundColor: "#f9f9f9",
+                    borderTop: "1px solid var(--border)",
+                    backgroundColor: "rgba(255,255,255,0.02)",
                   }}
                 >
                   <Tooltip title="Download">
@@ -200,7 +200,7 @@ export default function CertificateDialog({
           </Box>
         </DialogContent>
         <DialogActions sx={{ padding: "16px" }}>
-          <Button onClick={onClose} variant="contained" color="primary">
+          <Button onClick={onClose} variant="outlined">
             Close
           </Button>
         </DialogActions>
