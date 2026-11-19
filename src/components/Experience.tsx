@@ -8,7 +8,6 @@ import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 import Typography from '@mui/material/Typography';
 import { Box, Card, CardContent, Tooltip, Accordion, AccordionSummary, AccordionDetails, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TablePagination, Paper, TextField, TableSortLabel, Button, Link } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import InfoIcon from '@mui/icons-material/Info';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
@@ -16,21 +15,6 @@ import ResumeDialog from './ResumeDialog'; // Reuse the Resume-like dialog compo
 import CertificateDialog from './CertificateDialog';
 import SectionHeader from './fx/SectionHeader';
 import Reveal from './fx/Reveal';
-
-const useStyles = makeStyles(() => ({
-  card: {
-    maxWidth: '100%',
-    '@media (max-width: 600px)': {
-      maxWidth: '100%',
-    },
-  },
-  infoIcon: {
-    position: 'absolute',
-    top: 8,
-    right: 8,
-    zIndex: 1,
-  },
-}));
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -42,7 +26,6 @@ const Transition = React.forwardRef(function Transition(
 });
 
 function Experience() {
-  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [expandedDialog, setExpandedDialog] = useState<string | false>(false);
   const [trainingDialogOpen, setTrainingDialogOpen] = useState(false);

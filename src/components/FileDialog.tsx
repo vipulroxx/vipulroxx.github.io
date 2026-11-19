@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dialog, AppBar, Toolbar, IconButton, Typography, Button, Box } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { Download } from '@mui/icons-material';
+import Download from '@mui/icons-material/Download';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 

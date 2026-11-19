@@ -1,4 +1,3 @@
-/// <reference types="webpack-env" />
 import React, { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { IconButton } from "@mui/material";
@@ -8,23 +7,19 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SectionHeader from "./fx/SectionHeader";
 import Reveal from "./fx/Reveal";
 
-// Dynamically import all images from the moments folder, in numeric order.
-const importAll = (requireContext: __WebpackModuleApi.RequireContext): { src: string; title: string }[] =>
-  process.env.NODE_ENV === "test"
-    ? []
-    : requireContext
-        .keys()
-        .sort((a, b) => (parseInt(a.replace(/\D/g, ""), 10) || 0) - (parseInt(b.replace(/\D/g, ""), 10) || 0))
-        .map((key: string) => ({
-          src: requireContext(key).default || requireContext(key),
-          title: key.replace("./", "").replace(/\.\w+$/, "").replace(/_/g, " "),
-        }));
+// All images in the moments folder, bundled by Vite, in numeric order (moment_1, moment_2, ...).
+const modules = import.meta.glob("../static/img/moments/*.{jpg,jpeg,png,webp}", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
 
-const photos = importAll(
-  process.env.NODE_ENV === "test"
-    ? ({ keys: () => [], resolve: () => "", id: "mock" } as unknown as __WebpackModuleApi.RequireContext)
-    : require.context("/src/static/img/moments", false, /\.(jpe?g|png|webp)$/i)
-);
+const num = (p: string) => parseInt(p.replace(/\D/g, ""), 10) || 0;
+const photos = Object.keys(modules)
+  .sort((a, b) => num(a) - num(b))
+  .map((path) => ({
+    src: modules[path],
+    title: path.split("/").pop()!.replace(/\.\w+$/, "").replace(/_/g, " "),
+  }));
 
 const navBtn = {
   position: "absolute" as const,

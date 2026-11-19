@@ -9,3 +9,15 @@ Welcome to my personal portfolio repository! Here you'll find a collection of pr
 
 Stay tuned for updates as I continue to enhance and deploy these applications. Feel free to explore my portfolio projects and reach out if you have any questions or collaboration ideas!
 
+
+## Development
+
+Requires Node 22.12+. Built with React, MUI and [Vite](https://vite.dev).
+
+```bash
+npm install
+npm start          # dev server at http://localhost:3000
+npm test           # unit tests (Vitest)
+npm run build      # type-check + production build into build/
+npm run deploy     # build and publish to GitHub Pages
+```

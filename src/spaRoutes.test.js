@@ -1,14 +1,12 @@
-/**
- * @jest-environment node
- */
+// @vitest-environment node
 // Checks the GitHub Pages deploy script: every app route gets a real
 // index.html (HTTP 200) and unknown paths fall back to 404.html.
-const fs = require("fs");
-const os = require("os");
-const path = require("path");
-const { execFileSync } = require("child_process");
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { execFileSync } from "node:child_process";
 
-const root = path.resolve(__dirname, "..");
+const root = process.cwd();
 const script = path.join(root, "scripts", "spa-routes.sh");
 
 function scriptRoutes() {
@@ -17,14 +15,14 @@ function scriptRoutes() {
 }
 
 function appRoutes() {
-  const source = fs.readFileSync(path.join(root, "src", "App.js"), "utf8");
+  const source = fs.readFileSync(path.join(root, "src", "App.jsx"), "utf8");
   return [...source.matchAll(/<Route\s+path=['"]([^'"]+)['"]/g)]
     .map((m) => m[1])
     .filter((p) => p !== "/" && p !== "*")
     .map((p) => p.replace(/^\//, ""));
 }
 
-test("deploy script covers every route in App.js", () => {
+test("deploy script covers every route in App.jsx", () => {
   expect(scriptRoutes().sort()).toEqual(appRoutes().sort());
 });
 

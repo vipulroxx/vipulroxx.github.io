@@ -9,7 +9,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 import { Box, Paper } from '@mui/material';
-import { AttachEmailTwoTone, Download, Workspaces, Email, ContentCopy } from '@mui/icons-material';
+import AttachEmailTwoTone from '@mui/icons-material/AttachEmailTwoTone';
+import Download from '@mui/icons-material/Download';
+import Workspaces from '@mui/icons-material/Workspaces';
+import Email from '@mui/icons-material/Email';
+import ContentCopy from '@mui/icons-material/ContentCopy';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & { children: React.ReactElement<any>; },
